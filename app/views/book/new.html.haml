@@ -1,0 +1,48 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/book', media: "all"
+  =stylesheet_link_tag 'views/book_new', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/book_new'
+
+.page-form
+  .page-title=t('.create_book')
+  .page-description=t('.create_book_desc')
+  .row
+    .col-lg-5
+      =bt_form_for @book do |f|
+        .form-group
+          =f.text_input property: :display_name
+
+        =ko 'with: currencies' do
+          .form-group
+            %select.form-control{:'data-placeholder' => t('.choose_country'), |
+                                 :'data-bind' => 'chosen: true, value: selectedCountry' }
+              %option
+              -Country.all.order(:name).each do |c|
+                %option{value: c.code}=c.name
+
+          =bt_panel header: t('.book_currencies') do
+            .input-group
+              %select.form-control{ :'data-bind' => 'chosen: true, value: selectedCurrency' }
+                -Currency.all.order(:name).each do |c|
+                  %option{value: "#{c.code};#{c.name};#{c.symbol}"}=c.name
+              %span.input-group-btn
+                =bt_button text: t('commands.add'), ko: 'click: addSelected'
+            .currencies
+              =ko 'if: list_auto().length' do
+                %span=t('.currencies_auto')
+                %ul(data-bind="template: { name: 'currency-template', foreach: list_auto }")
+              =ko 'if: list_manual().length' do
+                %span=t('.currencies_manual')
+                %ul(data-bind="template: { name: 'currency-template', foreach: list_manual }")
+        =f.submit_button text: t('commands.create')
+        =bt_button text: t('commands.cancel'), href: books_index_path
+
+=ko_template 'currency-template' do
+  %li
+    %input(type="hidden" name="currencies[]" data-bind="value: code")
+    %span.symbol(data-bind="text: symbol")
+    %span.name(data-bind="text: name")
+    %span.code(data-bind="text: code")
+    %span.controls
+      =bt_button size: :xsmall, style: :link, text: t('commands.delete'), ko: 'click: $parent.delete'

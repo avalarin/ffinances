@@ -1,0 +1,69 @@
+@import "bootstrap-datepicker3";
+@import "components/money-input";
+@import "components/unit-input";
+@import "components/tags-input";
+@import "components/transaction-operation";
+
+.datepicker {
+  table {
+    font-size: 12px;
+  }
+}
+
+.transaction-date {
+  cursor: hand;
+  border-bottom: 1px dotted #333;
+}
+
+.transaction-mode {
+  vertical-align: initial;
+  display: inline-block;
+
+  &.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  a.dropdown-toggle {
+    cursor: hand;
+    border-bottom: 1px dotted #333;
+  }
+
+  a.dropdown-toggle:hover {
+    text-decoration: none;
+
+  }
+}
+
+.transaction-operation {
+  margin-bottom: 12px;
+
+  .av-input {
+    vertical-align: middle;
+  }
+
+  > span {
+    vertical-align: middle;
+  }
+}
+
+.row {
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.transaction-desc {
+  width: 100%;
+}
+
+.transfer-icon {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.new-operation {
+  margin-left: 24px;
+}

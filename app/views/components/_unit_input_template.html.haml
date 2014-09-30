@@ -1,0 +1,15 @@
+= ko_template 'unit-input-template' do
+  .av-input.unit-input
+    %input.value(type="text" data-bind="value: valueString")
+    .av-dropdown
+      %a.unit(href="#"  data-toggle="av-dropdown" data-bind="text: unitShortName, css: { selectable: !staticUnit() }")
+      .av-dropdown-drop
+        = ko 'if: dropdownShown' do
+          %input.form-control.search{ type: 'text', placeholder: t('commands.search'), 'data-bind' => 'value: unitsSearch, valueUpdate: "afterkeydown"' }
+          = ko 'if: units().length == 0' do
+            %p.fail-message=t('.no_units')
+          %ul.select-list(data-bind="foreach: units")
+            %li
+              %a(href="#" data-bind="click: $parent.setUnit")
+                %span.text-muted(data-bind="text: shortName")
+                %span(data-bind="text: fullName")

@@ -1,0 +1,22 @@
+/ -content_for :styles do
+/   =stylesheet_link_tag 'views/wallet_new', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/wallet_new'
+
+.page-form
+  .page-title=t('.create_wallet')
+  .page-description=t('.create_wallet_desc')
+  .row
+    .col-lg-5
+      =bt_form_for @wallet do |f|
+        .form-group
+          =f.text_input property: :display_name
+        .form-group
+          =f.select property: :currency_id, source: @currencies, text_property: :name
+        .form-group
+          =f.select property: :type_id, source: @types, text_property: :display_name
+        .form-group
+          =f.text_area property: :description, placeholder: t('.wallet_description')
+
+        =f.submit_button text: t('commands.create')
+        =bt_button text: t('commands.cancel'), href: books_index_path

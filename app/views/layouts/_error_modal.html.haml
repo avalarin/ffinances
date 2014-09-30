@@ -1,0 +1,7 @@
+= bt_modal id: "unhandled-error", header: t('.modal_header') do |m|
+  - m.body do
+    %p= t('.modal_message')
+    %p= t('.error_details')
+    %pre.details
+  - m.footer do
+    = bt_button text: t("commands.ok"), data: { dismiss: "modal" }

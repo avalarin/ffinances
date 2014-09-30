@@ -1,0 +1,29 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/book', media: "all"
+- content_for :scripts do
+  = javascript_include_tag "views/book_index"
+
+.page-form
+  .page-title= t('.books_list')
+  .page-description= t('.books_list_desc')
+  .page-toolbar.btn-toolbar(role="toolbar")
+    = bt_button text: t('commands.create'), href: create_book_path, style: :primary
+  - if @books.size == 0
+    %span= t('.no_books')
+  %table.table.table-hover.books-table
+    - @books.each do |book|
+      %tr{ :class => (current_book && book.id == current_book.id) ? "success" : "" }
+        %td
+          .first-row
+            %a.book-name{ href: book_details_path(key: book.key) }= book.display_name
+            .book-controls
+              - unless current_book && book.id == current_book.id
+                = bt_button text: t('commands.choose'), icon: :check, size: :xsmall, style: :link,
+                            html: { onclick: 'choose(\'' + book.key + '\')' }
+          .second-row
+            %span
+              = t('.book_owner')
+              = user_profile_link book.owner, avatar: :small
+            %span
+              = t('.book_created_at')
+              = time_tag book.created_at

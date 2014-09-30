@@ -1,0 +1,16 @@
+= ko_template 'money-input-template' do
+  .av-input.money-input
+    %input.value(type="text" data-bind="value: valueString")
+    .av-dropdown
+      %a.currency(href="#"  data-toggle="av-dropdown" data-bind="text: currencyCode, css: { selectable: !staticCurrency() }")
+      .av-dropdown-drop
+        = ko 'if: dropdownShown' do
+          %input.form-control.search{ type: 'text', placeholder: t('commands.search'), 'data-bind' => 'value: currenciesSearch, valueUpdate: "afterkeydown"' }
+          = ko 'if: currencies().length == 0' do
+            %p.fail-message=t('.no_currencies')
+
+          %ul.select-list(data-bind="foreach: currencies")
+            %li
+              %a(href="#" data-bind="click: $parent.setCurrency")
+                %span.text-muted(data-bind="text: code")
+                %span(data-bind="text: name")

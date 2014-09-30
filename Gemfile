@@ -15,6 +15,9 @@ gem 'haml-rails'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'knockoutjs-rails'
 gem 'underscore-rails'
+gem 'chosen-rails'
+
+gem 'paperclip'

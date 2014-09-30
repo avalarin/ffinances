@@ -62,15 +62,36 @@
                     messages: {},
                     rules: {},
                     highlight: function (element) {
-                      $(element).closest('.form-group').addClass('has-error');
+                        var $element = $(element)
+                        var $parent = $element.closest('.form-group, .validation-group');
+                        if ($parent.length == 0) {
+                            $parent = $('<div class="validation-group" />')
+                            $element.replaceWith($parent).appendTo($parent)
+                        }
+                        $parent.addClass('has-error');
                     },
                     unhighlight: function (element) {
-                      $(element).addClass('valid').closest('.form-group').removeClass('has-error');
+                        var $element = $(element);
+                        $element.addClass('valid').closest('.form-group, .validation-group').removeClass('has-error');
+                        $element.tooltip('destroy').data('data-val-tooltip-visible', false);
                     },
-                    errorPlacement: function (error, el) {
-                        error.insertAfter(el);
+                    errorPlacement: function (error, element) {
+                        var text = error.text();
+                        if (element.data('data-val-tooltip-text') != text) {
+                            element.tooltip('destroy').data('data-val-tooltip-visible', false);
+                        }
+                        element.tooltip({
+                            title: text,
+                            placement: element.data('placement') || 'right',
+                            trigger: 'manual',
+                            selector: '',
+                            container: 'body'
+                        }).data('data-val-tooltip-text', text);
+                        if (!element.data('data-val-tooltip-visible')) {
+                            element.tooltip('show').data('data-val-tooltip-visible', true);
+                        }
                     },
-                    errorElement: 'small',
+                    errorElement: 'span',
                     errorClass: 'text-danger validation-message'
                 },
                 attachValidation: function () {

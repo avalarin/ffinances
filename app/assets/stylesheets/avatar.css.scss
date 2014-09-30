@@ -1,0 +1,13 @@
+.avatar {
+  width: 40px;
+  padding: 1px;
+  @include border-radius(50%);
+
+  &.s16 { width: 16px; height: 16px; }
+  &.s24 { width: 24px; height: 24px; }
+  &.s26 { width: 26px; height: 26px; }
+  &.s32 { width: 32px; height: 32px; }
+  &.s60 { width: 60px; height: 60px; }
+  &.s90 { width: 90px; height: 90px; }
+  &.s160 { width: 160px; height: 160px; }
+}

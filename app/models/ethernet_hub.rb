@@ -1,3 +1,0 @@
-class EthernetHub < Hub
-  
-end

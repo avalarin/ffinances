@@ -1,0 +1,21 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/book', media: "all"
+
+.page-form
+  .page-title= t('.book_details')
+
+  .row
+    .col-lg-5
+      = bt_form_for @book, style: :horizontal do |f|
+        = f.hidden_input property: :key
+        = f.group property: :display_name do |g|
+          = g.text_input
+        = f.group property: :owner do |g|
+          = g.static do
+            = user_profile_link @book.owner, avatar: :small
+        = f.group property: :created_at do |g|
+          = g.static do
+            = time_tag @book.created_at
+        = f.group do |g|
+          = g.submit_button text: t('commands.save')
+          = bt_button text: t('commands.back'), href: books_index_path

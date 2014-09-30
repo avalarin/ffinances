@@ -4,6 +4,362 @@
 		"selected_items":
 		[
 			[
+				"render",
+				"render_api_resp"
+			],
+			[
+				"in",
+				"integer"
+			],
+			[
+				"op",
+				"op_model"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"cur",
+				"current_book"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"ope",
+				"operations"
+			],
+			[
+				"ta",
+				"tags"
+			],
+			[
+				"uni",
+				"unit"
+			],
+			[
+				"cu",
+				"currency"
+			],
+			[
+				"tra",
+				"transaction"
+			],
+			[
+				"s",
+				"sum"
+			],
+			[
+				"get",
+				"getData"
+			],
+			[
+				"obse",
+				"observableArray"
+			],
+			[
+				"is",
+				"isDraft"
+			],
+			[
+				"add",
+				"addOperation"
+			],
+			[
+				"opt",
+				"options"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"key",
+				"keypress"
+			],
+			[
+				"te",
+				"text-danger"
+			],
+			[
+				"margint",
+				"margin-left"
+			],
+			[
+				"нео",
+				"необходимо"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"u",
+				"unit"
+			],
+			[
+				"ite",
+				"item"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"ob",
+				"observable"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"wall",
+				"walletCurrency"
+			],
+			[
+				"d",
+				"dropdown"
+			],
+			[
+				"subsc",
+				"subscribe"
+			],
+			[
+				"su",
+				"subscribe"
+			],
+			[
+				"fu",
+				"fullName"
+			],
+			[
+				"sho",
+				"short_name"
+			],
+			[
+				"mart",
+				"margin-left"
+			],
+			[
+				"drop",
+				"drop"
+			],
+			[
+				"ke",
+				"keyCode"
+			],
+			[
+				"clic",
+				"clickEvent"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ex",
+				"exchangeRate"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"ne",
+				"needExchange"
+			],
+			[
+				"Cur",
+				"CurrencyRate"
+			],
+			[
+				"no",
+				"normal"
+			],
+			[
+				"sel",
+				"selectableCurrency"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"Те",
+				"Теги"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"se",
+				"search"
+			],
+			[
+				"cre",
+				"createUrl"
+			],
+			[
+				"rene",
+				"render_api_resp"
+			],
+			[
+				"com",
+				"computed"
+			],
+			[
+				"dis",
+				"displayName"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"component",
+				"componentInfo"
+			],
+			[
+				"fo",
+				"focus"
+			],
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"доступ",
+				"доступных"
+			],
+			[
+				"S",
+				"search"
+			],
+			[
+				"image",
+				"image_url"
+			],
+			[
+				"i",
+				"item"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"tran",
+				"transaction-date"
+			],
+			[
+				"date",
+				"datepicker"
+			],
+			[
+				"t",
+				"this"
+			],
+			[
+				"curre",
+				"currencies"
+			],
+			[
+				"curr",
+				"currency"
+			],
+			[
+				"fi",
+				"function"
+			],
+			[
+				"Curr",
+				"CurrenciesModel"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"list-",
+				"list-style"
+			],
+			[
+				"ser",
+				"server_pid"
+			],
+			[
+				"server",
+				"server_pid"
+			],
+			[
+				"pid",
+				"pid_file"
+			],
+			[
+				"fin",
+				"find_by_code"
+			],
+			[
+				"curren",
+				"Currency"
+			],
+			[
+				"Coun",
+				"Country"
+			],
+			[
+				"ren",
+				"return"
+			],
+			[
+				"pa",
+				"params"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"generate_",
+				"generate_label"
+			],
+			[
 				"tu",
 				"turnedOn"
 			],
@@ -20,36 +376,12 @@
 				"wait_response"
 			],
 			[
-				"fun",
-				"function"
-			],
-			[
 				"cla",
 				"cla	Create controller class"
 			],
 			[
-				"un",
-				"unpack"
-			],
-			[
-				"pa",
-				"package"
-			],
-			[
 				"st",
 				"string"
-			],
-			[
-				"ta",
-				"target_radio_address"
-			],
-			[
-				"ex",
-				"extension"
-			],
-			[
-				"marg",
-				"margin-top"
 			],
 			[
 				"path",
@@ -68,10 +400,6 @@
 				"allCount"
 			],
 			[
-				"ite",
-				"item"
-			],
-			[
 				"uploa",
 				"uploaderModal"
 			],
@@ -84,24 +412,8 @@
 				"uploader"
 			],
 			[
-				"ma",
-				"margin-bottom"
-			],
-			[
 				"crea",
 				"create_directory"
-			],
-			[
-				"mar",
-				"margin-bottom"
-			],
-			[
-				"fu",
-				"fullScreen"
-			],
-			[
-				"get",
-				"getPrefix"
 			],
 			[
 				"g",
@@ -110,10 +422,6 @@
 			[
 				"wi",
 				"width"
-			],
-			[
-				"ba",
-				"background"
 			],
 			[
 				"border-bott",
@@ -136,24 +444,12 @@
 				"text-decoration"
 			],
 			[
-				"cu",
-				"current"
-			],
-			[
-				"curre",
-				"currentIndex"
-			],
-			[
 				"inde",
 				"indexOf"
 			],
 			[
 				"text-",
 				"text-align"
-			],
-			[
-				"ob",
-				"observable"
 			],
 			[
 				"hea",
@@ -170,10 +466,6 @@
 			[
 				"coll",
 				"collect"
-			],
-			[
-				"fon",
-				"font-weight"
 			],
 			[
 				"sha",
@@ -196,10 +488,6 @@
 				"border-bottom"
 			],
 			[
-				"fi",
-				"font-size"
-			],
-			[
 				"ove",
 				"overflow"
 			],
@@ -210,10 +498,6 @@
 			[
 				"p",
 				"properties"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
 			],
 			[
 				"B",
@@ -230,304 +514,76 @@
 			[
 				"con",
 				"console"
-			],
-			[
-				"in",
-				"inviteRequired"
-			],
-			[
-				"value",
-				"valueInput"
-			],
-			[
-				"cap",
-				"captcha"
-			],
-			[
-				"u",
-				"url"
-			],
-			[
-				"Ca",
-				"Captcha"
-			],
-			[
-				"margin",
-				"margin-left"
-			],
-			[
-				"inl",
-				"inline-block"
-			],
-			[
-				"co",
-				"content_tag"
-			],
-			[
-				"te",
-				"template"
-			],
-			[
-				"passw",
-				"password"
-			],
-			[
-				"ac",
-				"activated"
-			],
-			[
-				"su",
-				"submit"
-			],
-			[
-				"mart",
-				"margin-top"
-			],
-			[
-				"req",
-				"request"
-			],
-			[
-				"поль",
-				"пользователей"
-			],
-			[
-				"dis",
-				"display_name"
-			],
-			[
-				"se",
-				"search"
-			],
-			[
-				"fil",
-				"filter"
-			],
-			[
-				"re",
-				"refresh"
-			],
-			[
-				"page",
-				"pageSize"
-			],
-			[
-				"user",
-				"users"
-			],
-			[
-				"prot",
-				"prototype"
-			],
-			[
-				"data",
-				"datatable"
-			],
-			[
-				"max",
-				"maxVisiblePage"
-			],
-			[
-				"min",
-				"minVisiblePage"
-			],
-			[
-				"pro",
-				"prototype"
-			],
-			[
-				"dat",
-				"datatable"
-			],
-			[
-				"nam",
-				"namespace"
-			],
-			[
-				"dire",
-				"directory"
-			],
-			[
-				"full",
-				"full_path"
-			],
-			[
-				"to",
-				"toSizes"
-			],
-			[
-				"home_",
-				"home_directory"
-			],
-			[
-				"FU",
-				"full_home_directory"
-			],
-			[
-				"par",
-				"parse"
-			],
-			[
-				"pat",
-				"PATCH"
-			],
-			[
-				"permi",
-				"permission"
-			],
-			[
-				"Per",
-				"permission"
-			],
-			[
-				"permission",
-				"permissions"
-			],
-			[
-				"per",
-				"permission"
-			],
-			[
-				"permis",
-				"permissions"
-			],
-			[
-				"w",
-				"wrapItem"
-			],
-			[
-				"m",
-				"modal"
-			],
-			[
-				"sec",
-				"securityModal"
-			],
-			[
-				"type",
-				"typeahead"
-			],
-			[
-				"col",
-				"collect"
-			],
-			[
-				"di",
-				"displayName"
-			],
-			[
-				"pass",
-				"password_confirmation"
-			],
-			[
-				"hi",
-				"hidden_input"
-			],
-			[
-				"mo",
-				"model"
-			],
-			[
-				"Под",
-				"Подтверждение"
-			],
-			[
-				"ele",
-				"element_placeholder"
-			],
-			[
-				"fo",
-				"formElement"
-			],
-			[
-				"ed",
-				"editModal"
-			],
-			[
-				"sh",
-				"showLoader"
-			],
-			[
-				"blo",
-				"block"
-			],
-			[
-				"parse",
-				"parseDate"
-			],
-			[
-				"pena",
-				"penaltyInfo"
-			],
-			[
-				"fin",
-				"function"
-			],
-			[
-				"cre",
-				"create_share_path"
-			],
-			[
-				"requ",
-				"request"
-			],
-			[
-				"form",
-				"form-control"
-			],
-			[
-				"val",
-				"validators"
-			],
-			[
-				"model",
-				"model_name"
-			],
-			[
-				"ren",
-				"render_begin"
-			],
-			[
-				"gene",
-				"generate_full_name"
-			],
-			[
-				"ge",
-				"generate_full_name"
-			],
-			[
-				"mode",
-				"model_name"
-			],
-			[
-				"ra",
-				"raise"
-			],
-			[
-				"op",
-				"options"
-			],
-			[
-				"body",
-				"body_content"
-			],
-			[
-				"wh",
-				"while	while ... end"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "app/views/dashboard/index.html.haml",
+			"settings":
+			{
+				"buffer_size": 1635,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/transaction_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2531,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/transaction.rb",
+			"settings":
+			{
+				"buffer_size": 619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/E/desktop/2014-09-28_20.log",
+			"settings":
+			{
+				"buffer_size": 38880036,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "db/migrate/20140916172700_create_transactions.rb",
+			"settings":
+			{
+				"buffer_size": 281,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 235.0,
 		"selected_items":
 		[
 			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
 				"inde",
+				"Indent JSON"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
 				"Indent XML"
 			],
 			[
@@ -535,12 +591,20 @@
 				"Set Syntax: XML"
 			],
 			[
-				"in",
-				"Indent XML"
+				"sql",
+				"Set Syntax: SQL"
 			],
 			[
-				"js",
-				"Set Syntax: JavaScript"
+				"form",
+				"Format Code"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
 			],
 			[
 				"xm",
@@ -575,20 +639,12 @@
 				"Indent XML"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"indent",
 				"Indentation: Reindent Lines"
 			],
 			[
 				"forma",
 				"Pretty JSON: Format (Pretty Print) JSON"
-			],
-			[
-				"json",
-				"Set Syntax: JSON"
 			],
 			[
 				"Package Control: ",
@@ -625,10 +681,6 @@
 			[
 				"fold",
 				"Project: Refresh Folders"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			],
 			[
 				"remo",
@@ -697,10 +749,6 @@
 			[
 				"git co",
 				"Git: Commit"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"Instal",
@@ -836,136 +884,157 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/modules",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/avalarin",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor"
+	],
 	"file_history":
 	[
-		"/O/ffinances/ffinances.sublime-project",
-		"/O/ffinances/autohome.sublime-project",
-		"//bugnet/C_Drive/inetpub/wwwroot/comis/data.js",
-		"/E/work/aso/site/config/kaz/-40.js",
-		"/E/work/aso/site/config/rus/-123.js",
-		"/E/work/aso/site/config/kaz/15117.js",
-		"//bugnet/C_Drive/inetpub/wwwroot/comis/main.js",
-		"/E/work/aso/site/config/rus/-40.js",
-		"/E/work/aso/site/config/kaz/-123.js",
-		"/E/work/aso/site/config/kaz/-15111.js",
-		"/E/work/aso/site/config/rus/15115.js",
-		"/E/work/aso/site/config/rus/15113.js",
-		"/E/work/aso/site/config/rus/15111.js",
-		"/E/work/aso/site/config/kaz/15115.js",
-		"/E/work/aso/site/config/kaz/15113.js",
-		"/E/work/aso/site/config/kaz/15111.js",
-		"/E/work/aso/site/config/rus/15117.js",
-		"/E/work/aso/site/config/provider.additionalinfo.js",
-		"/E/work/aso/site/config/rus/-15111.js",
-		"/E/work/aso/site/config/kaz/15112.js",
-		"/E/work/aso/site/config/kaz/-12307.js",
-		"/E/work/aso/site/config/rus/-12307.js",
-		"/E/work/aso/site/config/rus/15112.js",
-		"/E/desktop/15115.js",
-		"/E/desktop/15113.js",
-		"/E/desktop/15111.js",
-		"/E/desktop/-15111.js",
-		"/E/work/aso/site/config/rus/12351036.js",
-		"/E/work/aso/site/config/rus/-12306.js",
-		"/E/work/aso/site/config/rus/15075.js",
-		"/E/work/aso/site/config/kaz/15075.js",
-		"/E/work/docs/Приглашения ACO.js",
-		"/E/desktop/15112.js",
-		"/D/log/pstu/BTCOM.27082014123028.log",
-		"/E/desktop/15117.js",
-		"/E/desktop/15075.js",
-		"/E/work/projects/QTracker/QTracker.Site/localization/en-US/Views/Account/Login.cshtml.xml",
-		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/Views/Account/Login.cshtml.xml",
-		"/E/desktop/стандартный.js",
-		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/Views/Account/activate.cshtml.xml",
-		"/O/autohome/app/assets/javascripts/devices.js",
-		"/O/autohome/app/services/hardware.rb",
-		"/O/autohome/app/assets/javascripts/modules/http.js",
-		"/D/log/pstu/BTCOM.27082014100311.log",
-		"/D/log/pstu/iagent.27082014100544.log",
-		"/D/log/pstu/BTCOM.27082014114950.log",
-		"/D/log/pstu/BTCOM.27082014122945.log",
-		"/D/log/pstu/BTCOM.27082014122859.log",
-		"/O/autohome/app/controllers/devices_controller.rb",
-		"/O/autohome/app/views/devices/index.html.haml",
-		"/O/autohome/config/environments/development.rb",
-		"/O/autohome/app/models/device.rb",
-		"/O/autohome/log/development.log",
-		"/O/autohome/lib/errors/access_denied_error.rb",
-		"/O/autohome/lib/captcha/data.rb",
-		"/O/autohome/app/models/lamp_device.rb",
-		"/O/autohome/config/routes.rb",
-		"/O/autohome/db/migrate/20140826152928_add_last_signal_and_flags_to_devices.rb",
-		"/O/autohome/app/models/package.rb",
-		"/O/autohome/app/models/command_package.rb",
-		"/O/autohome/app/models/notification_package.rb",
-		"/O/autohome/app/models/response_package.rb",
-		"/E/projects/auto-home-hardware/auto_home/Описание протокола Autohome.txt",
-		"/O/autohome/db/migrate/20140823143331_create_devices.rb",
-		"/O/bootstrap-template/db/schema.rb",
-		"/O/template/Gemfile",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/transform_providers.xslt",
-		"//BUGNET/C_Drive/ImportService/Service.config",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/script.xml",
-		"//BUGNET/C_Drive/ImportService/log/info/2014-08-26.log",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/format_gates.fmt",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/format_providers.fmt",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/query.sql",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/transform_gates.xslt",
-		"//BUGNET/C_Drive/ImportService/tasks/BackupDatabase/script.xml",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateComis/script.xml",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/download.bat",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/request_gates.xml",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/request_providers.xml",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/transform.xslt",
-		"/E/tmp",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/format.fmt",
-		"//BUGNET/C_Drive/ImportService/tasks/UpdateProvidersList/script_ur.xml",
-		"//APACHE/inetpub/qiwi-site-v2/connectionStrings.config",
-		"//APACHE/inetpub/qiwi-site-v2/appSettings.config",
-		"/P/ownbox/app/assets/javascripts/directory.js.erb",
-		"//APACHE/inetpub/qiwi-site-v2/web.config",
-		"/O/autohome/lib/bootstrap_helpers/helpers.rb",
-		"/O/autohome/app/controllers/application_controller.rb",
-		"/P/ownbox/app/controllers/application_controller.rb",
-		"/O/autohome/config/application.rb",
-		"/O/autohome/app/assets/javascripts/application.js",
-		"/P/ownbox/app/controllers/directory_controller.rb",
-		"/O/autohome/app/views/layouts/application.html.haml",
-		"/P/ownbox/app/assets/javascripts/application.js",
-		"/P/ownbox/app/assets/javascripts/utils.js",
-		"/P/ownbox/config/routes.rb",
-		"/O/autohome/config/initializers/settings.rb",
-		"//BUGNET/qtracker-web/localization/ru-RU/shared/projects.xml",
-		"/O/autohome/app/models/hub.rb",
-		"/O/autohome/app/models/ethernet_hub.rb",
-		"/O/autohome/config/database.yml",
-		"/E/work/templates/registry.xml",
-		"/E/work/aso/site/config/rus/12304.js",
-		"/C/Users/a.prokopyev/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/LRJQ03YW/Реестр_ОСМП_20140819.csv",
-		"/C/Users/a.prokopyev/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/LRJQ03YW/Реестр_ОСМП_20140815.csv",
-		"/E/projects/auto_home_client/main.rb",
-		"/O/autohome/db/migrate/20140823143102_create_hubs.rb",
-		"/O/autohome/db/migrate/20140823143102_create_hub.rb",
-		"/O/autohome/config/settings.yml",
-		"/P/ownbox/config/settings.yml",
-		"/P/ownbox/config/initializers/01_settings.rb",
-		"/P/ownbox/app/models/data_item.rb",
-		"/P/ownbox/app/models/file_item.rb",
-		"/E/projects/auto_home_client/package.rb",
-		"/O/autohome/app/models/concerns/response_package.rb",
-		"/P/ownbox/app/models/invite.rb",
-		"/O/autohome/app/models/controller.rb",
-		"/O/autohome/db/migrate/20140823143102_create_controllers.rb",
-		"/P/ownbox/app/assets/stylesheets/application.css.scss",
-		"/O/autohome/app/assets/stylesheets/application.css.scss",
-		"/P/ownbox/app/views/layouts/application.html.erb",
-		"/O/autohome/lib/assets/modules/captcha.js",
-		"/O/autohome/lib/assets/modules/messages.js",
-		"/P/ownbox/app/assets/javascripts/captcha.js",
-		"/O/autohome/lib/bootstrap_helpers/builders/toolbar.rb",
-		"/O/autohome/lib/bootstrap_helpers/builders/pills.rb",
-		"/O/autohome/lib/bootstrap_helpers/builders/panel.rb"
+		"/E/desktop/2014-09-28_20.log",
+		"/E/desktop/2014-09-28/2014-09-28_20.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140919155627_create_tags.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916172711_create_operations.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140922151728_create_products.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140905010440_create_books.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/country.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_transaction_operation_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/tag_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/transaction.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/avalarin/input.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/transaction_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/transaction_new.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/dashboard/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/dashboard.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/operation.rb",
+		"/E/desktop/2014-09-28_17.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/user.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/unit.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction/_new_resources.html.erb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/avalarin/dropdown.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/moment-locales/de-at.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/routes.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/transaction-operation.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916172700_create_transactions.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/transaction.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/operation-logic.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/operation.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/transaction-operation.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/transaction_new.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/currency_rate.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140920064807_create_currency_rates.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140906071011_create_currencies.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-wallet.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/avalarin/select-list.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_wallet_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/settings.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/wallet_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/.idea/workspace.xml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916110117_create_wallets.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/transaction_new_res.js.erb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/52a8cd6c537635c653ea832a3f94606ee005b017/transaction-operation.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/8031db3f07effb41e8116c4dd98123d6b42495f7/transaction_new.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/tags-input.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction/new.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/data/currency_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/wallet_type.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/wallet_new.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/currency.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/money-input.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/custom-bootstrap/money.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/money-input.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/006cd248e407a3fb560e46c5bf938e8ae3da7778/money.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/006cd248e407a3fb560e46c5bf938e8ae3da7778/money-input.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/52a8cd6c537635c653ea832a3f94606ee005b017/money-input.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_money_input_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/7108dacf2a43c50e30c14d5d9cc084ed7cee3c2b/select-list.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_product_template.html.haml",
+		"/E/work/providers/Супер Лото/AttSuperLoto2/AttSuperLoto/AttSuperLoto/SuperLottoAttendant.cs",
+		"/E/log/pstu/taoeurasia.26092014172607.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/custom-bootstrap/page.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru.yml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/controls/page.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/unit-input.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-product.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_unit_input_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140915091523_add_session_ip_user_agent.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/ffinances.sublime-project",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/avalarin/dropdown.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/7108dacf2a43c50e30c14d5d9cc084ed7cee3c2b/dropdown.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/icon.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/application.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/wallet/new.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/session/new.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book/new.html.haml",
+		"/C/Users/a.prokopyev.OSMP/AppData/Local/Temp/Rar$DIa0.535/20140924.log",
+		"/C/Users/a.prokopyev.OSMP/AppData/Local/Temp/Rar$DIa0.932/20140925.log",
+		"/E/work/projects/qiwi-site-indexer/bin/Debug/log.txt",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/data/unit_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru-errors.yml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/product_controller.rb",
+		"/E/log/pstu/taoeurasia.25092014101719.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction/new_resources.html.erb",
+		"/E/projects/ownbox/app/assets/javascripts/directory_values.js.erb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/.idea/encodings.xml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/modules/messages.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/product.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/data/country_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/dropdown.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/database.yml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/.idea/runConfigurations/Production__ffinances.xml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/environments/production.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/product.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/user_profile_helper.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/.idea/dictionaries/A_Prokopyev.xml",
+		"/C/Users/a.prokopyev.OSMP/AppData/Local/Temp/Rar$DIa0.477/knockout.validation.js",
+		"/C/Users/a.prokopyev.OSMP/AppData/Local/Temp/Rar$DIa0.807/ru-RU.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/form.rb",
+		"/E/desktop/urls.txt",
+		"//apache/inetpub/qiwi-site-v2/views/default/content/catalog.page/catalog.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/avalarin/helpers.css.scss",
+		"//apache/inetpub/qiwi-site-v2/views/default/content/catalog.page/catalog.xslt",
+		"//apache/inetpub/qiwi-site-v2/views/default/content/catalog.page/catalog.items.sql",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha/utils.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/filter_parameter_logging.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/numeral-locales/uk-UA.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/layouts/_navbar.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/seeds.rb",
+		"/E/log/pstu/taoeurasia.23092014121153.log",
+		"/E/log/pstu/taoeurasia.23092014121207.log",
+		"/E/libs/cpu.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_tags_input_template.html.haml",
+		"/E/log/pstu/chocolife.22092014113002.log",
+		"/E/log/pstu/chocolife.22092014114330.log",
+		"/E/log/pstu/chocolife.22092014114024.log",
+		"/E/log/pstu/chocolife.22092014112412.log",
+		"/E/log/pstu/chocolife.22092014103702.log",
+		"/E/log/pstu/chocolife.22092014111238.log",
+		"/E/log/pstu/chocolife.22092014110921.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/render_helper.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/52a8cd6c537635c653ea832a3f94606ee005b017/unit-input.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/unit-input.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/unit.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/units-input.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/tasks/data.rake",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916151942_create_units.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140824161304_create_users.rb"
 	],
 	"find":
 	{
@@ -976,6 +1045,7 @@
 		"height": 233.0,
 		"where_history":
 		[
+			"<open folders>",
 			"E:\\desktop\\log",
 			"\\\\BUGNET\\C_Drive\\ImportService\\log\\info",
 			"E:\\work\\aso\\site\\config",
@@ -1015,137 +1085,137 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
-			"Задолж",
-			"Информация",
-			"Ф.И.",
-			"лицевого",
-			"номер телефона",
-			"this",
-			"wait_response",
-			"get_response",
-			"wait_response",
-			"get_response",
-			"response",
-			"result",
-			"get_result",
-			"income_packages",
-			"flags",
-			"self",
-			"UpdateProvidersList",
-			"\\\\&quot;",
-			"&lt;",
-			"&gt;",
-			">",
-			"<",
-			"\"",
-			">",
-			"<",
-			"\"",
-			">",
-			"<",
-			"Bootstrap",
-			";",
-			"http://batys.is-lost.org:8888/osmp",
-			"socket",
-			";\n",
-			"Рнн",
-			"ИИН",
-			"\\s+(\\d{12})$",
-			"([^\\t])(\\d{12})",
-			"\"$",
-			"^\"",
-			"\\t+$",
-			"rus",
-			">",
-			"^\\{1:(?:.*\\n)+?^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ.{18})\\n(?:.*\\n)*?/IDN/(\\d+)\\n(?:.*\\n)+?^/ASSIGN/((?:.*\\n)+?)-\\}",
-			"^\\{1:(?:.*\\n)+?^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ.{18})\\n(?:.*\\n)*?/IDN/(\\d+)\\n(.*\\n)+?^/ASSIGN/((?:.*\\n)+?)-\\}",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ.{18})\\n(?:.*\\n)*?/IDN/(\\d+)\\n(.*\\n)+?^/ASSIGN/((?:.*\\n)+?)-\\}",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ\\d{18})\\n(?:.*\\n)*/IDN/(\\d+)\\n(.*\\n)+^/ASSIGN/(.*(?:\\n.*)*)-\\}",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ\\d{18})",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ\\d{18})\\n(?:.*\\n)*/IDN/(\\d+)\\n(.*\\n)+^/ASSIGN/(.*(?:\\n.*)*)-\\}",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ\\d{18})\\n.*\\n/IDN/(\\d+)\\n(.*\\n)+^/ASSIGN/(.*(?:\\n.*)*)-\\}",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n.*(KZ\\d{18})\\n.*\\n/IDN/(\\d+)\\n(.*\\n)+^/ASSIGN/(.*\\n.*)",
-			"^\\{1:.*\\n.*\\n.*\\n.*\\n^:32A:(\\d+)KZT([\\d,]+)\\n",
-			"get_file_type",
-			"generate_captcha_image",
-			"send_file",
-			"\\d",
-			";",
-			"{",
-			";\n",
-			"i",
-			"goPath",
-			"goUrl",
-			"messages",
-			"I18n",
-			"selected",
-			"UploaderModal",
-			"uploaderModal",
-			"Uploader",
-			"uploader",
-			"Uploader",
-			"uploader",
-			"remove",
-			"delete",
-			"html",
-			"Uploader",
-			"uploader-modal",
-			"\\n",
-			"Updating terminals progress",
-			"XPA",
-			"create_directory",
-			"element",
-			"o",
-			"element",
-			"o",
-			"(\\d{3})-(\\d{3})-(\\d{2})-(\\d{2})",
-			"(.*);(.*);(.*)",
-			"photoViewer",
-			"PhotoViewer",
-			"wrapItem",
-			"get_file_type",
+			"PASSWORD=[^*]",
+			"dQk35sd4",
+			"OSMP2",
+			".*End: Mode OffLine\\n",
+			"<status_code>[^-]",
+			"dQk35sd4",
+			"OSMP2",
+			"\\bOperation\\b",
+			"Operation",
+			"\\bOperation\\b",
+			"Operation",
+			"fromData",
+			"tags",
+			"params",
+			"blurEvent",
+			"selectList",
+			"}\n",
+			"transaction",
+			"model.currency",
+			"observable\\(\\{\\}\\)",
+			"observable({})",
+			"\\bвы\\b",
+			"№6265",
+			"6265",
+			"9525",
+			"8112",
+			"6265",
+			"t\\('(.*)'\\),",
+			"(\\w+):",
+			"([\\w_]+):",
+			"168",
+			"product",
+			"Product",
+			"}\n",
+			"op1",
+			"addOperation",
+			"op1",
+			"page",
+			"walletCurrency",
+			"items",
+			"tag",
+			"Tag",
+			"tag",
+			"changes",
+			"change",
+			"lock",
+			"synchronize",
+			"sumsSynchronization",
+			"options",
+			"unit",
+			"format",
+			"wallet",
+			"Wallet",
+			"wallet",
+			"cur",
+			"staticUnit",
+			"refreshCurrencies",
+			"loadingCurrencies",
+			"Currencies",
+			"currency",
+			"money",
+			"cur",
+			"Currency",
+			"currency",
+			"currencies",
+			"money",
+			"transaction-operation",
+			"refreshExchangeRate",
+			"suncExchangeRate",
+			"updateExchangeRate",
+			"updateSum",
+			"updateWalletSum",
+			"refreshExchangeRate",
+			"module",
+			"items",
+			"updateExchangeRate",
+			"currency",
+			"Currency",
+			"currency",
+			"Currency",
+			"currency",
+			"Currency",
+			"currency",
+			"input",
+			"w",
+			"$color",
+			"autoclose",
+			"hide",
+			"hide()",
+			"D:",
+			"Currencies",
+			"currencies",
+			"root",
+			"input",
+			"Адрес",
+			"        \n",
+			"item_template",
+			"- ",
+			"= ",
+			":",
+			"new",
+			"value",
 			"'",
-			"xmlfile",
-			"excelfile",
-			"excel_query",
-			"sum_query",
-			"xml_query",
-			"xml_data",
-			"excel_data",
-			"\\d+$",
-			"many",
-			"Да\\s*<r><data1>",
-			"</data1></r>.*Details  Edit  ",
-			"</data1></r>   Details  Edit  ",
-			"DateCul",
-			"Order",
-			"3TD",
-			"обновле",
-			"messages",
-			"visible",
-			"Babylon",
-			"9789",
-			"repetitor.kz",
-			"War",
-			"11x11",
-			"Вавилон-М",
-			"Билайн",
-			"Мегафон",
-			"МТС",
-			"(\\d*).*\\n",
-			"(\\d)\\s\\s+",
-			"(\\d*).*",
-			"(\\d*).*\\n",
-			"\\{\"__type\":\"provider\",\"id\":\"(\\d+)\",\"tag\":\"visible\",\"logo\":\"\\d+.gif\",\"sName\":\"(.*?)\",\"small_logo\":\"\"\\},?",
-			"\\{\"__type\":\"provider\",\"id\":\"(\\d+)\",\"tag\":\"visible\",\"logo\":\"\\d+.gif\",\"sName\":\"(.*?)\",\"small_logo\":\"\"\\},",
-			"\",\"small_logo\":\"\"},",
-			"\\{\"__type\":\"provider\",\"id\":\"\\d+\",\"tag\":\"visible\",\"logo\":\"\\d+.gif\",\"sName\":",
-			"{\"__type\":\"provider\",\"id\":\"\\d+\",\"tag\":\"visible\",\"logo\":\"\\d+.gif\",\"sName\":",
-			",",
-			":"
+			"У вас",
+			"AU",
+			"(.*?)\\s+([A-Z][A-Z])",
+			"RUR",
+			"(.*?)  (.*)",
+			"'KY'  'KYD','EUR','USD'",
+			"(.*?)  (.*)",
+			"\\w+",
+			"(?<= )(USD)(?=\\n)",
+			"\\b([^E][A-Z]{2}|E[^U][A-Z]|EU[^R])(?=,)",
+			"\\b([^U][A-Z]{2}|U[^S][A-Z]|US[^D])$",
+			"Корея",
+			"Молдова",
+			"США",
+			"Саба",
+			"острова",
+			"Flag of.*svg\\s*",
+			"abbr",
+			"(.*):(.*)",
+			"EU",
+			"^.*?([A-Z]{2})\\s+([A-Z]{3})\\s+\\d+.*",
+			"padding",
+			"border-radius",
+			"\"",
+			"(.*?)\\s+([A-Z]+)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1153,6 +1223,44 @@
 		"regex": true,
 		"replace_history":
 		[
+			"*****",
+			"",
+			"Вы",
+			"'<%= I18n.t \"$1\" %>'",
+			"window.localization.$1 =",
+			"$1: t('.$1'),",
+			"fromOperation",
+			"E:",
+			"-",
+			"=",
+			" =",
+			"",
+			"Country.create(code: '$2', name: '$1')",
+			"$1 => [ $2 ],",
+			"$1 => [ $2 ]",
+			"'$0'",
+			"$1,EUR",
+			"$1,USD",
+			"",
+			"'$1' => '$2',",
+			"$2:$1",
+			"'",
+			"'$1' => '$2',",
+			"',",
+			"{ country_name: '$1', currency_code: '$2' },",
+			"",
+			"Currency.create(code: '$3', name: '$1', global_name: '$2', symbol: '$4')",
+			"Currency.create(name: '$1', global_name: '$2', code: '$3', symbol: '$4')",
+			"Currency.create(name: $1, global_name: $2, code: $3, symbol: $4)",
+			"",
+			"$1;$1",
+			"$1",
+			";",
+			"Country.create(code: '$2', name: '$1')",
+			";$1",
+			" ",
+			"$1",
+			"",
 			"p",
 			"\"",
 			"<",
@@ -1242,45 +1350,7 @@
 			"",
 			"$1\\t",
 			"$1using (var securityManager = new SecurityManager(ApplicationContext, new ApplicationDatabaseContext(ApplicationContext))) {\n\\t$1$2securityManager$3\n$1}\\n",
-			"$1using (var securityManager = new SecurityManager(ApplicationContext, new ApplicationDatabaseContext(ApplicationContext))) {\n\\t$1$2securityManager$3\n$1}",
-			"&gt;",
-			"&lt;",
-			"<pre name=\"code\" class",
-			"<pre class=\"$1\">",
-			"</pre>",
-			" =",
-			"\"$1: \" + $0",
-			"new Tuple<string, string>(\"$2\", \"$1\"),",
-			"'$1',",
-			"</code></td><td><code>",
-			"&lt;",
-			"&gt;",
-			"&lt",
-			"$1<li><code>$2</code></li>",
-			"&gt;",
-			"&lt;",
-			"$1<li>$2</li>",
-			"{\"__type\":\"provider\",\"id\":\"$1\",\"tag\":\"visible\",\"logo\":\"$1.gif\",\"sName\":\"$3\",\"small_logo\":\"\"},",
-			";",
-			"{\"__type\":\"provider\",\"id\":\"$1\",\"tag\":\"visible\",\"logo\":\"$1.gif\",\"sName\":\"$3\",\"small_logo\":\"\"},",
-			";",
-			"{\"__type\":\"provider\",\"id\":\"$1\",\"tag\":\"visible\",\"logo\":\"$1.gif\",\"sName\":\"$3\",\"small_logo\":\"\"},",
-			"{\"__type\":\"provider\",\"id\":\"$1\",\"tag\":\"visible\",\"logo\":\"$1.gif\",\"sName\":\"$3\",\"small_logo\":\"\"}",
-			";",
-			"$1",
-			"$0",
-			"  ",
-			" ",
-			"",
-			">",
-			"<",
-			"",
-			"\\t",
-			"\"$0\" => array( 2, 3, 4, 5, 6),",
-			"\"$1\" => array( 2, 3, 4, 5, 6),",
-			"logger",
-			"$1'$2' + ",
-			"."
+			"$1using (var securityManager = new SecurityManager(ApplicationContext, new ApplicationDatabaseContext(ApplicationContext))) {\n\\t$1$2securityManager$3\n$1}"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1291,8 +1361,157 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/views/dashboard/index.html.haml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1635,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1630,
+								1630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/transaction_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/models/transaction.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								431,
+								431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/E/desktop/2014-09-28_20.log",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38880036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "db/migrate/20140916172700_create_transactions.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1347,6 +1566,438 @@
 		"selected_items":
 		[
 			[
+				"create_t",
+				"db\\migrate\\20140916172700_create_transactions.rb"
+			],
+			[
+				"transa",
+				"app\\models\\transaction.rb"
+			],
+			[
+				"index",
+				"app\\views\\dashboard\\index.html.haml"
+			],
+			[
+				"ope",
+				"app\\models\\operation.rb"
+			],
+			[
+				"user",
+				"app\\models\\user.rb"
+			],
+			[
+				"transact",
+				"app\\models\\transaction.rb"
+			],
+			[
+				"createtra",
+				"db\\migrate\\20140916172700_create_transactions.rb"
+			],
+			[
+				"route",
+				"config\\routes.rb"
+			],
+			[
+				"rote",
+				"app\\views\\components\\_transaction_operation_template.html.haml"
+			],
+			[
+				"create_op",
+				"db\\migrate\\20140916172711_create_operations.rb"
+			],
+			[
+				"create_tran",
+				"db\\migrate\\20140916172700_create_transactions.rb"
+			],
+			[
+				"create_cure",
+				"db\\migrate\\20140920064807_create_currency_rates.rb"
+			],
+			[
+				"op",
+				"app\\models\\operation.rb"
+			],
+			[
+				"selec",
+				"app\\assets\\javascripts\\components\\select-wallet.js"
+			],
+			[
+				"wallet",
+				"app\\controllers\\wallet_controller.rb"
+			],
+			[
+				"create_wa",
+				"db\\migrate\\20140916110117_create_wallets.rb"
+			],
+			[
+				"transaction_new",
+				"app\\assets\\javascripts\\views\\transaction_new.js"
+			],
+			[
+				"ro",
+				"config\\routes.rb"
+			],
+			[
+				"curren",
+				"app\\controllers\\data\\currency_controller.rb"
+			],
+			[
+				"mone",
+				"app\\assets\\javascripts\\components\\money-input.js"
+			],
+			[
+				"create_o",
+				"db\\migrate\\20140916172711_create_operations.rb"
+			],
+			[
+				"create_ope",
+				"db\\migrate\\20140916172711_create_operations.rb"
+			],
+			[
+				"tag",
+				"app\\controllers\\tag_controller.rb"
+			],
+			[
+				"tags",
+				"app\\assets\\javascripts\\components\\tags-input.js"
+			],
+			[
+				"new",
+				"app\\views\\transaction\\new.html.haml"
+			],
+			[
+				"dr",
+				"app\\assets\\javascripts\\avalarin\\dropdown.js"
+			],
+			[
+				"ru",
+				"config\\locales\\ru.yml"
+			],
+			[
+				"transac",
+				"app\\assets\\javascripts\\views\\transaction_new.js"
+			],
+			[
+				"page",
+				"app\\assets\\stylesheets\\custom-bootstrap\\page.css.scss"
+			],
+			[
+				"pro",
+				"app\\assets\\javascripts\\components\\select-product.js"
+			],
+			[
+				"sele",
+				"app\\views\\components\\_select_wallet_template.html.haml"
+			],
+			[
+				"unit",
+				"app\\assets\\javascripts\\components\\unit-input.js"
+			],
+			[
+				"wall",
+				"app\\assets\\javascripts\\components\\select-wallet.js"
+			],
+			[
+				"drop",
+				"app\\assets\\javascripts\\avalarin\\dropdown.js"
+			],
+			[
+				"icon",
+				"lib\\bootstrap_helpers\\builders\\icon.rb"
+			],
+			[
+				"app",
+				"app\\assets\\javascripts\\application.js"
+			],
+			[
+				"error",
+				"config\\locales\\ru-errors.yml"
+			],
+			[
+				"select",
+				"app\\assets\\javascripts\\components\\select-wallet.js"
+			],
+			[
+				"un",
+				"app\\assets\\javascripts\\model\\unit.js"
+			],
+			[
+				"",
+				"app\\controllers\\product_controller.rb"
+			],
+			[
+				"tra",
+				"app\\views\\components\\_transaction_operation_template.html.haml"
+			],
+			[
+				"select-pr",
+				"app\\assets\\javascripts\\components\\select-product.js"
+			],
+			[
+				"produc",
+				"app\\controllers\\product_controller.rb"
+			],
+			[
+				"product",
+				"app\\models\\product.rb"
+			],
+			[
+				"in",
+				"app\\assets\\stylesheets\\avalarin\\input.css.scss"
+			],
+			[
+				"prod",
+				"app\\controllers\\product_controller.rb"
+			],
+			[
+				"selecte",
+				"app\\views\\components\\_select_product_template.html.haml"
+			],
+			[
+				"selct",
+				"app\\views\\components\\_select_product_template.html.haml"
+			],
+			[
+				"create",
+				"db\\migrate\\20140922151728_create_products.rb"
+			],
+			[
+				"render",
+				"app\\helpers\\render_helper.rb"
+			],
+			[
+				"transaction",
+				"app\\controllers\\transaction_controller.rb"
+			],
+			[
+				"rou",
+				"config\\routes.rb"
+			],
+			[
+				"uni",
+				"app\\views\\components\\_unit_input_template.html.haml"
+			],
+			[
+				"trasn",
+				"app\\assets\\stylesheets\\views\\transaction_new.css.scss"
+			],
+			[
+				"transaction_io",
+				"app\\views\\components\\_transaction_operation_template.html.haml"
+			],
+			[
+				"avdrop",
+				"app\\assets\\javascripts\\avalarin\\dropdown.js"
+			],
+			[
+				"money",
+				"app\\assets\\javascripts\\components\\money-input.js"
+			],
+			[
+				"mon",
+				"app\\assets\\stylesheets\\components\\money-input.css.scss"
+			],
+			[
+				"hel",
+				"lib\\bootstrap_helpers\\helpers.rb"
+			],
+			[
+				"base",
+				"lib\\bootstrap_helpers\\builders\\base.rb"
+			],
+			[
+				"create_c",
+				"db\\migrate\\20140920064807_create_currency_rates.rb"
+			],
+			[
+				"createcu",
+				"db\\migrate\\20140920064807_create_currency_rates.rb"
+			],
+			[
+				"create_cu",
+				"db\\migrate\\20140920064807_create_currency_rates.rb"
+			],
+			[
+				"r",
+				"config\\routes.rb"
+			],
+			[
+				"curre",
+				"app\\controllers\\data\\currency_controller.rb"
+			],
+			[
+				"create_tra",
+				"db\\migrate\\20140916172700_create_transactions.rb"
+			],
+			[
+				"cre",
+				"db\\migrate\\20140905010440_create_books.rb"
+			],
+			[
+				"create_curr",
+				"db\\migrate\\20140920064807_create_currency_rates.rb"
+			],
+			[
+				"mo",
+				"app\\assets\\stylesheets\\components\\money-input.css.scss"
+			],
+			[
+				"inp",
+				"app\\assets\\stylesheets\\avalarin\\input.css.scss"
+			],
+			[
+				"wa",
+				"app\\assets\\javascripts\\components\\select-wallet.js"
+			],
+			[
+				"create_ta",
+				"db\\migrate\\20140919155627_create_tags.rb"
+			],
+			[
+				"data/",
+				"app\\controllers\\data\\currency_controller.rb"
+			],
+			[
+				"select_",
+				"app\\views\\components\\_select_wallet_template.html.haml"
+			],
+			[
+				"input",
+				"app\\assets\\stylesheets\\avalarin\\input.css.scss"
+			],
+			[
+				"transaction/",
+				"app\\views\\transaction\\new.html.haml"
+			],
+			[
+				"createwa",
+				"db\\migrate\\20140916110117_create_wallets.rb"
+			],
+			[
+				"wal",
+				"app\\controllers\\wallet_controller.rb"
+			],
+			[
+				"panel",
+				"lib\\bootstrap_helpers\\builders\\panel.rb"
+			],
+			[
+				"pa",
+				"app\\assets\\javascripts\\controls\\page.js"
+			],
+			[
+				"ba",
+				"lib\\bootstrap_helpers\\builders\\base.rb"
+			],
+			[
+				"he",
+				"lib\\bootstrap_helpers\\helpers.rb"
+			],
+			[
+				"helper",
+				"lib\\bootstrap_helpers\\helpers.rb"
+			],
+			[
+				"inde",
+				"app\\views\\dashboard\\index.html.haml"
+			],
+			[
+				"apge",
+				"app\\assets\\javascripts\\controls\\page.js"
+			],
+			[
+				"boo",
+				"app\\models\\book.rb"
+			],
+			[
+				"for",
+				"lib\\bootstrap_helpers\\builders\\form.rb"
+			],
+			[
+				"create_wall",
+				"db\\migrate\\20140916110117_create_wallets.rb"
+			],
+			[
+				"book",
+				"app\\controllers\\book_controller.rb"
+			],
+			[
+				"form",
+				"lib\\bootstrap_helpers\\builders\\form.rb"
+			],
+			[
+				"pan",
+				"lib\\bootstrap_helpers\\builders\\panel.rb"
+			],
+			[
+				"sess",
+				"app\\helpers\\session_helper.rb"
+			],
+			[
+				"ru.",
+				"config\\locales\\ru.yml"
+			],
+			[
+				"session_",
+				"app\\controllers\\session_controller.rb"
+			],
+			[
+				"use",
+				"app\\models\\user.rb"
+			],
+			[
+				"us",
+				"app\\models\\user.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"_nav",
+				"app\\views\\layouts\\_navbar.html.haml"
+			],
+			[
+				"curr",
+				"app\\models\\currency.rb"
+			],
+			[
+				"cou",
+				"app\\models\\country.rb"
+			],
+			[
+				"se",
+				"config\\initializers\\settings.rb"
+			],
+			[
+				"nav",
+				"app\\views\\layouts\\_navbar.html.haml"
+			],
+			[
+				"navba",
+				"app\\views\\layouts\\_navbar.html.haml"
+			],
+			[
+				"bu",
+				"lib\\bootstrap_helpers\\builders\\button.rb"
+			],
+			[
+				"ava",
+				"app\\assets\\stylesheets\\avatar.css.scss"
+			],
+			[
+				"butt",
+				"lib\\bootstrap_helpers\\builders\\button.rb"
+			],
+			[
+				"rend",
+				"app\\helpers\\render_helper.rb"
+			],
+			[
+				"fo",
+				"lib\\bootstrap_helpers\\builders\\form.rb"
+			],
+			[
 				"ha",
 				"app\\services\\hardware.rb"
 			],
@@ -1359,16 +2010,8 @@
 				"app\\assets\\javascripts\\devices.js"
 			],
 			[
-				"route",
-				"config\\routes.rb"
-			],
-			[
 				"la",
 				"app\\models\\lamp_device.rb"
-			],
-			[
-				"pa",
-				"app\\models\\package.rb"
 			],
 			[
 				"pre",
@@ -1377,18 +2020,6 @@
 			[
 				"file",
 				"app\\controllers\\file_controller.rb"
-			],
-			[
-				"icon",
-				"app\\controllers\\items_controller.rb"
-			],
-			[
-				"index",
-				"app\\views\\directory\\index.html.erb"
-			],
-			[
-				"base",
-				"app\\services\\base_data_service.rb"
 			],
 			[
 				"yml",
@@ -1439,412 +2070,12 @@
 				"app\\assets\\javascripts\\directory.js.erb"
 			],
 			[
-				"ru",
-				"config\\locales\\ru.yml"
-			],
-			[
 				"moda",
 				"app\\helpers\\bootstrap\\builders\\modal.rb"
 			],
 			[
 				"_min",
 				"app\\views\\shared\\_mini_browser.html.haml"
-			],
-			[
-				"bro",
-				"app\\assets\\javascripts\\directory\\browser.js.erb"
-			],
-			[
-				"user",
-				"app\\models\\user.rb"
-			],
-			[
-				"bootstra",
-				"app\\assets\\stylesheets\\bootstrap-custom.css.scss"
-			],
-			[
-				"modal",
-				"app\\helpers\\bootstrap\\builders\\modal.rb"
-			],
-			[
-				"boots",
-				"app\\assets\\stylesheets\\bootstrap-custom.css.scss"
-			],
-			[
-				"ndex",
-				"app\\views\\admin\\users\\index.html.haml"
-			],
-			[
-				"_nav",
-				"app\\views\\layouts\\_navbar.html.erb"
-			],
-			[
-				"image_",
-				"app\\assets\\javascripts\\controls\\image_viewer.js"
-			],
-			[
-				"_imag",
-				"app\\views\\directory\\_image_viewer.html.haml"
-			],
-			[
-				"_na",
-				"app\\views\\layouts\\_navbar.html.erb"
-			],
-			[
-				"brow",
-				"app\\assets\\javascripts\\directory\\browser.js.erb"
-			],
-			[
-				"sett",
-				"config\\settings.yml"
-			],
-			[
-				"xml",
-				"E:\\desktop\\qiwi20140404_ur.xml"
-			],
-			[
-				"message",
-				"app\\assets\\javascripts\\modules\\messages.js"
-			],
-			[
-				"share",
-				"app\\assets\\javascripts\\settings\\shares.js"
-			],
-			[
-				"ru-er",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"render",
-				"app\\helpers\\render_helper.rb"
-			],
-			[
-				"panel",
-				"app\\helpers\\bootstrap\\builders\\panel.rb"
-			],
-			[
-				"unob",
-				"vendor\\assets\\javascripts\\jquery.validate.unobtrusive.js"
-			],
-			[
-				"new",
-				"app\\views\\registration\\new.html.haml"
-			],
-			[
-				"ca",
-				"app\\assets\\javascripts\\captcha.js"
-			],
-			[
-				"appli",
-				"app\\controllers\\application_controller.rb"
-			],
-			[
-				"cap",
-				"app\\assets\\javascripts\\captcha.js"
-			],
-			[
-				"for",
-				"app\\helpers\\bootstrap\\builders\\form.rb"
-			],
-			[
-				"capt",
-				"lib\\captcha.rb"
-			],
-			[
-				"reg",
-				"app\\controllers\\registration_controller.rb"
-			],
-			[
-				"htt",
-				"app\\assets\\javascripts\\modules\\http.js"
-			],
-			[
-				"data.rb",
-				"lib\\captcha\\data.rb"
-			],
-			[
-				"regi",
-				"app\\controllers\\registration_controller.rb"
-			],
-			[
-				"registra",
-				"app\\controllers\\registration_controller.rb"
-			],
-			[
-				"datatable",
-				"app\\assets\\javascripts\\controls\\datatable.js"
-			],
-			[
-				"http",
-				"app\\assets\\javascripts\\modules\\http.js"
-			],
-			[
-				"jque",
-				"vendor\\assets\\javascripts\\jquery.validate.js"
-			],
-			[
-				"ruo",
-				"config\\routes.rb"
-			],
-			[
-				"form",
-				"app\\helpers\\bootstrap\\builders\\form.rb"
-			],
-			[
-				"fo",
-				"app\\helpers\\bootstrap\\builders\\form.rb"
-			],
-			[
-				"se",
-				"config\\settings.yml"
-			],
-			[
-				"01",
-				"config\\initializers\\01_settings.rb"
-			],
-			[
-				"modals",
-				"app\\assets\\javascripts\\modules\\modals.js"
-			],
-			[
-				"invir",
-				"app\\models\\invite.rb"
-			],
-			[
-				"rou",
-				"config\\routes.rb"
-			],
-			[
-				"layouts/",
-				"app\\views\\layouts\\admin.html.haml"
-			],
-			[
-				"layouts/ad",
-				"app\\views\\layouts\\admin.html.haml"
-			],
-			[
-				"application.h",
-				"app\\views\\layouts\\application.html.erb"
-			],
-			[
-				"users",
-				"app\\controllers\\users_controller.rb"
-			],
-			[
-				"ro",
-				"config\\routes.rb"
-			],
-			[
-				"messages",
-				"app\\assets\\javascripts\\modules\\messages.js"
-			],
-			[
-				"rout",
-				"config\\routes.rb"
-			],
-			[
-				"regis",
-				"app\\controllers\\registration_controller.rb"
-			],
-			[
-				"user.r",
-				"app\\models\\user.rb"
-			],
-			[
-				"user_",
-				"app\\controllers\\admin\\users_controller.rb"
-			],
-			[
-				"moal",
-				"app\\assets\\javascripts\\controls\\modal.js"
-			],
-			[
-				"ru-e",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"user.js",
-				"app\\assets\\javascripts\\admin\\users.js"
-			],
-			[
-				"jq",
-				"vendor\\assets\\javascripts\\jquery.validate.unobtrusive.js"
-			],
-			[
-				"mo",
-				"app\\assets\\javascripts\\controls\\modal.js"
-			],
-			[
-				"help",
-				"app\\helpers\\bootstrap\\helpers.rb"
-			],
-			[
-				"ge",
-				"Gemfile"
-			],
-			[
-				"users.",
-				"app\\assets\\stylesheets\\admin\\users.css.scss"
-			],
-			[
-				"hel",
-				"app\\helpers\\bootstrap\\helpers.rb"
-			],
-			[
-				"butto",
-				"app\\helpers\\bootstrap\\builders\\button.rb"
-			],
-			[
-				"create",
-				"db\\migrate\\20140415033113_create_users.rb"
-			],
-			[
-				"bu",
-				"app\\helpers\\bootstrap\\builders\\button.rb"
-			],
-			[
-				"gemfi",
-				"Gemfile"
-			],
-			[
-				"profil",
-				"app\\views\\profile\\index.html.erb"
-			],
-			[
-				"use",
-				"app\\models\\user.rb"
-			],
-			[
-				"nav",
-				"app\\views\\layouts\\_navbar.html.erb"
-			],
-			[
-				"haml",
-				"app\\views\\settings\\shares\\index.html.haml"
-			],
-			[
-				"butt",
-				"app\\helpers\\bootstrap\\builders\\button.rb"
-			],
-			[
-				"button",
-				"app\\helpers\\bootstrap\\builders\\button.rb"
-			],
-			[
-				"navba",
-				"app\\views\\layouts\\_navbar.html.erb"
-			],
-			[
-				"pat",
-				"app\\models\\path.rb"
-			],
-			[
-				"browse",
-				"app\\assets\\javascripts\\directory\\browser.js.erb"
-			],
-			[
-				"",
-				"app\\controllers\\items_controller.rb"
-			],
-			[
-				"items_co",
-				"app\\controllers\\items_controller.rb"
-			],
-			[
-				"item",
-				"app\\models\\data_item.rb"
-			],
-			[
-				"shares_di",
-				"app\\models\\shares_directory_item.rb"
-			],
-			[
-				"na",
-				"app\\views\\layouts\\_navbar.html.erb"
-			],
-			[
-				"items",
-				"app\\controllers\\items_controller.rb"
-			],
-			[
-				"form.",
-				"app\\helpers\\bootstrap\\builders\\form.rb"
-			],
-			[
-				"html_",
-				"app\\helpers\\html_helper.rb"
-			],
-			[
-				"routes",
-				"config\\routes.rb"
-			],
-			[
-				"errors",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"he",
-				"app\\helpers\\bootstrap\\helpers.rb"
-			],
-			[
-				"buttib",
-				"db\\migrate\\20140426211515_add_user_actionvation_code_column.rb"
-			],
-			[
-				"data_se",
-				"app\\services\\data_service.rb"
-			],
-			[
-				"err",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"error",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"data_i",
-				"app\\models\\data_item.rb"
-			],
-			[
-				"awesome",
-				"tmp\\cache\\assets\\development\\sass\\daed5a725468c05bf7ea7c52d383ff40283320bf\\font-awesome.scssc"
-			],
-			[
-				"font",
-				"tmp\\cache\\assets\\development\\sass\\daed5a725468c05bf7ea7c52d383ff40283320bf\\font-awesome.scssc"
-			],
-			[
-				"html",
-				"app\\helpers\\html_helper.rb"
-			],
-			[
-				"data/",
-				"app\\views\\data\\index.html.erb"
-			],
-			[
-				"ru.",
-				"config\\locales\\ru.yml"
-			],
-			[
-				"ru.ym",
-				"config\\locales\\ru.yml"
-			],
-			[
-				"dat",
-				"app\\controllers\\data_controller.rb"
-			],
-			[
-				"gem",
-				"Gemfile"
-			],
-			[
-				"seed",
-				"db\\seeds.rb"
-			],
-			[
-				"createuser",
-				"db\\migrate\\20140402102414_create_users.rb"
 			]
 		],
 		"width": 0.0
@@ -1863,12 +2094,13 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 375.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 378.0
 	},
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -1876,7 +2108,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 302.0,
+	"side_bar_width": 392.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

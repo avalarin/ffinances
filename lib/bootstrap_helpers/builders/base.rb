@@ -36,6 +36,12 @@ module BootstrapHelpers
         elsif base_css
           html[:class] = base_css
         end
+
+        if (options[:ko])
+          html["data-bind"] = options[:ko]
+          options.delete(:ko)
+        end
+
         defaults.each { |k, v| html[k] = v }
         if (options[:data] && options[:data].class == Hash)
           options[:data].each do |k, v|
@@ -44,8 +50,7 @@ module BootstrapHelpers
         end
         html
       end
-
-
+      
     end
   end
 end

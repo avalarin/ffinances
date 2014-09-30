@@ -1,0 +1,25 @@
+= ko_template 'transaction-simple-operation-template' do
+  .transaction-operation
+    %div.av-inline(data-bind="component: { name: 'select-wallet', params: { selected: wallet } }")
+    %div.av-inline(data-bind="component: { name: 'money-input', params: { currency: currency, value: sum } }")
+    = ko 'if: needExchange' do
+      %span='='
+      %div.av-inline(data-bind="component: { name: 'money-input', params: { currency: walletCurrency, staticCurrency: true, value: walletSum } }")
+      = ko 'if: exchangeRateLoading' do
+        = bt_icon :spinner, spin: true
+      = ko 'if: !exchangeRateLoading()' do  
+        %span(data-bind="text: exchangeRateText")
+        %a.btn.btn-link.btn-xsmall(href="#" data-bind="click: toggleExchangeRateLock")
+          %i.fa(data-bind="css: { 'fa-lock': exchangeRateLocked, 'fa-unlock-alt': !exchangeRateLocked() }")
+    %span.text-danger(data-bind="visible: !isValid(), text: validationMessage")
+
+= ko_template 'transaction-outcome-operation-template' do
+  .transaction-operation
+    = bt_button icon: 'trash-o', title: t('commands.delete'), style: :link, ko: 'click: transaction.deleteOperation', html: { :'class' => 'text-danger' }
+    %div.av-inline(data-bind="component: { name: 'select-product', params: { selected: product } }")
+    %div.av-inline(data-bind="component: { name: 'unit-input', params: { unit: unit, value: count } }")
+    %span='×'
+    %div.av-inline(data-bind="component: { name: 'money-input', params: { currency: currency, value: amount, staticCurrency: true } }")
+    %span='='
+    %div.av-inline(data-bind="component: { name: 'money-input', params: { currency: currency, value: sum, staticCurrency: true } }")
+    %span.text-danger(data-bind="visible: !isValid(), text: validationMessage")

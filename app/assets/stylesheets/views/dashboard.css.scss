@@ -1,0 +1,45 @@
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 5px;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.transactions {
+  font-size: 14px;
+  width: 100%;
+
+  td {
+    padding: 5px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .column-fill {
+    width: auto;
+  }
+  .column-operations {
+    text-align: right;
+  }
+
+}
+
+.income {
+  color: #3c763d;
+}
+
+.outcome {
+  color: #a94442;
+}

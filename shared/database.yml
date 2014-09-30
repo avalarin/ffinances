@@ -1,0 +1,8 @@
+production:
+  adapter: 
+  host: 
+  database: 
+  username: 
+  password: 
+  encoding: utf8
+  reconnect: true

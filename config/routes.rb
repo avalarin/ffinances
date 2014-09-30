@@ -3,9 +3,43 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'main#index'
 
-  get '/devices', to: 'devices#index'
-  get '/devices/turn_on', to: 'devices#turn_on'
-  get '/devices/turn_off', to: 'devices#turn_off'
+  get '/login', to: 'session#new', as: :login
+  post '/login', to: 'session#create', as: :login_post
+  get '/logout', to: 'session#destroy', as: :logout
+
+  get '/dashboard', to: 'dashboard#index', as: :dashboard
+
+  get '/transaction', to: 'transaction#index', as: :transactions_index
+  get '/transaction/new/(:mode)', to: 'transaction#new', as: :new_transaction
+  post '/transaction/new', to: 'transaction#create', as: :create_transaction
+
+  get '/wallet', to: 'wallet#index', as: :wallets_index
+  get '/wallet/new', to: 'wallet#new', as: :new_wallet
+  post '/wallet/new', to: 'wallet#create', as: :create_wallet
+
+  get '/product', to: 'product#index', as: :products_index
+
+  get '/tag', to: 'tag#index', as: :tags_index
+  post '/tag/new', to: 'tag#create', as: :create_tag
+
+  get '/book', to: 'book#index', as: :books_index
+  get '/book/current', to: 'book#current', as: :current_book
+  post '/book/choose', to: 'book#choose', as: :choose_book
+  get '/book/new', to: 'book#new', as: :new_book
+  post '/book/new', to: 'book#create', as: :create_book
+  get '/book/:key', to: 'book#details', as: :book_details
+  post '/book/:key', to: 'book#update', as: :update_book
+
+  namespace :data do
+    get '/country', to: 'country#index', as: :countries_index
+    get '/country/:code/currencies', to: 'country#currencies', as: :country_currencies_index
+
+    get '/currency', to: 'currency#index', as: :currencies_index
+    get '/currency/rate', to: 'currency#rate', as: :currencies_rate
+
+    get '/unit', to: 'unit#index', as: :units_index
+  end
+
 end

@@ -1,16 +1,19 @@
 %html{ lang:"en" }
   %head
     %meta{charset: "utf-8"}
-    %title FamilyFinances
+    %title=Settings.app_name
 
-    =stylesheet_link_tag "application", media: "all"
-    =stylesheet_link_tag params[:controller], media: "all"
-    =csrf_meta_tags
-    =yield :styles
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+    = yield :styles
   %body
     .site-content
+      = render 'layouts/loader'
+      = render 'layouts/navbar'
       .container
+        = render 'layouts/messages'
         = yield
-    =javascript_include_tag "application"
-    =javascript_include_tag params[:controller]
-    =yield :scripts
+    = render 'layouts/footer'
+    = render 'layouts/error_modal'
+    = javascript_include_tag "application"
+    = yield :scripts

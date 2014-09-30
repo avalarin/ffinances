@@ -1,0 +1,18 @@
+= ko_template 'tags-input-template' do
+  .av-input.tags-input
+    = ko 'foreach: selected' do
+      .tag
+        %span(data-bind="text: text")
+        %a.remove(href="#" data-bind="click: $parent.remove")
+          ×
+    .av-dropdown
+      %input.search{ type: 'text', placeholder: t('.input_for_add_tags'), 'data-bind' => 'value: search, valueUpdate: "afterkeydown"' }
+      .av-dropdown-drop
+        = ko 'if: items().length == 0' do
+          .create
+            %a(href="#" data-bind="click: create")
+              %span{'data-bind'=> 'text: ' + t('.create_tag')}
+        %ul.select-list(data-bind="foreach: items")
+          %li
+            %a(href="#" data-bind="click: $parent.add")
+              %span(data-bind="text: text")

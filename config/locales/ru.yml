@@ -1,0 +1,132 @@
+ru: 
+    book:
+        index:
+            books_list: Список книг
+            books_list_desc: Для работы со счетами и платежами необходимо выбрать одну из доступных книг.
+            no_books: 'У вас нет книг.'
+            book_owner: 'Владелец:'
+            book_created_at: 'Создана:'
+            current_book: 'Выбранная книга'
+        new:
+            create_book: 'Добавление новой книги'
+            create_book_desc: 'Книга - это место где хранятся Ваши счета и данные о платежах. Вы можете давать доступ к Вашей книге другим пользователям. Придумайте название для новой книги и нажмите кнопку "Создать"'
+            book_currencies: 'Валюты книги'
+            choose_country: 'Выберите страну (необязательно)'
+
+            currencies_auto: 'Валюты используемые в выбранной стране:'
+            currencies_manual: 'Валюты выбранные Вами:'
+        details:
+            book_details: 'Книга'
+            book_owner: 'Владелец:'
+            book_created_at: 'Создана:'
+    dashboard:
+        index:
+            current_book: 'Книга: %{name}'
+            last_transactions: 'Последние платежи'
+            wallets: 'Кошельки'
+    wallet:
+        new:
+            create_wallet: 'Добавление нового кошелька'
+            create_wallet_desc: 'Заполните все поля и нажмите кнопку "Создать"'
+            wallet_description: 'Описание (необязательно)'
+    transaction:
+        new:
+            create_transaction: 'Добавление платежа'
+
+            income_transacion: 'Поступление средств'
+            outcome_transacion: 'Расход средств'
+            transfer_transacion: 'Перевод средств'
+            other_transacion: 'Другое'
+
+            transaction_description: 'Описание (необязательно)'
+            transaction_tags: 'Теги (рекомендуется)'
+
+            detalization: 'Детализация'
+            click_for_add_new: 'Нажмите для добавления'
+            transaction_income_description: 'Выберите кошелек который Вы хотите пополнить и введите сумму. Необходимо ввести положительную сумму.'
+            transaction_outcome_description: 'Выберите кошелек с которого необходимо произвести списание. Сумма будет заполнена автоматически когда Вы заполните детализацию.'
+            transaction_transfer_description: 'Выберите кошелек с которого необходимо произвести списание, а также кошелек на который Вы хотите перевести средства. С первого кошелька будет списана сумма указанная в первом поле ввода сумма, а на второй будет добавлена сумму указанная во втором поле.'
+            detalization_outcome_description: 'Необходимо запонить список товаров или услуг. Для каждого товара или услуги должно быть заполнено "Наименование". Также небходимо ввести количество и цену.'
+
+            product_required: 'Введите наменование.'
+            wallet_required: 'Выберите кошелек.'
+            sum_greater_than: 'Сумма должна быть больше 0.'
+            sum_greater_or_less_than: 'Сумма не должна быть равна 0.'
+            rate_greater_than: 'Курс должен быть больше 0.'
+    commands:
+        search: 'Поиск'
+        ok: 'Ok'
+        close: 'Закрыть'
+        upload: 'Загрузить'
+        choose: 'Выбрать'
+        create: 'Создать'
+        register: 'Зарегистрироваться'
+        save: 'Сохранить'
+        cancel: 'Отмена'
+        delete: 'Удалить'
+        edit: 'Редактировать'
+        security: 'Безопасность'
+        refresh: 'Обновить'
+        create_directory: 'Создать папку'
+        lock: 'Заблокировать'
+        unlock: 'Разблокировать'
+        search: 'Поиск'
+        send_activation_email: 'Отправить запрос на активацию'
+        login: 'Войти'
+        logout: 'Выйти'
+        register: 'Регистрация'
+        next: 'Далее'
+        back: 'Назад'
+        download: 'Скачать'
+        change: 'Изменить'
+        enter_full_screen: 'Во весь экран'
+        exit_full_screen:  'Свернуть'
+        start: 'Начать'
+        add: 'Добавить'
+
+        add_transaction: 'Добавить платеж'
+    messages:
+        confirm_deletion: 'Подтвердите удаление:'
+        user_not_found: 'Пользователь не существует'
+        item_already_found: 'Запись уже существует'
+        enter_captcha: 'Введите текст с картинки'
+        user:
+            locked: 'Пользователь заблокирован'
+            unlocked: 'Пользователь разблокирован'
+            activation_email_sended: 'Письмо отправлено'
+
+        invite: 
+            created: 'Инвайт создан'
+            deleted: 'Инвайт удален'
+    layouts:
+        navbar:
+            current_book: 'Текущая книга'
+            current_book_not_selected: 'Книга не выбрана'
+    session:
+        new:
+            login_to_continue: 'Войдите в систему'
+            login: 'Войти'
+            name: 'Имя пользователя'
+            password: 'Пароль'
+            remember: 'Запомнить меня'
+            need_help: 'Нужна помощь?'
+    model:
+        book:
+            display_name: Название
+            owner: Владелец
+            created_at: Создана
+        wallet:
+            display_name: 'Название'
+            description: 'Описание'
+    components:
+        select_wallet_template:
+            select_wallet: 'Выберите кошелек'
+            no_wallets: 'Нет доступных для выбора кошельков'
+        select_product_template:
+            product: 'Наименование'
+            no_products: 'Нет товаров с похожим названием. Вы можете использовать это название, товар будет создан автоматически. Для созданного товара будет использоваться еденица измерения выбранная при вводе количества.'
+        tags_input_template:
+            input_for_add_tags: 'Теги (рекомендуется)'
+            create_tag: "'Cоздать тег ' + search()"
+        money_input_template:
+            no_currencies: 'Нет доступных для выбора валют'

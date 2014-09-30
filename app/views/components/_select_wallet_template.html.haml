@@ -1,0 +1,10 @@
+= ko_template 'select-wallet-template' do
+  .av-dropdown
+    = bt_button data: { toggle: 'av-dropdown' }, ko: "html: selectedHtml() || '#{t('.select_wallet')}'"
+    .av-dropdown-drop
+      %input.form-control.search{ type: 'text', placeholder: t('commands.search'), 'data-bind' => 'value: search, valueUpdate: "afterkeydown"' }
+      = ko 'if: items().length == 0' do
+        %p.fail-message=t('.no_wallets')
+      %ul.select-list(data-bind="foreach: items")
+        %li
+          %a(href="#" data-bind="click: $parent.select, html: html") 

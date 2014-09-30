@@ -1,0 +1,58 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/transaction_new', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/transaction_new'
+  = render 'transaction/new_resources'
+- modes = [ "income", "outcome", "transfer" ]
+%input#transaction-mode{ type: 'hidden', name: 'mode', value: @mode }
+
+.page-form(data-bind="with: transaction")
+  .page-title 
+    = bt_dropdown html: { :'class' => 'transaction-mode' }, | 
+                  source: modes do |d|
+      - d.header do
+        %span(data-bind="text: modeText")
+      - d.item_template do |item|
+        %a{ href: '#', 'data-value' => item, 'data-bind' => "click: setMode" }
+          =t(".#{item}_transacion")
+    %span.transaction-date(data-bind="text: dateText")
+  .page-description
+    - modes.each do |mode|
+      = ko "if: mode() == '#{mode}'" do
+        = t(".transaction_#{mode}_description")
+  = ko 'if: mode() == "income" || mode() == "outcome" || mode() == "transfer"' do
+    %div.av-inline(data-bind="component: { name: 'transaction-simple-operation', params: { operation: fromOperation } }")
+  = ko 'if: mode() == "transfer"' do
+    = bt_icon 'arrow-down', :'class' => 'transfer-icon'
+    %div.av-inline(data-bind="component: { name: 'transaction-simple-operation', params: { operation: toOperation } }")
+  .row
+    .col-lg-12
+      %input.av-input.transaction-desc{ type:'text', placeholder: t('.transaction_description'), 'data-bind' => 'value: description' }
+  .row
+    .col-lg-12
+      %div.av-inline(data-bind="component: { name: 'tags-input', params: { selected: tags } }")
+  .row
+    .col-lg-12
+      = bt_button text: t('commands.save'), style: :success, ko: 'click: save'
+      = bt_button text: t('commands.cancel')
+  
+= ko 'if: transaction.mode() == "outcome" || transaction.mode() == "other"' do
+  .page-form.detalization(data-bind="with: transaction")
+    .page-title
+      =t('.detalization')
+    .page-description
+      - [ 'outcome' ].each do |mode|
+        = ko "if: mode() == '#{mode}'" do
+          = t(".detalization_#{mode}_description")
+    = ko 'foreach: operations' do
+      %div.av-inline(data-bind="component: { name: 'transaction-outcome-operation', params: { operation: $data } }")
+    %div.av-inline
+      %input.av-input.new-operation{ type: 'text', placeholder: t('.click_for_add_new'), 'data-bind' => 'event: { focus: addOperationAndFocus }'}
+
+
+= render 'components/select_wallet_template'
+= render 'components/select_product_template'
+= render 'components/money_input_template'
+= render 'components/unit_input_template'
+= render 'components/tags_input_template'
+= render 'components/transaction_operation_template'

@@ -2,6 +2,16 @@
 @import "bootstrap";
 @import "custom-bootstrap/navbar";
 @import "custom-bootstrap/button";
+@import "custom-bootstrap/page";
+
+@import "custom-bootstrap/money";
+@import "custom-bootstrap/custom-chosen";
+
+.form-horizontal .control-label {
+  font-weight: normal;
+  font-size: 95%;
+  padding-top: 9px;
+}
 
 .site-content > .main-container {
   margin-top: 20px;
@@ -32,4 +42,9 @@
     }
 
   }
+}
+
+.form-control {
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }

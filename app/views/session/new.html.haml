@@ -1,0 +1,12 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/session', media: "all"
+- content_for :scripts do
+  = javascript_include_tag "views/book_new"
+
+.login-container
+  %img.profile-img{ src: asset_url('login_default_user.png') }
+  = bt_form_for @login, as: :login, html: { class: 'form-signin' } do |f|
+    = f.text_input property: :name, placeholder: t(".name")
+    = f.password_input property: :password, placeholder:(t ".password")
+    = f.checkbox property: :remember, text: t('.remember')
+    = f.submit_button text: t(".login"), html: { class: 'btn btn-lg btn-primary btn-block' }

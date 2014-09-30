@@ -1,0 +1,35 @@
+.books-table {
+  
+  .first-row {
+    .book-name {
+      font-size: 125%;
+    }
+
+    .book-controls {
+      display: inline-block;
+      opacity: 0;
+      
+      
+      .btn {
+        margin-bottom: 3px;
+        
+      }
+    }
+
+    
+  }
+  
+  .second-row {
+    font-size: 85%;
+    span + span {
+      margin-left: 10px;
+    }
+  }
+
+  tr:hover {
+    .book-controls {
+      opacity: 1;
+    }
+  }
+
+}

@@ -46,5 +46,22 @@ module BootstrapHelpers
       builder.render
     end
 
+    def bt_dropdown options = {}, &block
+      builder = ::BootstrapHelpers::Builders::Dropdown.new(self, options, &block)
+      builder.render
+    end
+
+    def ko params, options = {}, &block
+      options[:params] = params
+      builder = ::BootstrapHelpers::Builders::Knockout::CommentBlock.new(self, options, &block)
+      builder.render
+    end
+
+    def ko_template name, options = {}, &block
+      options[:name] = name
+      builder = ::BootstrapHelpers::Builders::Knockout::Template.new(self, options, &block)
+      builder.render
+    end
+
   end
 end

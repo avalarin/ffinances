@@ -1,0 +1,41 @@
+// @import "chosen";
+
+.currencies {
+  margin-top: 10px;
+
+  ul {
+    padding: 0;
+    margin: 2px 15px 0 15px;
+  }
+
+  li {
+    list-style: none;
+    margin: 1px;
+  }
+
+  span.code {
+    color: #999;
+  }
+
+  span.symbol {
+    font-weight: bold;
+  } 
+
+  span.name {
+
+  }
+
+  span.controls {
+    display: none;
+    a {
+      line-height: inherit;
+      padding: 0;
+      font-size: 80%;
+    }
+  }
+
+  li:hover > span.controls {
+    display: inline-block;
+  }
+
+}

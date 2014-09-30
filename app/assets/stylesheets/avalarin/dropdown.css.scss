@@ -1,0 +1,42 @@
+.av-dropdown {
+  position: relative;
+  display: inline;
+
+  .av-dropdown-drop {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    z-index: $zindex-dropdown;
+    float: left;
+    min-width: 240px;
+    padding: 5px;
+    margin: 3px 0 0; // override default ul
+    list-style: none;
+    font-size: $font-size-base;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    background-color: $dropdown-bg;
+    border: 1px solid $dropdown-fallback-border; // IE8 fallback
+    border: 1px solid $dropdown-border;
+    border-radius: $border-radius-base;
+    @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+    background-clip: padding-box;
+
+    &.open {
+      display: block;
+    }
+
+    .search {
+      height: 28px;
+    }
+
+    .fail-message {
+      text-align: center;
+      font-size: 85%;
+      margin-top: 10px;
+      color: #999;
+    }
+
+  }
+
+}

@@ -1,0 +1,10 @@
+= ko_template 'select-product-template' do
+  .av-dropdown
+    %input.search.av-input{ type: 'text', placeholder: t('.product'), 'data-bind' => 'value: search, valueUpdate: "afterkeydown"' }
+    .av-dropdown-drop
+      = ko 'if: items().length == 0' do
+        %p.fail-message=t('.no_products')
+      %ul.select-list(data-bind="foreach: items")
+        %li
+          %a(href="#" data-bind="click: $parent.select")
+            %span(data-bind="text: displayName")

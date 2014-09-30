@@ -1,0 +1,65 @@
+ru: 
+    errors: &errors
+        format: ! '%{attribute} %{message}'
+        messages:
+            invalid_captcha: Текст с картинки введен не верно.
+            invalid_invite_code: Неверный код приглашения.
+            access_denied: Доступ запрещен.
+            directory_name_cannot_be_empty: Введите имя папки.
+            directory_already_exists: Папка уже существует.
+            directory_not_found: Папка не существует.
+            share_already_exists: Общая папка с таким именем уже существует.
+            invalid_email_or_password: Email или пароль введены неверно.
+            invalid_email_address: Введен неверный email.
+            password_confirmation: Пароли не совпадают.
+            user_locked: Пользователь заблокирован.
+            account_not_activated: Аккаунт не активирован.
+            accepted: Нужно подтвердить.
+            blank: Не может быть пустым.
+            confirmation: Не совпадает со значением поля %{attribute}.
+            empty: Не может быть пустым.
+            equal_to: Может иметь лишь значение, равное %{count}.
+            even: Может иметь лишь нечетное значение.
+            exclusion: Имеет зарезервированное значение.
+            greater_than: Может иметь значение большее %{count}.
+            greater_than_or_equal_to: Может иметь значение большее или равное %{count}.
+            inclusion: Имеет непредусмотренное значение.
+            invalid: Имеет неверное значение.
+            less_than: Может иметь значение меньшее чем %{count}.
+            less_than_or_equal_to: Может иметь значение меньшее или равное %{count}.
+            not_a_number: Не является числом.
+            not_an_integer: Не является целым число.
+            odd: Может иметь лишь четное значение.
+            record_invalid: ! 'Возникли ошибки: %{errors}'
+            taken: Уже существует.
+            too_long_no_count: Cлишком большой длины.
+            too_long:
+                few: Cлишком большой длины (не может быть больше чем %{count} символа)
+                many: Cлишком большой длины (не может быть больше чем %{count} символов)
+                one: Cлишком большой длины (не может быть больше чем %{count} символ)
+                other: Cлишком большой длины (не может быть больше чем %{count} символа)
+            too_short_no_count: Недостаточной длины.
+            too_short:
+                few: Недостаточной длины (не может быть меньше %{count} символов)
+                many: Недостаточной длины (не может быть меньше %{count} символов)
+                one: Недостаточной длины (не может быть меньше %{count} символа)
+                other: Недостаточной длины (не может быть меньше %{count} символа)
+            wrong_length:
+                few: Неверной длины (может быть длиной ровно %{count} символа)
+                many: Неверной длины (может быть длиной ровно %{count} символов)
+                one: Неверной длины (может быть длиной ровно %{count} символ)
+                other: Неверной длины (может быть длиной ровно %{count} символа)
+        template:
+            body: ! 'Проблемы возникли со следующими полями:'
+            header:
+                few: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
+                many: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
+                one: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+                other: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+    # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+    activemodel:
+        errors:
+            <<: *errors
+    activerecord:
+        errors:
+            <<: *errors
