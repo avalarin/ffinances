@@ -18,16 +18,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
+development:
+  <<: *default
+
   host: dev2.local
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   database: ffinances
   username: ffinances
   password: OdA4jnzkTz
-
-development:
-  <<: *default
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -35,5 +33,17 @@ development:
 test:
   <<: *default
 
+  host: dev2.local
+  pool: 5
+  database: ffinances
+  username: ffinances
+  password: OdA4jnzkTz
+
 production:
   <<: *default
+
+  host: <%= ENV["DB_HOST"] || 'localhost' %>
+  pool: 5
+  database: <%= ENV["DB_DBNAME"] || 'ffinances' %>
+  username: <%= ENV["DB_USERNAME"] || 'ffinances' %>
+  password: <%= ENV["DB_PASSWORD"] %>
