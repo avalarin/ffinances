@@ -21,3 +21,7 @@ gem 'underscore-rails'
 gem 'chosen-rails'
 
 gem 'paperclip'
+
+group :production do
+  gem 'unicorn'
+end
