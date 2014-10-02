@@ -41,9 +41,9 @@ class TransactionController < ApplicationController
       tags: tags
     })
 
-    permitted[:operations].each do |op|
-      unit = Unit.find(op[:unit])
+    permitted[:operations].each do |op|   
       if op[:product]
+        unit = Unit.find(op[:unit])
         if op[:product][:id]
           product_model = Product.where(book_id: current_book.id, id: op[:product][:id]).first
         end
@@ -55,7 +55,8 @@ class TransactionController < ApplicationController
           product_model.save
         end
       else
-          product_model = nil
+        unit = nil
+        product_model = nil
       end
 
       op_model = Operation.new({
