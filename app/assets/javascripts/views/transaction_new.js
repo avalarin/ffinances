@@ -32,7 +32,7 @@ $(function() {
   })
 })
 
-function OperationLogicModel(options) {
+function Operation(options) {
   options = options || {}
   var model = this
   model.transaction = options['transaction']
