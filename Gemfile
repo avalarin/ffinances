@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.4'
+gem 'rails'
+gem 'capistrano-rails'
 
 gem 'pg'
 gem 'rubyzip'
