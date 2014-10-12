@@ -12,7 +12,8 @@ gem 'settingslogic'
 gem 'will_paginate'
 gem 'validates_email_format_of'
 
-gem 'sass-rails', '~> 4.0.2'
+gem 'sprockets', '~> 2.11.0'
+gem 'sass-rails'
 gem 'haml-rails'
 
 gem 'jquery-rails'
