@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
 
-  validates :name, :email, :display_name, :confirmation_code, presence: true
+  validates :name, :email, :display_name, presence: true
   validates :name, :email, uniqueness: { case_sensitive: true }
   validates :email, email_format: { message: "doesn't look like an email address" }
 
