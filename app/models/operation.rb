@@ -1,5 +1,5 @@
 class Operation < ActiveRecord::Base
-  belongs_to :transaction, inverse_of: :operations
+  belongs_to :transact, inverse_of: :operations, class_name: "Transaction"
   belongs_to :wallet
   belongs_to :currency
   belongs_to :unit
