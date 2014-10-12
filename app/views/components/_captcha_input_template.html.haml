@@ -1,0 +1,4 @@
+= ko_template 'captcha-input-template' do
+  .captcha
+    =bt_icon 'spinner', spin: true, ko: 'visible: loading', :'class' => 'loading'
+    %img{ 'data-bind' => 'click: update, attr: { src: imageUrl }, visible: !loading()' }

@@ -1,0 +1,29 @@
+.table {
+
+  td * {
+    vertical-align: middle;
+  }
+
+  .column-avatar {
+    padding: 5px 8px;
+    width: 40px;
+  }
+
+  .column-left {
+
+  }
+
+  .column-right {
+    text-align: right;
+  }
+
+}
+
+.datatable-search {
+  margin-bottom: 15px;
+}
+
+.datatable-empty-message {
+  text-align: center;
+  color: #999;
+}

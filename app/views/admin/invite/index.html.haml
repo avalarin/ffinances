@@ -1,0 +1,34 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/admin/invite', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/admin/invite'
+  =render 'admin/invite/index_resources'
+
+.alert.alert-success=t('.registration_mode_' + Settings.security.registration_mode.to_s)
+
+.panel.panel-default(data-bind="with: datatable")
+  .panel-heading= t('.invites_list')
+  .panel-subheading= t('.invites_list_desc')
+  .panel-body
+    .btn-toolbar(role="toolbar")
+      = bt_button icon: "plus", text: t("commands.create"), size: :small, style: :success, ko: 'click: create' 
+      = bt_button icon: "refresh", text: t("commands.refresh"), size: :small, ko: 'click: refresh'
+  %table.table.table-bordered.table-stripped.table-hover
+    %tbody
+      / ko if: items().length == 0
+      %tr
+        %td
+          %div.datatable-empty-message=t('.no_invites')
+      / /ko
+      / ko foreach: items
+      %tr
+        %td.column-left
+          = bt_icon :ticket
+          %span{ "data-bind" => "text: code" }
+          = bt_label t('.is_activated'), style: :success, data: { bind: 'visible: activated' }
+          %span{ "data-bind" => "visible: activated" }
+            = bt_icon :user
+            %span{ "data-bind" => "text: user ? user.displayName : ''" }
+        %td.column-right
+          = bt_button icon: 'trash-o', size: :xsmall, style: :danger, title: t('commands.delete'), data: { bind: 'click: $parent.delete, visible: !activated' }
+      / /ko

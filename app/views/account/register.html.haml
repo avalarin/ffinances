@@ -1,0 +1,25 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/account', media: "all"
+- content_for :scripts do
+  = javascript_include_tag "views/account_register"
+
+
+.account-container
+  = bt_form_for @user, html: { :'class' => 'form-stack' }, id: 'register-form' do |f|
+    - if @invite
+      = f.hidden property: 'invite', value: @invite.code
+    = f.text_input property: :display_name, placeholder: t(".display_name"), ko: 'value: displayName', html: { :'class' => 'first' }
+    = f.text_input property: :name, placeholder: t(".name"), ko: 'value: name'
+    = f.text_input property: :email, placeholder: t(".email"), ko: 'value: email'
+    = f.password_input property: :password, placeholder:(t ".password"), ko: 'value: password', html: { :'class' => 'last' }
+
+    %div.av-inline{'data-bind' => "component: { name: 'captcha-input', params: { model: captcha } }"}
+    %input.form-control.first.last{ type: 'text', 'id' => 'captcha-value', name: 'captcha[value]', placeholder: t('.captcha'), 'data-bind' => 'value: captcha.value', 'data-val' => 'true', 'data-val-required' => t('errors.messages.empty') }
+
+    %button.btn.btn-lg.btn-success.btn-block.btn-loader(data-bind="click: register")
+      .content
+        =t('commands.register')
+      .loader
+        =bt_icon :spinner, spin: true
+
+= render 'components/captcha_input_template'

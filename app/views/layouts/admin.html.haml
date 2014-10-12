@@ -1,0 +1,21 @@
+-content_for :content do
+  .row
+    .col-md-3
+      .panel.panel-default
+        .panel-heading=t('.administration')
+        .list-group
+          %a.list-group-item{ href: admin_main_path }
+            =bt_icon :sliders
+            %span=t('.main')
+          %a.list-group-item{ href: admin_users_index_path }
+            =bt_icon :users
+            %span=t('.users')
+          %a.list-group-item{ href: admin_invites_index_path }
+            =bt_icon :ticket
+            %span=t('.invites')
+    .col-md-9
+      / -content_for :messages do '' end
+      / =render 'layouts/messages'
+      =yield
+/ -@hide_messages = true
+=render template: "layouts/application"

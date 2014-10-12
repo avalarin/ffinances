@@ -12,13 +12,35 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
 
-  validates :name, :email, :display_name, presence: true
+  validates :name, :email, :display_name, :confirmation_code, presence: true
   validates :name, :email, uniqueness: { case_sensitive: true }
   validates :email, email_format: { message: "doesn't look like an email address" }
 
   has_secure_password
-  validates :password, :presence =>true, :confirmation => true, :length => { :within => 5..40 }, :on => :create
-  validates :password, :confirmation => true, :length => { :within => 5..40 }, :on => :update, :unless => lambda{ |user| user.password.blank? }
+  validates :password, :presence =>true, :length => { minimum: 5 }, :on => :create
+
+  def self.filters
+    [:all, :locked, :not_confirmed]
+  end
+
+  def self.filter f
+    case f
+      when :all
+        all
+      when :locked
+        where locked: true
+      when :not_confirmed
+        where confirmed: false
+      else
+        []
+      end
+  end
+
+  def self.search text
+    return all if text == nil || text.empty?
+    search = "%#{text}%"
+    all.where 'name like ? or display_name like ? or email like ?', search, search, search
+  end
 
   def roles= roles
     write_attribute(:roles, roles.join(';'))

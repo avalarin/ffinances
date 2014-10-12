@@ -1,0 +1,21 @@
+.panel.panel-default {
+ .panel-heading {
+    font-size: $font-size-large;
+    font-weight: 300;
+    color: #555;
+    background-color: white;
+    border: none;
+    padding: 10px;
+  }
+  
+  .panel-subheading {
+    font-size: $font-size-small;
+    color: #999;
+    padding: 10px;
+  }
+
+  .panel-heading + .panel-subheading {
+    margin-top: -10px;
+  }
+
+}

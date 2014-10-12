@@ -1,4 +1,6 @@
 defaults: &defaults
+  security: 
+    registration_mode: free
 
 development:
   <<: *defaults

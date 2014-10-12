@@ -1,4 +1,33 @@
 ru: 
+    admin:
+        main:
+            index:
+                users: Пользователи
+                status: Состояние
+                options: Опции
+        user:
+            index:
+                users_list: Список пользователей
+                users_list_desc: Здесь Вы можете найти всех зарегистрированных пользователей и управлять ими.
+                users_search: 'Поиск пользователей'
+                is_admin_user: 'Админ'
+                is_current_user: 'Вы'
+                is_locked: 'Заблокирован'
+                not_confirmed: 'Не подтвержден'
+                filter_all: 'Все пользователи'
+                filter_locked: 'Заблокированные'
+                filter_not_confirmed: 'Не подтвержденные'
+                no_users: 'Пользователи не найдены.'
+                create_modal_header: 'Новый пользователь'
+        invite:
+            index:
+                invites_list: Список инвайтов
+                invites_list_desc: Здась Вы можете создавать новые инвайты и управлять уже созданными.
+
+                registration_mode_free: Включена свободная регистрация
+                registration_mode_invites: Включена регистрация по инвайтам
+                registration_mode_disabled: Регистрация отключена
+                no_invites: Инвайты не найдены
     book:
         index:
             books_list: Список книг
@@ -71,7 +100,7 @@ ru:
         lock: 'Заблокировать'
         unlock: 'Разблокировать'
         search: 'Поиск'
-        send_activation_email: 'Отправить запрос на активацию'
+        send_confirmation_email: 'Отправить запрос на подтверждение'
         login: 'Войти'
         logout: 'Выйти'
         register: 'Регистрация'
@@ -83,9 +112,11 @@ ru:
         exit_full_screen:  'Свернуть'
         start: 'Начать'
         add: 'Добавить'
-
+        continue_to_work: 'Продолжить работу'
         add_transaction: 'Добавить платеж'
     messages:
+        success_confirmation: 'Ваш email подтвержден, спасибо.'
+
         confirm_deletion: 'Подтвердите удаление:'
         user_not_found: 'Пользователь не существует'
         item_already_found: 'Запись уже существует'
@@ -102,22 +133,54 @@ ru:
         navbar:
             current_book: 'Текущая книга'
             current_book_not_selected: 'Книга не выбрана'
-    session:
-        new:
+        admin:
+            administration: 'Администрирование'
+            main: 'Главная'
+            users: 'Пользователи'
+            invites: 'Инвайты'
+    account:
+        login:
             login_to_continue: 'Войдите в систему'
             login: 'Войти'
             name: 'Имя пользователя'
             password: 'Пароль'
             remember: 'Запомнить меня'
             need_help: 'Нужна помощь?'
+        register:
+            display_name: 'Ваше имя'
+            name: 'Логин'
+            email: 'Email'
+            password: 'Пароль'
+            invite: 'Код приглашения'
+            captcha: 'Текст с картинки'
+        register_error:
+            registration_disabled: К сожалению сейчас свободная регистрация отключена. Получить доступ к сайту Вы можете только запросив его у администратора.
+            invite_not_found: Приглашение не существует.
+            invite_outdated: Приглашение уже использовано или истек срок действия.
+            invite_required: К сожалению сейчас для регистрации требуется приглашение. Получить приглашение Вы можете от администратора сайта.
+        success_registration:
+            success_registration: Вы успешно зарегистрированы на сайте.
     model:
         book:
             display_name: Название
             owner: Владелец
             created_at: Создана
-        wallet:
+        wallet: 
             display_name: 'Название'
             description: 'Описание'
+        user:
+            name: 'Имя пользователя'
+            display_name: 'Отображаемое имя'
+            email: 'Email'
+            password: 'Пароль'
+            password_confirmation: 'Подтверждение пароля'
+    user_mailer:
+        success_registration:
+            mail_subject: 'Регистрация на сайте %{app_name}'
+            mail_message: 'Вы успешно зарегистрированы на сайте %{app_name}.<br/> Пожалуйста, подтвердите Ваш email перейдя по <a href="%{confirmation_url}">ссылке</a>. Без подтверждения Вы не сможете восстановить пароль в случае утери.'
+        email_confirmation:
+            mail_subject: 'Подтверждение электронного адреса для сайта %{app_name}'
+            mail_message: 'Пожалуйста, подтвердите Ваш email перейдя по <a href="%{confirmation_url}">ссылке</a>. Без подтверждения Вы не сможете восстановить пароль в случае утери.'
     components:
         select_wallet_template:
             select_wallet: 'Выберите кошелек'

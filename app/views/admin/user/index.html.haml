@@ -1,0 +1,57 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/admin/user', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/admin/user'
+  =render 'admin/user/index_resources'
+
+.panel.panel-default(data-bind="with: datatable")
+  .panel-heading= t('.users_list')
+  .panel-subheading= t('.users_list_desc')
+  .panel-body
+    .btn-toolbar(role="toolbar")
+      = bt_button icon: "plus", text: t("commands.create"), size: :small, style: :success, ko: 'click: $root.createModal.show' 
+      = bt_button icon: "refresh", text: t("commands.refresh"), size: :small, ko: 'click: refresh'
+      .av-input.inline.search
+        %input{ type: 'text', placeholder: t('.users_search'), 'data-bind' => 'value: search' }
+        = bt_button icon: 'search', title: t('commands.search'), size: :xsmall, style: :link, ko: 'click: refresh'
+
+  %table.table.table-hover
+    %tbody
+      / ko if: items().length == 0
+      %tr
+        %td
+          %div.datatable-empty-message=t('.no_users')
+      / /ko
+      / ko foreach: items 
+      %tr
+        %td.column-avatar
+          %img.avatar.s24(data-bind="attr: { src: avatarUrl }")
+        %td.column-left
+          %a.name{ "href" => "javascript:", "data-bind" => "text: displayName" }
+          = bt_label t('.is_current_user'), style: :success, data: { bind: 'visible: isCurrent' }
+          = bt_label t('.is_admin_user'), style: :warning, data: { bind: 'visible: _.contains(roles, "admin")' }
+          = bt_label t('.is_locked'), style: :danger, data: { bind: 'visible: isLocked' }
+          = bt_label t('.not_confirmed'), style: :warning, data: { bind: 'visible: !isConfirmed' }
+        %td.column-right
+          = bt_link icon: 'envelope', text: t('commands.send_confirmation_email'), data: { bind: 'click: $parent.sendActivationEmail, visible: !isConfirmed' }
+          = bt_link icon: 'lock', style: :danger, text: t('commands.lock'), data: { bind: 'click: $parent.lockUser, visible: !isLocked && !isCurrent' }
+          = bt_link icon: 'lock', style: :success, text: t('commands.unlock'), data: { bind: 'click: $parent.unlockUser, visible: isLocked' }
+      / /ko
+
+= bt_modal id: "create-modal", header: t('.create_modal_header'), data: { bind: 'with: createModal' } do |m| 
+  - m.body do 
+    = bt_form_for :user, label_col_size: 4, controls_col_size: 8 do |f| 
+      = f.group property: :name do |g| 
+        = g.text_input data: { bind: 'value: name' } 
+      = f.group property: :display_name do |g| 
+        = g.text_input data: { bind: 'value: displayName' } 
+      = f.group property: :email do |g| 
+        = g.text_input data: { bind: 'value: email' } 
+      = f.group property: :password do |g| 
+        = g.password_input data: { bind: 'value: password' } 
+      = f.group property: :password_confirmation do |g| 
+        = g.password_input data: { bind: 'value: passwordConfirmation' } 
+
+  - m.footer do 
+    = bt_button style: :success, text: t("commands.create"), data: { bind: "click: save" } 
+    = bt_button text: t("commands.cancel"), size: :small, data: { bind: "click: close" } 

@@ -1,0 +1,6 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/account', media: "all"
+
+.account-container
+  %p=t('.success_registration')
+  = bt_button text: t('commands.continue_to_work'), href: root_path

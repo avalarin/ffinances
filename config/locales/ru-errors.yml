@@ -1,6 +1,13 @@
 ru: 
     errors: &errors
-        format: ! '%{attribute} %{message}'
+        format: '%{attribute} %{message}'
+        models:
+            user:
+                attributes:
+                    name:
+                        taken: Логин занят.
+                    email:
+                        taken: Email занят.
         messages:
             invalid_captcha: Текст с картинки введен не верно.
             invalid_invite_code: Неверный код приглашения.
@@ -13,7 +20,6 @@ ru:
             invalid_email_address: Введен неверный email.
             password_confirmation: Пароли не совпадают.
             user_locked: Пользователь заблокирован.
-            account_not_activated: Аккаунт не активирован.
             accepted: Нужно подтвердить.
             blank: Не может быть пустым.
             confirmation: Не совпадает со значением поля %{attribute}.
@@ -30,7 +36,7 @@ ru:
             not_a_number: Не является числом.
             not_an_integer: Не является целым число.
             odd: Может иметь лишь четное значение.
-            record_invalid: ! 'Возникли ошибки: %{errors}'
+            record_invalid: 'Возникли ошибки: %{errors}'
             taken: Уже существует.
             too_long_no_count: Cлишком большой длины.
             too_long:
@@ -50,12 +56,12 @@ ru:
                 one: Неверной длины (может быть длиной ровно %{count} символ)
                 other: Неверной длины (может быть длиной ровно %{count} символа)
         template:
-            body: ! 'Проблемы возникли со следующими полями:'
+            body: 'Проблемы возникли со следующими полями:'
             header:
-                few: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
-                many: ! '%{model}: сохранение не удалось из-за %{count} ошибок'
-                one: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
-                other: ! '%{model}: сохранение не удалось из-за %{count} ошибки'
+                few: '%{model}: сохранение не удалось из-за %{count} ошибок'
+                many: '%{model}: сохранение не удалось из-за %{count} ошибок'
+                one: '%{model}: сохранение не удалось из-за %{count} ошибки'
+                other: '%{model}: сохранение не удалось из-за %{count} ошибки'
     # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
     activemodel:
         errors:

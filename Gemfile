@@ -4,6 +4,7 @@ gem 'rails'
 gem 'capistrano-rails'
 
 gem 'pg'
+gem 'redis'
 gem 'rubyzip'
 gem 'bcrypt', '~> 3.1.7'
 gem 'uglifier', '>= 1.3.0'

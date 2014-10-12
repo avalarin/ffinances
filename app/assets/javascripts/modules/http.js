@@ -55,6 +55,14 @@ define('http', ['jquery'], function ($) {
       e.preventDefault();
   });
 
+
+  function redirect(options) {
+    if ('messages' in options) {
+      document.cookie = "messages=" + options.messages + ";"
+    }
+    location.href = options.url
+  }
+
   function request(data) {
     var loaderHtml = '<i class="fa fa-spin fa-spinner loader" />';
 
@@ -171,6 +179,7 @@ define('http', ['jquery'], function ($) {
   return {
     downloadURL: downloadURL,
     request: request,
+    redirect: redirect,
     defaultErrorHandler: defaultErrorHandler
   }
 

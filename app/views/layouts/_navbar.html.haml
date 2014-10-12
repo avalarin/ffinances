@@ -37,6 +37,7 @@
         - else
           %li
             %a{ href: login_path }=t('commands.login')
-          %li
-            %a{ href: '#' }=t('commands.register')
+          - if Settings.security.registration_mode != :disabled
+            %li
+              %a{ href: register_path }=t('commands.register')
           

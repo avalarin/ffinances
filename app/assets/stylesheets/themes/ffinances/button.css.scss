@@ -1,0 +1,43 @@
+.btn-link {
+  padding: 0 5px;
+  line-height: inherit;
+  border: 0;
+  color: #999;
+
+  &:hover {
+    color: #333;
+    text-decoration: none;
+  }
+
+}
+
+.btn-uploader {
+  position: relative;
+  overflow: hidden;
+
+  input[type=file] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 82px;
+    height: 32px;
+    cursor: pointer;
+  }
+}
+
+.btn-loader {
+  .loader {
+    display: none;
+  }
+
+  &.loading {
+    .content {
+      display: none; 
+    }
+
+    .loader {
+      display: inline;
+    }
+  }
+}

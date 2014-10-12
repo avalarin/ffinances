@@ -1,6 +1,17 @@
 - flash.each do |name, msg|
+  - next if name == :messages
   - if msg.is_a?(String)
     %div{ class: 'alert alert-' + (name.to_s == 'notice' ? 'success' : 'danger') }
       %button.close(type="button" data-dismiss="alert" aria-hidden="true")
         &times
       = content_tag :div, msg, :id => "flash_#{name}"
+
+- if @messages
+  - @messages.each do |message|
+    %div{ class: 'alert alert-' + message.type.to_s }
+      - if message.allow_close
+        %button.close(type="button" data-dismiss="alert" aria-hidden="true")
+          &times
+      - if message.header
+        %strong=message.header
+      = message.content

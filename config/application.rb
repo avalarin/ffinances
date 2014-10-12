@@ -2,6 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require File.join(File.dirname(__FILE__), "redis.rb")
+require File.join(File.dirname(__FILE__), "../lib", "captcha.rb")
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -21,5 +24,9 @@ module FamilyFinances
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
+
+    config.middleware.use Captcha::Middleware
+
+    Rails.application.routes.default_url_options[:host] = 'dev2.local:3000'
   end
 end

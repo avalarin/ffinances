@@ -1,43 +1,4 @@
 /*
  *= require_self
  */
-@import "avalarin/avalarin";
-
-@import "mixins";
-@import "font-awesome";
-@import "site-footer";
-@import "site-loader";
-@import "avatar";
-
-body {
-  background: #fff image-url('background.png');
-}
-
-// .navbar {
-//   margin-bottom: 20px;
-// }
-
-.btn-uploader {
-  position: relative;
-  overflow: hidden;
-
-  input[type=file] {
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 82px;
-    height: 32px;
-    cursor: pointer;
-  }
-}
-
-a {
-  color: #333;
-  i.fa {
-    text-decoration: inherit;
-  }
-  &:hover {
-    color: #333;
-  }
-}
+@import "themes/ffinances";

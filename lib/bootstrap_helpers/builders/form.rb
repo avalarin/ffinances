@@ -218,13 +218,9 @@ module BootstrapHelpers
             @model = @model_class.new
           else
             @model = options[:record].is_a?(Array) ? options[:record].last : options[:record]
-            raise ArgumentError, 'First argument in form cannot contain nil or be empty' unless @model
             @model_name  = options[:as] || @model.class.model_name.param_key
             @model_class = @model.class
         end
-
-        # @property_name = nil
-        # @element_id = nil
       end
 
       def validation_attributes property
@@ -242,22 +238,20 @@ module BootstrapHelpers
             #   attrs[:'data-val-is'] = errors.generate_message(property, :wrong_length)
             # end
             if validator_options.has_key?(:minimum) && validator_options.has_key?(:maximum)
-              attrs[:'data-val-length'] = errors.generate_message(property, :too_short_or_too_long_no_count)
+              attrs[:'data-val-length'] = errors.generate_message(property, :too_short_or_too_long_no_count, validator_options)
               attrs[:'data-val-length-min'] = validator_options[:minimum]
               attrs[:'data-val-length-max'] = validator_options[:maximum]
-            end
-            if validator_options.has_key? :minimum
+            elsif validator_options.has_key? :minimum
               attrs[:'data-val-length'] = errors.generate_message(property, :too_short_no_count, validator_options)
               attrs[:'data-val-length-min'] = validator_options[:minimum]
-            end
-            if validator_options.has_key? :maximum
+            elsif validator_options.has_key? :maximum
               attrs[:'data-val-length'] = errors.generate_message(property, :too_long_no_count, validator_options)
-              attrs[:'data-val-length-min'] = 0
+              attrs[:'data-val-length-min'] = validator_options[:minimum]
               attrs[:'data-val-length-max'] = validator_options[:maximum]
             end
-          when EmailFormatValidator
-            attrs[:'data-val-regex'] = errors.generate_message(property, :invalid_email_address)
-            attrs[:'data-val-regex-pattern'] = '^[^@]+@[^@]+$'
+          # when EmailFormatValidator
+          #   attrs[:'data-val-regex'] = errors.generate_message(property, :invalid_email_address)
+          #   attrs[:'data-val-regex-pattern'] = '^[^@]+@[^@]+$'
           when ActiveModel::Validations::ConfirmationValidator
             other = property.to_s + '_confirmation'
             attrs[:'data-val-equalto'] = errors.generate_message(property, other.to_sym)

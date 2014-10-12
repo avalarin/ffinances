@@ -37,7 +37,7 @@ module Captcha
     end
 
     def self.generate
-      new_code = SecureRandom.uuid
+      new_code = SecureRandom.hex(12)
       new_value = ''
       Captcha.length.times{new_value << (65 + rand(26)).chr}
       Data.new new_code, new_value

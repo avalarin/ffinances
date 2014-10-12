@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
-  get '/login', to: 'session#new', as: :login
-  post '/login', to: 'session#create', as: :login_post
-  get '/logout', to: 'session#destroy', as: :logout
+  get '/login', to: 'account#login', as: :login
+  post '/login', to: 'account#do_login', as: :login_post
+  get '/logout', to: 'account#do_logout', as: :logout
+  get '/register', to: 'account#register', as: :register
+  post '/register', to: 'account#do_register', as: :register_post
+  get '/register/success', to: 'account#success_registration', as: :success_registration
+  get '/confirm/:code', to: 'account#confirm', as: :confirm_account
 
   get '/dashboard', to: 'dashboard#index', as: :dashboard
 
@@ -40,6 +44,19 @@ Rails.application.routes.draw do
     get '/currency/rate', to: 'currency#rate', as: :currencies_rate
 
     get '/unit', to: 'unit#index', as: :units_index
+  end
+
+  namespace :admin do
+    get '/', to: 'main#index', as: :main
+
+    get '/user', to: 'user#index', as: :users_index
+    post '/user', to: 'user#create', as: :create_user
+    post '/user/:user_name/send_email', to: 'user#send_confirmation_email', as: :send_user_confirmation_email
+    patch '/user/:user_name', to: 'user#update', as: :update_user
+
+    get '/invite', to: 'invite#index', as: :invites_index
+    post '/invite', to: 'invite#create', as: :create_invite
+    delete '/invite/:code', to: 'invite#delete', as: :delete_invite
   end
 
 end

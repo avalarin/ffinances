@@ -23,6 +23,11 @@ module BootstrapHelpers
       builder.render
     end
 
+    def bt_link options = {}, &block
+      builder = ::BootstrapHelpers::Builders::Link.new(self, options, &block)
+      builder.render
+    end
+
     def bt_icon name, options = {}, &block
       options[:name] = name
       builder = ::BootstrapHelpers::Builders::Icon.new(self, options, &block)

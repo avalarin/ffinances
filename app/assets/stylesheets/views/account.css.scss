@@ -1,0 +1,41 @@
+@import "components/captcha-input";
+
+.account-container {
+    position: relative;
+    width: 300px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+
+    .form-control {
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .checkbox {
+        font-weight: normal;
+    }
+
+    form input[type="checkbox"] {
+        position: relative;
+        margin: 0;
+        top: 2px;
+    }
+
+    .profile-img {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 20px;
+        display: block;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .btn-success {
+        height: 44px;
+    }
+
+}

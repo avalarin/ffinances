@@ -1,0 +1,55 @@
+@mixin link-variant($color) {
+  color: $color;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: darken($color, 10%);
+  }
+
+}
+
+.link {
+  color: $text-muted;
+  cursor: hand;
+
+  i.fa {
+    height: 15px;
+    text-decoration: inherit;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  .link-default {
+    color: $link-color;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  &.link-primary {
+    @include link-variant($btn-primary-bg)
+  }
+
+  &.link-success {
+    @include link-variant($btn-success-bg)
+  }
+
+  &.link-info {
+    @include link-variant($btn-info-bg)
+  }
+
+  &.link-warning {
+    @include link-variant($btn-warning-bg)
+  }
+
+  &.link-danger {
+    @include link-variant($btn-danger-bg)
+  }
+
+}

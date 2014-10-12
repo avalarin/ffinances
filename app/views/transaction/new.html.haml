@@ -6,7 +6,7 @@
 - modes = [ "income", "outcome", "transfer" ]
 %input#transaction-mode{ type: 'hidden', name: 'mode', value: @mode }
 
-.page-form(data-bind="with: transaction")
+.page-panel(data-bind="with: transaction")
   .page-title 
     = bt_dropdown html: { :'class' => 'transaction-mode' }, | 
                   source: modes do |d|
@@ -37,7 +37,7 @@
       = bt_button text: t('commands.cancel')
   
 = ko 'if: transaction.mode() == "outcome" || transaction.mode() == "other"' do
-  .page-form.detalization(data-bind="with: transaction")
+  .page-panel.detalization(data-bind="with: transaction")
     .page-title
       =t('.detalization')
     .page-description

@@ -1,0 +1,30 @@
+.form-stack {
+
+  .form-control {
+    border-radius: 0;
+    margin-bottom: -1px;
+    position: relative;
+    // z-index: 1;
+  }
+
+  .has-error > .form-control {
+    z-index: 3;
+  }
+
+  .form-control:focus {
+    z-index: 3;
+  }
+
+  .form-control.first {
+    border-top-left-radius: $input-border-radius;
+    border-top-right-radius: $input-border-radius;
+    margin-top: 10px;
+  }
+
+  .form-control.last {
+    border-bottom-left-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    margin-bottom: 10px;
+  }
+
+}

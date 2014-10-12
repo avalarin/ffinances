@@ -1,0 +1,40 @@
+.page-panel {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 10px;
+
+  .page-title {
+    margin-bottom: 20px;
+    font-size: 150%;
+    font-weight: 200;
+    line-height: 30px;
+  }
+
+  .page-description {
+    font-size: 90%;
+    margin-bottom: 20px;
+    color: #999;
+  }
+
+  .page-title + .page-description {
+    margin-top: -10px;
+  }
+
+  .page-toolbar {
+    margin-bottom: 20px;
+  }
+ 
+  hr {
+    margin: 0 -20px;
+    height: 0px;
+    border-top: 1px solid #ccc;
+    margin-bottom: 20px;
+
+    &.dashed {
+      border-top: 1px dashed #ccc;
+    }
+
+  }   
+}
+
