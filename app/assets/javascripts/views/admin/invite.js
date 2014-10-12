@@ -39,6 +39,10 @@
     })
   }
 
+  datatable.showLink = function() {
+    $('#show-link-modal').modal('show').find('input[name=link]').val(this.link)
+  }
+
   page.addControl('datatable', datatable)
 
   page.attach()

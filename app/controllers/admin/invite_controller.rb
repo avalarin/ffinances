@@ -8,7 +8,7 @@ module Admin
       filter = params[:filter] ? params[:filter].to_sym : :all
       @invites = Invite.filter(filter)
       all_count = @invites.count
-      @invites = @invites.order_desc(:created_at).paginate(page: page, per_page: per_page)
+      @invites = @invites.order('created_at desc').paginate(page: page, per_page: per_page)
 
       respond_to do |format|
         format.html { 
@@ -51,7 +51,8 @@ module Admin
     end
 
     def wrap_invite i
-      { id: i.id, code: i.code, email: email, activated: i.activated, user: i.user }
+      { id: i.id, code: i.code, email: i.email, activated: i.activated, user: i.user, 
+        link: register_url(invite: i.code) }
     end
 
   end

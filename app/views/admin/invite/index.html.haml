@@ -30,5 +30,13 @@
             = bt_icon :user
             %span{ "data-bind" => "text: user ? user.displayName : ''" }
         %td.column-right
-          = bt_button icon: 'trash-o', size: :xsmall, style: :danger, title: t('commands.delete'), data: { bind: 'click: $parent.delete, visible: !activated' }
+          = bt_link icon: 'link', text: t('commands.link'), ko: 'click: $parent.showLink'
+          = bt_link icon: 'trash-o', style: :danger, text: t('commands.delete'), data: { bind: 'click: $parent.delete, visible: !activated' }
       / /ko
+
+= bt_modal id: 'show-link-modal' do |modal|
+  - modal.body do
+    .input-group
+      %input.form-control(type="text" name="link" readonly="readonly")
+      %span.input-group-btn
+        = bt_button text: t('commands.copy')

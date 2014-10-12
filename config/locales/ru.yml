@@ -112,6 +112,8 @@ ru:
         exit_full_screen:  'Свернуть'
         start: 'Начать'
         add: 'Добавить'
+        link: 'Ссылка'
+        copy: 'Копировать'
         continue_to_work: 'Продолжить работу'
         add_transaction: 'Добавить платеж'
     messages:
