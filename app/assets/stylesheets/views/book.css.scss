@@ -3,6 +3,7 @@
   .first-row {
     .book-name {
       font-size: 125%;
+      margin-right: 5px;
     }
 
     .book-controls {
@@ -20,6 +21,7 @@
   }
   
   .second-row {
+    margin-top: 5px;
     font-size: 85%;
     span + span {
       margin-left: 10px;

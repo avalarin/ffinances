@@ -12,10 +12,14 @@
     %span= t('.no_books')
   %table.table.table-hover.books-table
     - @books.each do |book|
-      %tr{ :class => (current_book && book.id == current_book.id) ? "success" : "" }
+      %tr
         %td
           .first-row
             %a.book-name{ href: book_details_path(key: book.key) }= book.display_name
+            - if current_book && book.id == current_book.id
+              %span.text-success
+                = bt_icon :check
+                = t('.current_book')
             .book-controls
               - unless current_book && book.id == current_book.id
                 = bt_button text: t('commands.choose'), icon: :check, size: :xsmall, style: :link,
