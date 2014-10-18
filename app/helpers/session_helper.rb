@@ -1,5 +1,20 @@
 module SessionHelper
 
+  def get_book_role_index role
+    case role
+    when :owner
+      20
+    when :admin
+      15
+    when :master
+      10
+    when :readonly
+      5
+    else
+      0
+    end
+  end
+
   def current_session
     session_key = cookies['session']
     return nil if !session_key
@@ -24,6 +39,13 @@ module SessionHelper
   def set_current_book book
     raise ArgumentError, 'book required' unless book
     session[:current_book] = book.key
+  end
+
+  def current_book_role
+    book = current_book
+    user = current_user
+    return nil unless book && user
+    return book.get_role(user)
   end
 
   def authenticated?

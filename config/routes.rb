@@ -34,7 +34,11 @@ Rails.application.routes.draw do
   get '/book/new', to: 'book#new', as: :new_book
   post '/book/new', to: 'book#create', as: :create_book
   get '/book/:key', to: 'book#details', as: :book_details
+
   post '/book/:key', to: 'book#update', as: :update_book
+  get '/book/:key/users', to: 'book#users', as: :book_users
+  post '/book/:key/users', to: 'book#add_user', as: :add_book_user
+  post '/book/:key/users/:user', to: 'book#update_user', as: :update_book_user
 
   namespace :data do
     get '/country', to: 'country#index', as: :countries_index
@@ -44,6 +48,8 @@ Rails.application.routes.draw do
     get '/currency/rate', to: 'currency#rate', as: :currencies_rate
 
     get '/unit', to: 'unit#index', as: :units_index
+
+    get '/user', to: 'user#index', as: :users_index
   end
 
   namespace :admin do

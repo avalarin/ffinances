@@ -52,4 +52,12 @@
     @include link-variant($btn-danger-bg)
   }
 
+  &.link-xs, &.link-sm {
+    font-size: $font-size-small;
+  }
+
+  &.link-lg {
+    font-size: $font-size-large;
+  }
+
 }

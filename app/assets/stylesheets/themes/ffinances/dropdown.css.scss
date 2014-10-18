@@ -30,13 +30,15 @@
       height: 28px;
     }
 
-    .fail-message {
+    .fail-message, .loading {
       text-align: center;
-      font-size: 85%;
       margin-top: 10px;
-      color: #999;
     }
 
+    .fail-message {
+      font-size: 85%;
+      color: #999;
+    }
   }
 
 }

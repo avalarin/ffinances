@@ -1,0 +1,25 @@
+= ko_template 'select-user-template' do
+  .av-dropdown
+    %a.btn.btn-default(data-toggle="av-dropdown" data-bind="css: { disabled: disabled }")
+      = ko 'if: selectedOne()' do
+        .user-profile-link
+          %img.avatar.s16(data-bind="attr: { src: selectedOne().avatarUrl }")
+          %span(data-bind="text: selectedOne().displayName")
+      = ko 'if: !selectedOne()' do
+        %span=t('.select_user')
+    .av-dropdown-drop
+      %input.form-control.search{ type: 'text', placeholder: t('commands.search'), 'data-bind' => 'value: search, valueUpdate: "afterkeydown"' }
+      = ko 'if: !search()' do
+        %p.fail-message=t('.no_search')
+      = ko 'if: loading' do
+        %p.loading
+          = bt_icon :spinner, spin: true
+      = ko 'if: !loading() && search()' do
+        = ko 'if: items().length == 0' do
+          %p.fail-message=t('.no_users')
+        %ul.select-list(data-bind="foreach: items")
+          %li
+            %a(href="#" data-bind="click: $parent.select")
+              .user-profile-link
+                %img.avatar.s16(data-bind="attr: { src: avatarUrl }")
+                %span(data-bind="text: displayName")

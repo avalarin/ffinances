@@ -1,21 +1,68 @@
 - content_for :styles do
-  = stylesheet_link_tag 'views/book', media: "all"
+  = stylesheet_link_tag 'views/book_details', media: "all"
+- content_for :scripts do
+  = javascript_include_tag 'views/book_details'
+:javascript
+  book = #{ @book.to_json }
+  rolesLocalization = {
+    owner: '#{ t('model.book_user.role_owner') }',
+    admin: '#{ t('model.book_user.role_admin') }',
+    master: '#{ t('model.book_user.role_master') }',
+    readonly: '#{ t('model.book_user.role_readonly') }'
+  }
+  roles = [
+    { key: 'readonly', content: rolesLocalization.readonly },
+    { key: 'master', content: rolesLocalization.master },
+    { key: 'admin', content: rolesLocalization.admin }
+  ]
+  rolesAndDelete = [
+    { key: 'readonly', content: rolesLocalization.readonly },
+    { key: 'master', content: rolesLocalization.master },
+    { key: 'admin', content: rolesLocalization.admin },
+    { key: 'delete', content: '#{ t('commands.delete') }' }
+  ]
+.row
+  .col-md-7
+    .panel.panel-default
+      .panel-heading=t('.book_details', { name: @book.display_name })
+      .panel-body
+        %form
+          .form-group
+            %label=t('.book_owner')
+            %p.form-control-static=user_profile_link(@book.owner, avatar: :small)
+          .form-group
+            %label=t('.book_created_at')
+            %p.form-control-static=time_tag(@book.created_at)
+  .col-md-5
+    .panel.panel-default
+      .panel-heading
+        %span=t('.book_users')
+        %span.pull-right
+          = bt_icon :spinner, spin: true, ko: 'visible: usersLoading'
+          = bt_link icon: :refresh, text: t('commands.refresh'), size: :xsmall, |
+                       ko: 'click: refreshUsers, visible: !usersLoading()'
+      .panel-body
+        - if @admin
+          .av-inline(data-bind="component: { name: 'select-user', params: { selected: addUser.users, disabled: addUser.loading } }")
+          .av-inline(data-bind="component: { name: 'select-value', params: { items: window.roles, disabled: addUser.loading, selected: addUser.role } }")
+          = bt_button text: t('commands.add'), ko: 'click: addUser.add, css: { disabled: !addUser.canAdd(), loading: addUser.loading }'
+          %hr
+        %ul.users(data-bind="foreach: users")
+          %li
+            %a.user-profile-link{ href: '#' }
+              %img.avatar.s16(data-bind="attr: { src: avatarUrl }")
+              %span(data-bind="text: displayName")
+            .pull-right
+              - if @admin
+                .btn-group
+                  %button.btn.btn-default.btn-xs.dropdown-toggle(type="button" data-toggle="dropdown" data-bind="css: { disabled: bookRole() == 'owner' }") 
+                    %span(data-bind="text: rolesLocalization[bookRole()]")
+                    %span.caret
+                  %ul.dropdown-menu(role="menu" data-bind="foreach: window.rolesAndDelete")
+                    %li
+                      %a(href="#" data-bind="text: content, click: function(role, event) { $root.setRole($parent, role, event) }")
+              - else
+                %span(data-bind="text: rolesLocalization[bookRole()]")
 
-.page-panel
-  .page-title= t('.book_details')
-
-  .row
-    .col-lg-5
-      = bt_form_for @book, style: :horizontal do |f|
-        = f.hidden_input property: :key
-        = f.group property: :display_name do |g|
-          = g.text_input
-        = f.group property: :owner do |g|
-          = g.static do
-            = user_profile_link @book.owner, avatar: :small
-        = f.group property: :created_at do |g|
-          = g.static do
-            = time_tag @book.created_at
-        = f.group do |g|
-          = g.submit_button text: t('commands.save')
-          = bt_button text: t('commands.back'), href: books_index_path
+= render 'components/select_user_template'
+= render 'components/select_value_template'

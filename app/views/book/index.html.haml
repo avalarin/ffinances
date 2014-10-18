@@ -15,7 +15,9 @@
       %tr
         %td
           .first-row
-            %a.book-name{ href: book_details_path(key: book.key) }= book.display_name
+            %a.book-name{ href: book_details_path(key: book.key) }
+              %span=book.display_name
+              %span= "(#{ t('model.book_user.role_' + book.get_role(current_user).to_s) })"
             - if current_book && book.id == current_book.id
               %span.text-success
                 = bt_icon :check

@@ -1,0 +1,9 @@
+= ko_template 'select-value-template' do
+  .av-dropdown
+    = bt_button data: { toggle: 'av-dropdown' }, ko: "css: { disabled: disabled }, html: getContent(selected()) + ' <span class=\"caret\"></span>'"
+    .av-dropdown-drop
+      = ko 'if: items().length == 0' do
+        %p.fail-message=t('.no_items')
+      %ul.select-list(data-bind="foreach: items")
+        %li
+          %a(href="#" data-bind="click: $parent.select, html: $parent.getContent($data)") 

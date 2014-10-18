@@ -1,6 +1,7 @@
 class TransactionController < ApplicationController
   before_filter :authorize
-  before_filter :need_book
+  before_filter only: [ :index ] { need_book :readonly }
+  before_filter only: [ :new, :create  ] { need_book :master }
 
   def index
     respond_to do |format|
@@ -60,7 +61,7 @@ class TransactionController < ApplicationController
       end
 
       op_model = Operation.new({
-        transaction: t,
+        transact: t,
         wallet: Wallet.where(key: op[:wallet], book_id: current_book.id).first,
         currency: Currency.find_by_code(op[:currency]),
         product: product_model,

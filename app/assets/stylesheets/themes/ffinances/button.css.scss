@@ -26,18 +26,12 @@
   }
 }
 
-.btn-loader {
-  .loader {
-    display: none;
-  }
+.btn.loading {
+  background-size: 40px 40px;
+  @include gradient-striped();
+  @include animation(progress-bar-stripes 0.5s linear infinite);
 
-  &.loading {
-    .content {
-      display: none; 
-    }
-
-    .loader {
-      display: inline;
-    }
+  &.btn-default {
+    background-color: #ddd;
   }
 }

@@ -33,26 +33,59 @@ class ApplicationController < ActionController::Base
   end
   
   def authorize role = nil
-    if (!authenticated? || (role && !current_user.has_role?(role)))
-      if request.xhr?
-        render_api_resp :unauthorized, data: {
-          login_page: login_paths
-        }
-      else
-        redirect_to login_path(r: request.fullpath)
+    if (!authenticated?)
+      respond_to do |f|
+        f.json do
+          render_api_resp :unauthorized, data: {
+            login_page: login_path
+          }
+        end
+        f.html do
+          redirect_to login_path(r: request.fullpath)
+        end
       end
       return false
     end
-    return true
+    if (role && !current_user.has_role?(role))
+      respond_to do |f|
+        f.json do
+          render_api_resp :unauthorized, message: 'access_denied'
+        end
+        f.html do
+          raise 'access_denied'
+        end
+      end
+      return false
+    end
+    true
   end
   
-  def need_book
+  def need_book role = nil
     book = current_book
     if (!book)
       redirect_to books_index_path
       return false
     end
+    if (role)
+      unless has_book_role role
+        respond_to do |f|
+          f.json do
+            render_api_resp :unauthorized, message: 'access_denied'
+          end
+          f.html do
+            raise 'access_denied'
+          end
+      end
+        return false
+      end
+    end
     true
+  end
+
+  def has_book_role role
+    role_index = get_book_role_index role
+    user_role_index = get_book_role_index current_book_role
+    return role_index <= user_role_index
   end
 
   class << self

@@ -1,4 +1,5 @@
 //= require knockout
+//= require zeroclipboard
 //= require modules/http
 //= require modules/messages
 //= require modules/modals
@@ -7,6 +8,14 @@
 //= require controls/modal
 
 (function() {
+
+  $(function() {
+    ZeroClipboard.config({
+      hoverClass: "hover",
+      activeClass: "active"
+    });
+    var clip = new ZeroClipboard($('.btn-copy'))
+  })
 
   var invitesPath = '/admin/invite'
 
@@ -40,7 +49,9 @@
   }
 
   datatable.showLink = function() {
-    $('#show-link-modal').modal('show').find('input[name=link]').val(this.link)
+    var modal = $('#show-link-modal').modal('show')
+    modal.find('input[name=link]').val(this.link)
+    modal.find('.btn-copy').attr('data-clipboard-text', this.link)
   }
 
   page.addControl('datatable', datatable)

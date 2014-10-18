@@ -1,6 +1,7 @@
 class ProductController < ApplicationController
   before_filter :authorize
-  before_filter :need_book
+  before_filter only: [ :index ] { need_book :readonly }
+  before_filter only: [ :create  ] { need_book :master }
 
   def index
     lang = I18n.locale.to_s

@@ -6,4 +6,24 @@ class Book < ActiveRecord::Base
   has_many :wallets
 
   validates :key, :display_name, :owner, presence: true
-end
+
+  def users
+    User.select("users.*, (case when (users.id = #{owner.id}) then \'owner\' else books_users.role end) as book_role")
+        .joins('left outer join books_users on books_users.user_id = users.id')
+        .where('books_users.book_id = ? or users.id = ?', id, owner.id)
+  end
+
+  def get_role user
+    return :owner if owner.id == user.id
+    book_user = BookUser.where(book_id: id, user_id: user.id).first
+    return :none unless book_user
+    return book_user.role.to_sym
+  end
+
+  def as_json(options = nil)
+    super({ 
+      only: [:key, :display_name, :created_at, :updated_at ],
+      methods: [ :owner ]
+    }.merge(options || {}))
+  end
+end 

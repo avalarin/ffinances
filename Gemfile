@@ -22,6 +22,7 @@ gem 'font-awesome-rails'
 gem 'knockoutjs-rails'
 gem 'underscore-rails'
 gem 'chosen-rails'
+gem 'zeroclipboard-rails'
 
 gem 'paperclip'
 

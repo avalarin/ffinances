@@ -1,3 +1,12 @@
 .av-inline {
   display: inline;
 }
+
+.av-block {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.av-block:last-child {
+  margin-bottom: 0;
+}

@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"add",
+				"addUserModel"
+			],
+			[
+				"u",
+				"users"
+			],
+			[
+				"dis",
+				"disabled"
+			],
+			[
+				"Пол",
+				"Пользователь"
+			],
+			[
+				"поль",
+				"пользователей"
+			],
+			[
+				"user",
+				"userModel"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"co",
+				"commands"
+			],
+			[
+				"inline",
+				"inline"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"fin",
+				"find_initializer"
+			],
+			[
+				"ena",
+				"enabled_messages"
+			],
+			[
+				"curren",
+				"current_user"
+			],
+			[
+				"подтве",
+				"подтвержденные"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"success",
+				"success_registration"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
 				"disp",
 				"display_name"
 			],
@@ -24,20 +100,8 @@
 				"check"
 			],
 			[
-				"in",
-				"invite"
-			],
-			[
 				"re",
 				"register"
-			],
-			[
-				"Пол",
-				"Пользователи"
-			],
-			[
-				"di",
-				"display"
 			],
 			[
 				"ma",
@@ -76,10 +140,6 @@
 				"description"
 			],
 			[
-				"cur",
-				"current_book"
-			],
-			[
 				"ope",
 				"operations"
 			],
@@ -116,10 +176,6 @@
 				"isDraft"
 			],
 			[
-				"add",
-				"addOperation"
-			],
-			[
 				"opt",
 				"options"
 			],
@@ -152,20 +208,12 @@
 				"undefined"
 			],
 			[
-				"u",
-				"unit"
-			],
-			[
 				"ite",
 				"item"
 			],
 			[
 				"pro",
 				"product"
-			],
-			[
-				"co",
-				"count"
 			],
 			[
 				"ob",
@@ -232,16 +280,8 @@
 				"CurrencyRate"
 			],
 			[
-				"no",
-				"normal"
-			],
-			[
 				"sel",
 				"selectableCurrency"
-			],
-			[
-				"mar",
-				"margin-top"
 			],
 			[
 				"font",
@@ -270,10 +310,6 @@
 			[
 				"com",
 				"computed"
-			],
-			[
-				"dis",
-				"displayName"
 			],
 			[
 				"for",
@@ -314,10 +350,6 @@
 			[
 				"pos",
 				"position"
-			],
-			[
-				"inline",
-				"inline-block"
 			],
 			[
 				"tran",
@@ -370,14 +402,6 @@
 			[
 				"pid",
 				"pid_file"
-			],
-			[
-				"fin",
-				"find_by_code"
-			],
-			[
-				"curren",
-				"Currency"
 			],
 			[
 				"Coun",
@@ -464,10 +488,6 @@
 				"border-bottom-left-radius"
 			],
 			[
-				"lo",
-				"loading"
-			],
-			[
 				"text",
 				"text-decoration"
 			],
@@ -494,103 +514,24 @@
 			[
 				"coll",
 				"collect"
-			],
-			[
-				"sha",
-				"share"
-			],
-			[
-				"old",
-				"oldReset"
-			],
-			[
-				"go",
-				"goUrl"
-			],
-			[
-				"bo",
-				"border"
-			],
-			[
-				"bor",
-				"border-bottom"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/controllers/account_controller.rb",
+			"file": "/D/log/pstu/FishNet.16102014173535.log",
 			"settings":
 			{
-				"buffer_size": 3117,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 2530,
+				"buffer_size": 6208,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/mailers/user_mailer.rb",
-			"settings":
-			{
-				"buffer_size": 226,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/application.rb",
-			"settings":
-			{
-				"buffer_size": 1285,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/user_mailer/success_registration.html.erb",
-			"settings":
-			{
-				"buffer_size": 91,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "//= require knockout\n//= require components/captcha-input\n//= require modules/http\n\n(function() {\n  var http = require('http')\n  var fieldNames = {\n    'display_name': 'user[display_name]',\n    'name': 'user[name]',\n    'email': 'user[email]',\n    'password': 'user[password]',\n    'captcha': 'captcha[value]'\n  }\n  var model = new (function() {\n    var m = this\n    this.displayName = ko.observable('')\n    this.name = ko.observable('')\n    this.email = ko.observable('')\n    this.password = ko.observable('')\n    this.captcha = new CaptchaModel()\n\n    this.register = function() {\n      if (!$('#register-form').valid()) return\n      \n      http.request({\n        url: '/register',\n        type: 'POST',\n        data: { user: { display_name: m.displayName(), name: m.name(), email: m.email(), password: m.password() }, \n                captcha: { code: m.captcha.code(), value: $('#captcha-value').val() } \n        },\n        success: function(data) {\n          console.log('success', data)\n        },\n        error: function(status, message, data) {\n          if (message == 'validation_error') {\n            var errors = {}\n            _.each(data, function(value, key) {\n              if (key in fieldNames) {\n                errors[fieldNames[key]] = value[0]\n              }\n            })\n            $('#register-form').validate().showErrors(errors)\n          }\n          console.log('error', data)\n        },\n        complete: function(status, message, data) {\n          m.captcha.update()\n          $('#captcha-value').val('')\n        }\n      })\n\n      }\n  })\n\n  ko.applyBindings(model)\n})()",
-			"file": "app/assets/javascripts/views/account_register.js",
-			"file_size": 1594,
-			"file_write_time": 130571723162898840,
-			"settings":
-			{
-				"buffer_size": 1602,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/E/docs/Dropbox.txt",
-			"settings":
-			{
-				"buffer_size": 674,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/E/projects/ownbox/app/controllers/registration_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1766,
-				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 60.0,
 		"selected_items":
 		[
 			[
@@ -902,7 +843,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 458.0
+		"width": 386.0
 	},
 	"console":
 	{
@@ -928,156 +869,145 @@
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/controls",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/main",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/user",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/user_mailer",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/deploy",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/environments",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/capistrano",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/capistrano/tasks",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/log",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/stylesheets"
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/main",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction"
 	],
 	"file_history":
 	[
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/account/register_error.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/account/register.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru.yml",
-		"/E/projects/ownbox/config/locales/ru.yml",
-		"/E/projects/ownbox/config/application.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/mailers/base_mailer.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/main_controller.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/money-input.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20141010020934_add_user_activation_code.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/routes.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha/data.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/dashboard.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/avalarin/dropdown.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_captcha_input_template.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/data/currency_controller.rb",
-		"/E/projects/ownbox/app/models/user.rb",
-		"/E/docs/Dropbox.txt",
-		"/E/desktop/registry.xml",
-		"/E/work/aso/site/config/kaz/11443.js",
-		"/E/work/aso/site/config/rus/11443.js",
-		"/E/work/aso/site/config/rus/10505.js",
-		"/E/work/aso/site/config/rus/-40.js",
-		"/E/work/aso/site/config/kaz/-40.js",
-		"/E/work/aso/site/config/rus/-103.js",
-		"/E/work/aso/site/config/kaz/-103.js",
-		"/E/work/aso/site/config/kaz/10505.js",
-		"/E/work/aso/site/config/rus/-12305.js",
+		"/D/log/pstu/FishNet.16102014173517.log",
+		"/D/log/pstu/FishNet.16102014172850.log",
+		"/E/work/aso/site/config/rus/-12302.js",
+		"/E/work/aso/site/config/kaz/-12302.js",
+		"/D/log/pstu/FishNet.16102014163817.log",
+		"/D/log/pstu/FishNet.16102014160804.log",
 		"/E/work/aso/site/config/kaz/-12305.js",
-		"/E/work/aso/site/config/kaz/15436.js",
-		"/E/work/aso/site/config/rus/15436.js",
+		"/E/work/aso/site/config/rus/-12305.js",
+		"/E/work/aso/site/config/kaz/-12304.js",
+		"/E/work/aso/site/config/rus/-12304.js",
+		"/E/work/aso/site/config/kaz/15549.js",
+		"/E/work/aso/site/config/rus/15549.js",
+		"/E/work/aso/site/config/kaz/15565.js",
+		"/E/work/aso/site/config/rus/15565.js",
+		"/E/desktop/15549.js",
+		"/E/desktop/15565.js",
 		"/E/work/docs/Приглашения ACO.js",
-		"/E/desktop/15436.js",
-		"/D/log/pstu/taoeurasia.26092014172607.log",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/knockout/template.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/helpers.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140824161304_create_users.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/knockout/comment_block.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/assets/javascripts/knockout-chosen.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/moment-locales/ko.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916172700_create_transactions.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140922151728_create_products.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140905010440_create_books.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/country.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/user.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/invite/index.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/invite.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/admin/invite_controller.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/account_controller.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/admin/user_controller.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/schema.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/environments/development.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru-errors.yml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/user.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/base.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/log/development.log",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/form.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/render_helper.rb",
-		"/E/projects/ownbox/app/controllers/registration_controller.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/errors/access_denied_error.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/account.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/README.md",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140906071011_create_currencies.rb",
-		"/E/work/projects/QTracker/QTracker.Site/localization/en-US/Views/CustomField/Index/Index.cshtml.xml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/account_register.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/forms.css.scss",
-		"/E/work/providers/AlmatyGaz/code/UPG.AlmatyGaz/src/AlmatyGazGate.cs",
-		"/E/work/providers/StUPGGate4/StUPGGate4/src/StUPGGate4.cs",
-		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/Views/CustomField/Index/Index.cshtml.xml",
-		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/shared/custom_fields.xml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/9238f22a8d12e8296df5bc26212ac4bf76a57ca0/forms.css.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/controls/form_modal.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/variables.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/31cb01572eb8ffff7fdfe99b70f88ceb5fa42b4f/_nav-vertical-align.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/jquery.validate.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/jquery.validate.unobtrusive.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/52a8cd6c537635c653ea832a3f94606ee005b017/captcha-input.css.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/9238f22a8d12e8296df5bc26212ac4bf76a57ca0/captcha.css.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/captcha-input.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/captcha-input.js",
-		"/E/work/providers/AlmatyGaz/code/OIS.AlmatyGaz/src/AlmatyGazHandler.cs",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/modules/http.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/31cb01572eb8ffff7fdfe99b70f88ceb5fa42b4f/_hide-text.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/datepicker-locales/ja.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/book_index.js",
-		"/D/log/pstu/akmelo.07102014135307.log",
-		"/E/work/providers/Сейф Ломбард/SeifLombard/SeifLombard/SeifLombardGate.cs",
-		"//apache/inetpub/qiwi-site-v2/views/default/content/catalog.page/catalog.xslt",
-		"//apache/inetpub/qiwi-site-v2/views/default/content/catalog.page/catalog.items.xslt",
+		"/D/log/pstu/myptshop.14102014115536.log",
 		"/D/log/pstu/akmelo.07102014145155.log",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/security_helper.rb",
-		"/E/work/projects/QTracker/QTracker.Site/logs/2014-10-06.log",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru-datetime.yml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/database.yml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/secrets.yml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/settings.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/mailers/user_mailer.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/settings.yml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/layouts/_navbar.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/006cd248e407a3fb560e46c5bf938e8ae3da7778/custom-bootstrap.css.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/186e4f1fdb9b3d5375663cfb12a576a47400c4f7/_bootstrap.scssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/269e20d9adf88de5939c996e44e310549e909fc8/bootstrap-datepicker3.cssc",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/stylesheets/bootstrap-datepicker3.css",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/stylesheets/bootstrap-datepicker.css",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/bootstrap-growl.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/bootstrap-datepicker.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/boot.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/book.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/e81f9285e986faef22f4b334269db5de8b014e72/font-awesome.css.erbc",
+		"/E/work/templates/registry.xml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book/details.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/button.rb",
+		"/E/work/providers/AlmatyGaz/code/UPG.AlmatyGaz/src/AlmatyGazGate.cs",
+		"/E/work/providers/AirAstana/Code/UpgAirAstana/src/UpgAirAstana.cs",
+		"/E/work/providers/StUPGGate4/StUPGGate4/src/StUPGGate4.cs",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-user.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-value.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/book_details.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/button.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_value_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_user_template.html.haml",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_wallet_template.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140915091523_add_session_ip_user_agent.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/dashboard/index.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/capistrano/tasks/access_check.rake",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/application.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/Capfile",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/controls/page.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction/new.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/captcha.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/security_helper.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/helpers.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/locales/ru.yml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_product_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-wallet.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/select-product.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha/utils.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_unit_input_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/user.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/unit.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/helpers.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/invite/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/admin/invite_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/admin/invite.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/filter_parameter_logging.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/book_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/book.rb",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances.css.scss",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_captcha_input_templace.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/account/login.html.haml",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/modules/captcha.js",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha/middleware.rb",
-		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/money-input.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/mixins.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/invite.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/inflections.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/Gemfile",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/environments/test.rb",
+		"/E/desktop/test.html",
+		"/C/Users/a.prokopyev.OSMP/AppData/Roaming/Skype/My Skype Received Files/test2.html",
+		"//bugnet/qtracker-web/web.config",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/panel.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/dropdown.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/avalarin/dropdown.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140916172711_create_operations.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_select_user_tempate.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/transaction/new.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/data/user_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/tag_controller.rb",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/tag.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/routes.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/panel.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/controls/page.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/31cb01572eb8ffff7fdfe99b70f88ceb5fa42b4f/_progress-bar.scssc",
+		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/Views/issue/navigator/navigator.cshtml.xml",
+		"/E/work/projects/QTracker/QTracker.Site/localization/ru-RU/Views/IssueNavigator/Index/Index.cshtml.xml",
+		"/E/work/providers/SuperLoto5-36/SuperLoto536Protocol/src/SuperLoto536Protocol.cs",
+		"/D/log/pstu/myptshop.14102014115459.log",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/book_details.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/link.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/links.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/variables.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/dashboard/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/render_helper.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/account/register.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/9b3b78b5bafb80651dee596eb255b6af835692e8/_responsive-embed.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20141014012759_add_books_users_role.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/db/migrate/20140915091523_add_session_ip_user_agent.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/579d6f8966651b81655c57a23f9cf57bda164a12/_box-sizing.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/vendor/assets/javascripts/numeral-locales/da-dk.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/layouts/admin.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/application.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/8031db3f07effb41e8116c4dd98123d6b42495f7/dashboard.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/dashboard.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/dashboard_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/captcha/data.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/7108dacf2a43c50e30c14d5d9cc084ed7cee3c2b/helpers.css.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/dashboard.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book/index.html.haml",
+		"/E/desktop/=0){if(!this._preComputing)this._end();return 0}va",
+		"/E/work/providers/Сейф Ломбард/SeifLombard/SeifLombard/SeifLombardGate.cs",
+		"/E/desktop/Алматы газ сервис",
+		"/E/work/docs/Документация UniversalRegistryDLL2",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/mailers/user_mailer.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/model/user.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/admin/user_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/main/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/views/book.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/book/new.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/layouts/_messages.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/bootstrap_helpers/builders/modal.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/invite/_index_resources.html.erb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/modules/messages.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/components/money-input.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/message.rb",
 		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/356215b8bdee110d935acea3aed21c866fce51c5/user.css.scssc",
-		"/E/projects/ownbox/app/helpers/security_helper.rb",
-		"/E/projects/ownbox/app/helpers/application_helper.rb"
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/admin/user/index.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/config/initializers/backtrace_silencers.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/stylesheets/themes/ffinances/modals.css.scss",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/helpers/application_helper.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/application_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/application.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/tmp/cache/assets/development/sass/31cb01572eb8ffff7fdfe99b70f88ceb5fa42b4f/_alerts.scssc",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/layouts/_loader.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/operation.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/models/transaction.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/controllers/transaction_controller.rb",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/components/transaction-operation.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/assets/javascripts/views/transaction_new.js",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/app/views/components/_transaction_operation_template.html.haml",
+		"/C/cygwin64/home/a.prokopyev/projects/ffinances/lib/support/init.d/ffinances"
 	],
 	"find":
 	{
@@ -1088,6 +1018,8 @@
 		"height": 233.0,
 		"where_history":
 		[
+			"E:\\work\\aso\\site\\config\\rus",
+			"<open folders>",
 			"E:\\work\\aso\\site\\config\\rus",
 			"<open folders>",
 			"C:\\cygwin64\\home\\a.prokopyev\\projects\\ownbox",
@@ -1134,6 +1066,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"NULITS",
+			"номер телефона",
+			"disabled",
+			"javascript",
+			"admin",
+			"allItems",
+			"add_column",
+			"applyBindings",
+			"^\\s+",
+			"'\n",
+			"register_error",
+			"flash",
+			" +",
+			"AController",
+			"BController",
+			"AController",
+			"settings",
+			"allow_messages",
+			"messages",
+			"comfir",
+			"approved",
+			"activation",
+			"approved",
+			"button",
+			"get_button_class",
+			"\\$(\\d+(?:\\.\\d+)?)",
 			"year",
 			"GB",
 			"ТВ",
@@ -1235,33 +1193,7 @@
 			"unit",
 			"format",
 			"wallet",
-			"Wallet",
-			"wallet",
-			"cur",
-			"staticUnit",
-			"refreshCurrencies",
-			"loadingCurrencies",
-			"Currencies",
-			"currency",
-			"money",
-			"cur",
-			"Currency",
-			"currency",
-			"currencies",
-			"money",
-			"transaction-operation",
-			"refreshExchangeRate",
-			"suncExchangeRate",
-			"updateExchangeRate",
-			"updateSum",
-			"updateWalletSum",
-			"refreshExchangeRate",
-			"module",
-			"items",
-			"updateExchangeRate",
-			"currency",
-			"Currency",
-			"currency"
+			"Wallet"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1269,6 +1201,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			"",
+			"$1\\$",
 			"мес",
 			"ГБ",
 			"approved",
@@ -1394,9 +1328,7 @@
 			"$1 = car.$1,",
 			":icon_size",
 			"[\"icon_size\"]",
-			"\"",
-			"    ",
-			""
+			"\""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1407,200 +1339,24 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/controllers/account_controller.rb",
+					"file": "/D/log/pstu/FishNet.16102014173535.log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3117,
+						"buffer_size": 6208,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2042,
-								2042
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 840.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "config/routes.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2530,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								590,
-								606
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/mailers/user_mailer.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								226,
-								226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "config/application.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1285,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1262,
-								1262
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/user_mailer/success_registration.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 91,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								91,
-								91
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/assets/javascripts/views/account_register.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								636,
-								636
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 84.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/E/docs/Dropbox.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 674,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								158,
-								158
+								4672,
+								2364
 							]
 						],
 						"settings":
@@ -1610,40 +1366,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1344.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/E/projects/ownbox/app/controllers/registration_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1766,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1761,
-								1476
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 504.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1700,24 +1426,284 @@
 		"selected_items":
 		[
 			[
-				"register",
-				"app\\assets\\javascripts\\views\\account_register.js"
+				"button",
+				"lib\\bootstrap_helpers\\builders\\button.rb"
+			],
+			[
+				"select_va",
+				"app\\views\\components\\_select_value_template.html.haml"
+			],
+			[
+				"select",
+				"app\\assets\\javascripts\\components\\select-value.js"
+			],
+			[
+				"select_us",
+				"app\\views\\components\\_select_user_template.html.haml"
+			],
+			[
+				"select-use",
+				"app\\assets\\javascripts\\components\\select-user.js"
+			],
+			[
+				"select-",
+				"app\\assets\\javascripts\\components\\select-user.js"
+			],
+			[
+				"selec",
+				"app\\assets\\javascripts\\components\\select-value.js"
 			],
 			[
 				"ru",
 				"config\\locales\\ru.yml"
 			],
 			[
-				"app",
-				"config\\application.rb"
+				"invite/",
+				"app\\views\\admin\\invite\\index.html.haml"
 			],
 			[
-				"mailer",
-				"app\\mailers\\user_mailer.rb"
+				"book_",
+				"app\\assets\\javascripts\\views\\book_details.js"
+			],
+			[
+				"invit",
+				"app\\assets\\javascripts\\views\\admin\\invite.js"
+			],
+			[
+				"invide",
+				"app\\views\\admin\\invite\\index.html.haml"
+			],
+			[
+				"in",
+				"app\\controllers\\admin\\invite_controller.rb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"drop",
+				"app\\assets\\stylesheets\\themes\\ffinances\\dropdown.css.scss"
+			],
+			[
+				"tag",
+				"app\\controllers\\tag_controller.rb"
+			],
+			[
+				"ta",
+				"app\\controllers\\tag_controller.rb"
 			],
 			[
 				"route",
 				"config\\routes.rb"
+			],
+			[
+				"panel",
+				"app\\assets\\stylesheets\\themes\\ffinances\\panel.css.scss"
+			],
+			[
+				"link",
+				"lib\\bootstrap_helpers\\builders\\link.rb"
+			],
+			[
+				"va",
+				"app\\assets\\stylesheets\\themes\\ffinances\\variables.css.scss"
+			],
+			[
+				"butt",
+				"lib\\bootstrap_helpers\\builders\\button.rb"
+			],
+			[
+				"user",
+				"app\\models\\user.rb"
+			],
+			[
+				"render",
+				"app\\helpers\\render_helper.rb"
+			],
+			[
+				"book",
+				"app\\models\\book.rb"
+			],
+			[
+				"add_book",
+				"db\\migrate\\20141014012759_add_books_users_role.rb"
+			],
+			[
+				"dash",
+				"app\\views\\dashboard\\index.html.haml"
+			],
+			[
+				"use",
+				"app\\models\\user.rb"
+			],
+			[
+				"book_co",
+				"app\\controllers\\book_controller.rb"
+			],
+			[
+				"book/ind",
+				"app\\views\\book\\index.html.haml"
+			],
+			[
+				"book/de",
+				"app\\views\\book\\details.html.haml"
+			],
+			[
+				"book/",
+				"app\\views\\book\\index.html.haml"
+			],
+			[
+				"inde",
+				"app\\views\\book\\index.html.haml"
+			],
+			[
+				"index",
+				"app\\views\\book\\index.html.haml"
+			],
+			[
+				"inv",
+				"app\\controllers\\admin\\invite_controller.rb"
+			],
+			[
+				"messa",
+				"app\\views\\layouts\\_messages.html.haml"
+			],
+			[
+				"mess",
+				"app\\assets\\javascripts\\modules\\messages.js"
+			],
+			[
+				"modal",
+				"lib\\bootstrap_helpers\\builders\\modal.rb"
+			],
+			[
+				"help",
+				"lib\\bootstrap_helpers\\helpers.rb"
+			],
+			[
+				"invite",
+				"app\\controllers\\admin\\invite_controller.rb"
+			],
+			[
+				"app",
+				"app\\assets\\stylesheets\\application.css.scss"
+			],
+			[
+				"transa",
+				"app\\models\\transaction.rb"
+			],
+			[
+				"ffin",
+				"app\\assets\\stylesheets\\themes\\ffinances.css.scss"
+			],
+			[
+				"application",
+				"app\\assets\\stylesheets\\application.css.scss"
+			],
+			[
+				"opera",
+				"app\\models\\operation.rb"
+			],
+			[
+				"gemfi",
+				"Gemfile"
+			],
+			[
+				"rote",
+				"config\\routes.rb"
+			],
+			[
+				"user.js",
+				"app\\assets\\javascripts\\views\\admin\\user.js"
+			],
+			[
+				"user/in",
+				"app\\views\\admin\\user\\index.html.haml"
+			],
+			[
+				"us",
+				"app\\models\\user.rb"
+			],
+			[
+				"register_",
+				"app\\views\\account\\register_error.html.haml"
+			],
+			[
+				"accoun",
+				"app\\controllers\\account_controller.rb"
+			],
+			[
+				"account",
+				"app\\assets\\stylesheets\\views\\account.css.scss"
+			],
+			[
+				"regis",
+				"app\\views\\account\\register.html.haml"
+			],
+			[
+				"http",
+				"app\\assets\\javascripts\\modules\\http.js"
+			],
+			[
+				"message",
+				"app\\views\\layouts\\_messages.html.haml"
+			],
+			[
+				"admin",
+				"app\\views\\layouts\\admin.html.haml"
+			],
+			[
+				"user/index",
+				"app\\views\\admin\\user\\index.html.haml"
+			],
+			[
+				"user_",
+				"app\\mailers\\user_mailer.rb"
+			],
+			[
+				"userma",
+				"app\\mailers\\user_mailer.rb"
+			],
+			[
+				"user_co",
+				"app\\controllers\\admin\\user_controller.rb"
+			],
+			[
+				"",
+				"app\\assets\\javascripts\\views\\account_register.js"
+			],
+			[
+				"userm",
+				"app\\mailers\\user_mailer.rb"
+			],
+			[
+				"succ",
+				"app\\views\\user_mailer\\success_registration.html.erb"
+			],
+			[
+				"ro",
+				"config\\routes.rb"
+			],
+			[
+				"acc",
+				"app\\controllers\\account_controller.rb"
+			],
+			[
+				"lonk",
+				"lib\\bootstrap_helpers\\builders\\link.rb"
+			],
+			[
+				"hel",
+				"lib\\bootstrap_helpers\\helpers.rb"
+			],
+			[
+				"register",
+				"app\\assets\\javascripts\\views\\account_register.js"
+			],
+			[
+				"mailer",
+				"app\\mailers\\user_mailer.rb"
 			],
 			[
 				"rot",
@@ -1738,10 +1724,6 @@
 			[
 				"commentblock",
 				"lib\\bootstrap_helpers\\builders\\knockout\\comment_block.rb"
-			],
-			[
-				"help",
-				"lib\\bootstrap_helpers\\helpers.rb"
 			],
 			[
 				"create_us",
@@ -1796,28 +1778,12 @@
 				"config\\locales\\ru-errors.yml"
 			],
 			[
-				"acc",
-				"app\\controllers\\account_controller.rb"
-			],
-			[
-				"http",
-				"app\\assets\\javascripts\\modules\\http.js"
-			],
-			[
 				"http.",
 				"app\\assets\\javascripts\\modules\\http.js"
 			],
 			[
-				"user",
-				"app\\models\\user.rb"
-			],
-			[
 				"ru-err",
 				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"use",
-				"app\\models\\user.rb"
 			],
 			[
 				"data.",
@@ -1826,10 +1792,6 @@
 			[
 				"sec",
 				"app\\helpers\\security_helper.rb"
-			],
-			[
-				"rote",
-				"config\\routes.rb"
 			],
 			[
 				"boots",
@@ -1844,14 +1806,6 @@
 				"config\\settings.yml"
 			],
 			[
-				"index",
-				"app\\views\\admin\\invite\\index.html.haml"
-			],
-			[
-				"invite",
-				"app\\controllers\\admin\\invite_controller.rb"
-			],
-			[
 				"acco",
 				"app\\assets\\stylesheets\\views\\account.css.scss"
 			],
@@ -1862,18 +1816,6 @@
 			[
 				"midd",
 				"lib\\captcha\\middleware.rb"
-			],
-			[
-				"book",
-				"app\\controllers\\book_controller.rb"
-			],
-			[
-				"admin",
-				"app\\views\\layouts\\admin.html.haml"
-			],
-			[
-				"in",
-				"app\\models\\invite.rb"
 			],
 			[
 				"input",
@@ -1900,28 +1842,12 @@
 				"app\\models\\currency_rate.rb"
 			],
 			[
-				"transa",
-				"app\\assets\\javascripts\\views\\transaction_new.js"
-			],
-			[
 				"wall",
 				"app\\models\\wallet.rb"
 			],
 			[
-				"dash",
-				"app\\assets\\stylesheets\\views\\dashboard.css.scss"
-			],
-			[
 				"wa",
 				"app\\controllers\\wallet_controller.rb"
-			],
-			[
-				"render",
-				"app\\helpers\\render_helper.rb"
-			],
-			[
-				"tag",
-				"app\\models\\tag.rb"
 			],
 			[
 				"create_op",
@@ -1930,10 +1856,6 @@
 			[
 				"op",
 				"app\\models\\operation.rb"
-			],
-			[
-				"us",
-				"app\\models\\user.rb"
 			],
 			[
 				"create_t",
@@ -1956,10 +1878,6 @@
 				"db\\migrate\\20140920064807_create_currency_rates.rb"
 			],
 			[
-				"selec",
-				"app\\assets\\javascripts\\components\\select-wallet.js"
-			],
-			[
 				"wallet",
 				"app\\controllers\\wallet_controller.rb"
 			],
@@ -1970,10 +1888,6 @@
 			[
 				"transaction_new",
 				"app\\assets\\javascripts\\views\\transaction_new.js"
-			],
-			[
-				"ro",
-				"config\\routes.rb"
 			],
 			[
 				"curren",
@@ -2020,196 +1934,8 @@
 				"app\\assets\\javascripts\\components\\unit-input.js"
 			],
 			[
-				"drop",
-				"app\\assets\\javascripts\\avalarin\\dropdown.js"
-			],
-			[
 				"icon",
 				"lib\\bootstrap_helpers\\builders\\icon.rb"
-			],
-			[
-				"error",
-				"config\\locales\\ru-errors.yml"
-			],
-			[
-				"select",
-				"app\\assets\\javascripts\\components\\select-wallet.js"
-			],
-			[
-				"un",
-				"app\\assets\\javascripts\\model\\unit.js"
-			],
-			[
-				"",
-				"app\\controllers\\product_controller.rb"
-			],
-			[
-				"tra",
-				"app\\views\\components\\_transaction_operation_template.html.haml"
-			],
-			[
-				"select-pr",
-				"app\\assets\\javascripts\\components\\select-product.js"
-			],
-			[
-				"produc",
-				"app\\controllers\\product_controller.rb"
-			],
-			[
-				"product",
-				"app\\models\\product.rb"
-			],
-			[
-				"prod",
-				"app\\controllers\\product_controller.rb"
-			],
-			[
-				"selecte",
-				"app\\views\\components\\_select_product_template.html.haml"
-			],
-			[
-				"selct",
-				"app\\views\\components\\_select_product_template.html.haml"
-			],
-			[
-				"create",
-				"db\\migrate\\20140922151728_create_products.rb"
-			],
-			[
-				"transaction",
-				"app\\controllers\\transaction_controller.rb"
-			],
-			[
-				"uni",
-				"app\\views\\components\\_unit_input_template.html.haml"
-			],
-			[
-				"trasn",
-				"app\\assets\\stylesheets\\views\\transaction_new.css.scss"
-			],
-			[
-				"transaction_io",
-				"app\\views\\components\\_transaction_operation_template.html.haml"
-			],
-			[
-				"avdrop",
-				"app\\assets\\javascripts\\avalarin\\dropdown.js"
-			],
-			[
-				"money",
-				"app\\assets\\javascripts\\components\\money-input.js"
-			],
-			[
-				"mon",
-				"app\\assets\\stylesheets\\components\\money-input.css.scss"
-			],
-			[
-				"hel",
-				"lib\\bootstrap_helpers\\helpers.rb"
-			],
-			[
-				"create_c",
-				"db\\migrate\\20140920064807_create_currency_rates.rb"
-			],
-			[
-				"createcu",
-				"db\\migrate\\20140920064807_create_currency_rates.rb"
-			],
-			[
-				"create_cu",
-				"db\\migrate\\20140920064807_create_currency_rates.rb"
-			],
-			[
-				"r",
-				"config\\routes.rb"
-			],
-			[
-				"curre",
-				"app\\controllers\\data\\currency_controller.rb"
-			],
-			[
-				"create_tra",
-				"db\\migrate\\20140916172700_create_transactions.rb"
-			],
-			[
-				"cre",
-				"db\\migrate\\20140905010440_create_books.rb"
-			],
-			[
-				"create_curr",
-				"db\\migrate\\20140920064807_create_currency_rates.rb"
-			],
-			[
-				"mo",
-				"app\\assets\\stylesheets\\components\\money-input.css.scss"
-			],
-			[
-				"inp",
-				"app\\assets\\stylesheets\\avalarin\\input.css.scss"
-			],
-			[
-				"create_ta",
-				"db\\migrate\\20140919155627_create_tags.rb"
-			],
-			[
-				"data/",
-				"app\\controllers\\data\\currency_controller.rb"
-			],
-			[
-				"select_",
-				"app\\views\\components\\_select_wallet_template.html.haml"
-			],
-			[
-				"transaction/",
-				"app\\views\\transaction\\new.html.haml"
-			],
-			[
-				"createwa",
-				"db\\migrate\\20140916110117_create_wallets.rb"
-			],
-			[
-				"wal",
-				"app\\controllers\\wallet_controller.rb"
-			],
-			[
-				"panel",
-				"lib\\bootstrap_helpers\\builders\\panel.rb"
-			],
-			[
-				"pa",
-				"app\\assets\\javascripts\\controls\\page.js"
-			],
-			[
-				"ba",
-				"lib\\bootstrap_helpers\\builders\\base.rb"
-			],
-			[
-				"he",
-				"lib\\bootstrap_helpers\\helpers.rb"
-			],
-			[
-				"helper",
-				"lib\\bootstrap_helpers\\helpers.rb"
-			],
-			[
-				"inde",
-				"app\\views\\dashboard\\index.html.haml"
-			],
-			[
-				"apge",
-				"app\\assets\\javascripts\\controls\\page.js"
-			],
-			[
-				"boo",
-				"app\\models\\book.rb"
-			],
-			[
-				"create_wall",
-				"db\\migrate\\20140916110117_create_wallets.rb"
-			],
-			[
-				"pan",
-				"lib\\bootstrap_helpers\\builders\\panel.rb"
 			]
 		],
 		"width": 0.0
@@ -2242,7 +1968,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 391.0,
+	"side_bar_width": 299.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

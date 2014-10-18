@@ -1,6 +1,7 @@
 class WalletController < ApplicationController
   before_filter :authorize
-  before_filter :need_book
+  before_filter only: [ :index ] { need_book :readonly }
+  before_filter only: [ :new, :create  ] { need_book :admin }
 
   def index
     respond_to do |format|

@@ -24,7 +24,8 @@
               - if current_book
                 %li.dropdown-header(role="presentation")= t('.current_book')
                 %li
-                  %a{ href: book_details_path(key: current_book.key) }= current_book.display_name
+                  %a{ href: book_details_path(key: current_book.key) }
+                    = "#{current_book.display_name} (#{t('model.book_user.role_' + current_book_role.to_s)})"
                 %li
                   %a{ href: books_index_path }= t('commands.change')
               - else
