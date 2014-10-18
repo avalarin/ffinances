@@ -9,9 +9,10 @@
       - panel.header do
         %span=t('.last_transactions')
         %span.pull-right
-          = bt_button text: t('commands.add_transaction'), size: :xsmall, style: :link, href: new_transaction_path
+          -if @is_master
+            = bt_button text: t('commands.add_transaction'), size: :xsmall, style: :link, href: new_transaction_path
           = bt_icon :spinner, spin: true, ko: 'visible: loading'
-          = bt_button icon: :refresh, title: t('commands.refresh'), style: :link, size: :xsmall, |
+          = bt_button icon: :refresh, text: t('commands.refresh'), style: :link, size: :xsmall, |
                        ko: 'click: refresh, visible: !loading()'
       - panel.body do
         %table.transactions
@@ -44,9 +45,10 @@
         %span
           = t('.wallets')
           %span.pull-right
-            =bt_button text: t('commands.create'), size: :xsmall, style: :link, href: new_wallet_path
+            -if @is_admin
+              =bt_button text: t('commands.create'), size: :xsmall, style: :link, href: new_wallet_path
             =bt_icon :spinner, spin: true, ko: 'visible: loading'
-            =bt_button icon: :refresh, title: t('commands.refresh'), style: :link, size: :xsmall, |
+            =bt_button icon: :refresh, text: t('commands.refresh'), style: :link, size: :xsmall, |
                        ko: 'click: refresh, visible: !loading()'
       - panel.body do
         %ul.wallets(data-bind="foreach: items")
