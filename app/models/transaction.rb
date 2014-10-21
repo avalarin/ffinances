@@ -15,7 +15,7 @@ class Transaction < ActiveRecord::Base
   # TODO Не нужно отправлять book_id в тегах
   def as_json(options = nil)
     super({ 
-      only: [:date, :description, :transaction_type ],
+      only: [ :id, :date, :description, :transaction_type ],
       methods: [ :creator, :operations_groupped ],
       include: [ :tags ]
     }.merge(options || {}))
