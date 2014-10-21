@@ -1,11 +1,20 @@
 //= require knockout
 //= require controls/page
+//= require controls/modal
 //= require modules/http
+//= require model/wallet
+//= require model/product
+//= require model/unit
+//= require model/currency
 
 $(function() {
   var page = new Page()
   page.addControl('wallets', new WalletsModel())
-  page.addControl('transactions', new TransationsModel())
+  var transactionDetails = new TransactionDetailsModal($('#transaction-details-modal'))
+  page.addControl('transactionDetails', transactionDetails)
+  page.addControl('transactions', new TransationsModel({
+    detailsModal: transactionDetails
+  }))
   page.attach()
 
   page.controls.wallets.refresh()
@@ -15,11 +24,6 @@ $(function() {
 function WalletsModel() {
   var http = require('http')
   var model = this;
-
-  function Wallet(data) {
-    this.display_name = data.display_name 
-    this.image_url = data.image_url
-  }
 
   model.loading = ko.observable(false)
   model.items = ko.observableArray([])
@@ -39,51 +43,85 @@ function WalletsModel() {
   }
 }
 
-function TransationsModel() {
+function Transaction(data) {
   var http = require('http')
-  var model = this;
-
-  function Transaction(data) {
-    this.date = data.date
-    this.dateText = moment(this.date).format('L')
-    this.description = data.description
-    this.creator = {
-      name: data.creator.name,
-      email: data.creator.name,
-      displayName: data.creator.display_name,
-      avatarUrl: data.creator.avatar_url
+  var transaction = this
+  this.id = data.id
+  this.date = data.date
+  this.dateText = moment(this.date).format('L')
+  this.description = data.description
+  this.creator = {
+    name: data.creator.name,
+    email: data.creator.name,
+    displayName: data.creator.display_name,
+    avatarUrl: data.creator.avatar_url
+  }
+  this.tags = _.map(data.tags, function(tag) {
+    return {
+      id: tag.id,
+      text: tag.text
     }
-    this.tags = _.map(data.tags, function(tag) {
+  }) 
+  this.operations = _.flatten(_.map(data.operations_groupped, function(group) {
+    return _.map(group.sums, function(sum) {
       return {
-        id: tag.id,
-        text: tag.text
+        wallet: new Wallet(group.wallet), 
+        sum: sum.sum,
+        sumText: numeral(sum.sum).format('+0,0.00'),
+        type: sum.sum < 0 ? 'out' : 'in',
+        currency: new Currency(sum.currency)
       }
-    }) 
-    this.operations = _.flatten(_.map(data.operations_groupped, function(group) {
-      return _.map(group.sums, function(sum) {
-        return {
-          wallet: {
-            key: group.wallet.key,
-            displayName: group.wallet.display_name,
-            imageUrl: group.wallet.image_url
-          }, 
-          sum: sum.sum,
-          sumText: numeral(sum.sum).format('+0,0.00'),
-          type: sum.sum < 0 ? 'out' : 'in',
-          currency: { // TODO Переместить модель для currency в отдельный файл
-            id: sum.currency.id,
-            code: sum.currency.code,
-            symbol: sum.currency.symbol,
-            name: sum.currency.name,
-            globalName: sum.currency.global_name
-          }
+    })
+  }))
+  this.detalization = new (function () {
+    var detalization = this
+    detalization.loading = ko.observable(false)
+    detalization.loaded = false
+    detalization.items = ko.observableArray([])
+    detalization.load = function() {
+      detalization.loading(true)
+      http.request({
+        url: '/transaction/' + transaction.id,
+        success: function(data) {
+          detalization.items.removeAll()
+          _.each(data.operations, function(item) {
+            detalization.items.push({
+              rate: item.currency_rate,
+              rateText: numeral(item.currency_rate).format('0,0.00'),
+              count: item.count,
+              countText: numeral(item.count).format('0,0.00'),
+              amount: item.amount,
+              amountText: numeral(item.amount).format('0,0.00'),
+              sum: item.sum,
+              sumText: numeral(item.sum).format('0,0.00'),
+              wallet: new Wallet(item.wallet),
+              currency: new Currency(item.currency),
+              product: item.product ? new Product(item.product) : null,
+              unit: item.unit ? new Unit(item.unit) : null
+            })
+          })
+          detalization.loaded = true
+        },
+        complete: function() {
+          detalization.loading(false)
         }
       })
-    }))
-  }
+    }
+  })
+}
+
+function TransationsModel(options) {
+  options = options || {}
+  var http = require('http')
+  var model = this;
+  var detailsModal = options.detailsModal
 
   model.loading = ko.observable(false)
   model.items = ko.observableArray([])
+  model.goDetails = function() {
+    var transaction = this
+    detailsModal.show(transaction)
+  }
 
   model.refresh = function() {
     model.loading(true)
@@ -98,4 +136,21 @@ function TransationsModel() {
       }
     })
   }
+}
+
+function TransactionDetailsModal(element) {
+  var base = new Modal(element)
+  var modal = _.extend(this, base)
+  modal.transaction = ko.observable()
+
+  modal.show = function (transaction) {
+    modal.transaction(transaction)
+
+    if (!transaction.detalization.loaded) {
+      transaction.detalization.load()
+    }
+
+    base.show()
+  }
+
 }

@@ -56,6 +56,15 @@ ru:
             current_book: 'Книга: %{name}'
             last_transactions: 'Последние платежи'
             wallets: 'Кошельки'
+
+            transaction: 'Транзакция №%{id}'
+            transaction_date: 'Дата'
+            transaction_creator: 'Создатель'
+            transaction_description: 'Описание'
+            transaction_tags: 'Теги'
+            transaction_sum: 'Сумма'
+            no_description: 'Нет описания'
+            no_tags: 'Нет тегов'
     wallet:
         new:
             create_wallet: 'Добавление нового кошелька'

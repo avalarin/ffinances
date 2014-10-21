@@ -13,8 +13,12 @@ ul {
 }
 
 .transactions {
-  font-size: 14px;
+  font-size: 13px;
   width: 100%;
+
+  tr {
+    cursor: pointer;
+  }
 
   td {
     padding: 5px;
@@ -36,10 +40,28 @@ ul {
 
 }
 
+.tags {
+  li {
+    display: inline;
+  }
+}
+
 .income {
   color: #3c763d;
 }
 
 .outcome {
   color: #a94442;
+}
+
+.detalization {
+  font-size: 13px;
+  // width: 100%;
+
+  .column-name {
+  }
+
+  .column-sum {
+    text-align: right;
+  }
 }

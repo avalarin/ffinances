@@ -1,0 +1,46 @@
+.row
+  .col-md-3
+  .col-md-6
+    = bt_panel do |panel|
+      - panel.header do
+        = t('.transaction', { id: @transaction.id })
+        .pull-right
+          = bt_link icon: :pencil, text: t('commands.edit'), size: :xsmall
+          = bt_link icon: 'trash-o', text: t('commands.delete'), style: :danger, size: :xsmall
+      - panel.body do
+        %table.table-properties
+          %tbody
+            %tr
+              %td.column-key= t('.transaction_date')
+              %td.column-value= time_tag(@transaction.date)
+            %tr
+              %td.column-key= t('.transaction_creator')
+              %td.column-value= user_profile_link(@transaction.creator)
+            %tr
+              %td.column-key= t('.transaction_description')
+              %td.column-value
+                - if @transaction.description.empty?
+                  %span.text-muted= t('.no_description')
+                - else
+                  = @transaction.description
+            %tr
+              %td.column-key= t('.transaction_tags')
+              %td.column-value
+                - if @transaction.tags.size > 0
+                  = (@transaction.tags.map { |tag| tag.text }).split(',')
+                - else
+                  %span.text-muted= t('.no_tags')
+            %tr
+              %td.column-key= t('.transaction_sum')
+              %td.column-value
+                %ul
+                  - @transaction.operations_groupped.each do |group|
+                    - group[:sums].each do |sum|
+                      %li
+                        %img{ src: group[:wallet].image_url }
+                        %span.name= group[:wallet].display_name
+                        %span
+                          %span= number_to_currency(sum[:sum], unit: '')
+                          %span= sum[:currency].code
+
+            
