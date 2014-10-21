@@ -1,3 +1,24 @@
 .table {
   font-size: $font-size-base;
 }
+
+.table-properties {
+  width: 100%;
+
+  td {
+
+  }
+
+  .column-key {
+    font-size: $font-size-small;
+    width: 1px;
+    padding: 3px 0 3px 10px;
+    vertical-align: top;
+  }
+
+  .column-value {
+    font-size: $font-size-base;
+    padding: 3px 0 3px 10px;
+  }
+
+}
