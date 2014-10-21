@@ -1,12 +1,47 @@
 class TransactionController < ApplicationController
   before_filter :authorize
-  before_filter only: [ :index ] { need_book :readonly }
+  before_filter only: [ :index, :details ] { need_book :readonly }
   before_filter only: [ :new, :create  ] { need_book :master }
 
   def index
     respond_to do |format|
       format.json do
-        render_api_resp :ok, data: Transaction.all.order(date: :desc)
+        render_api_resp :ok, data: Transaction.where(book_id: current_book.id).order(date: :desc)
+      end
+    end
+  end
+
+  def details
+    @lang = params[:lang] || I18n.locale.to_s
+    @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
+    respond_to do |format|
+      format.json do
+        return render_api_resp :not_found unless @transaction
+        render_api_resp :ok, data: {
+          id: @transaction.id, date: @transaction.date, description: @transaction.description,
+          transaction_type: @transaction.transaction_type, creator: @transaction.creator,
+          operations_groupped: @transaction.operations_groupped, tags: @transaction.tags,
+          operations: (@transaction.operations.map do |op|
+            { currency_rate: op.currency_rate, count: op.count, amount: op.amount,
+              sum: op.sum, wallet: op.wallet, currency: op.currency, product: op.product,
+              unit: op.unit ? {
+                id: op.unit.id,
+                full_name: op.unit.names[@lang]['full'],
+                short_name: op.unit.names[@lang]['short'],
+                decimals: op.unit.decimals
+              } : nil
+            }
+          end)
+        }
+
+        @transaction .as_json({
+          only: [ :id, :date, :description, :transaction_type ],
+          methods: [ :creator, :operations_groupped ],
+          include: [ :tags, operations: {
+              only: [ :currency_rate, :count, :amount, :sum ],
+              methods: [ :wallet, :currency, :product, :unit ]
+            } ]
+        })
       end
     end
   end
