@@ -1,4 +1,4 @@
-function UnitModel(data) {
+function Unit(data) {
   data = data || {}
   var unit = this
   unit.id = data.id

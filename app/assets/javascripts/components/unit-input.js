@@ -83,7 +83,7 @@
         success: function(data) {
           model.allUnits.removeAll()
           _.each(data, function(item) {
-            model.allUnits.push(new UnitModel(item))
+            model.allUnits.push(new Unit(item))
           })
           selectFirst()
           model.loadingUnits(false)

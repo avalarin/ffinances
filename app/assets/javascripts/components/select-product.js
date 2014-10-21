@@ -10,7 +10,7 @@
     var dropdown = AvDropdown.attach($(element).find('.av-dropdown'), {
       onhide: function() {
         if (model.search() != model.selectedText()) {
-          var product = new ProductModel()
+          var product = new Product()
           product.displayName = model.search()
           model.selected(product)
         }
@@ -41,7 +41,7 @@
         success: function(data) {
           model.items.removeAll()
           _.each(data, function(item) {
-            model.items.push(new ProductModel(item))
+            model.items.push(new Product(item))
           })
           model.loading(false)
         }

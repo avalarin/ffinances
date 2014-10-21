@@ -1,7 +1,7 @@
-function ProductModel(data) {
+function Product(data) {
   data = data || {}
   var product = this
   product.id = data.id
-  product.unit = new UnitModel(data.unit)
+  product.unit = new Unit(data.unit)
   product.displayName = data.display_name
 }
