@@ -256,6 +256,7 @@ function TransactionModel() {
   model.addOperation = function() {
     var op = model.createOperation()
     model.operations.push(op)
+    op.sum.subscribe(updateSum)
   }
   model.addOperationAndFocus = function() {
     model.addOperation()
@@ -268,10 +269,12 @@ function TransactionModel() {
     if (model.operations().length == 1) {
       var temp = model.operations()
       temp[0] = model.createOperation()
-      model.operations.valueHasMutated();
+      temp[0].sum.subscribe(updateSum)
+      model.operations.valueHasMutated()
     } else {
       model.operations.remove(op)
     }
+    updateSum()
   }
   model.addOperation()
 
@@ -342,17 +345,4 @@ function TransactionModel() {
         return sum + op.sum()
       }, 0))
     }
-
-  var f = (function() {
-    var subscriptions = { }
-
-    model.operations.subscribe(function(operations) {
-      _.each(operations, function(operation) {
-        if (!operation.sumSubscribed) {
-          operation.sum.subscribe(updateSum)
-          operation.sumSubscribed = true
-        }
-      })
-    })
-  })()
 }
