@@ -38,11 +38,15 @@ module RenderHelper
       else
         raise ArgumentError, "Unknown status '#{ status.to_s }'"
     end
-    render status: status_code, json: {
-        status: status_code.to_s,
-        message: options[:message] || default_message,
-        data: options[:data]
-    }
+
+    data = nil
+    message = options[:message] || default_message
+    if (options[:data].is_a? String)
+      data = "{\"status\":\"#{ status_code }\", \"message\":\"#{ message }\", \"data\":\"#{ options[:data] }\"}"
+    else
+      data = { status: status_code.to_s, message: message, data: options[:data] }
+    end
+    render status: status_code, json: data
   end
 
   def render_model_errors_api_resp model
