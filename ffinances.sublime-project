@@ -1,5 +1,8 @@
 {
-  "default_line_ending": "unix",
+  "settings": 
+  {
+    "default_line_ending": "unix",
+  },
 	"folders":
 	[
 		{
