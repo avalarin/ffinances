@@ -210,8 +210,8 @@ function Operation(options) {
       currency: model.currency().code,
       currency_rate: model.exchangeRate(),
       product: typeof(product) == "undefined" ? null : {
-          id: product.unit.id,
-          name: product.unit.displayName
+          id: product.id,
+          display_name: product.displayName
       },
       count: model.count(),
       unit: typeof(unit) == "undefined" ? null : model.unit().id,
