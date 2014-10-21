@@ -33,8 +33,7 @@
       %div.av-inline(data-bind="component: { name: 'tags-input', params: { selected: tags } }")
   .row
     .col-lg-12
-      = bt_button text: t('commands.save'), style: :success, ko: 'click: save'
-      = bt_button text: t('commands.cancel')
+      = bt_button text: t('commands.save'), style: :success, ko: 'click: save, css: { loading: saving }'
   
 = ko 'if: transaction.mode() == "outcome" || transaction.mode() == "other"' do
   .page-panel.detalization(data-bind="with: transaction")

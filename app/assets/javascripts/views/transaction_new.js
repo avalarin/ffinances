@@ -295,6 +295,7 @@ function TransactionModel() {
     return valid
   }
 
+  model.saving = ko.observable(false)
   model.save = function() {
     if (!model.valid()) return
     var data = { 
@@ -328,6 +329,7 @@ function TransactionModel() {
       throw 'Invalid mode.'
     }
     
+    model.saving(true)
     http.request({
       url: '/transaction/new',
       type: 'POST',
@@ -335,7 +337,10 @@ function TransactionModel() {
       dataType: 'json',
       data: JSON.stringify({ transaction: data }),
       success: function(data) {
-        console.log(data)
+        http.redirect({ url: '/'})
+      },
+      complete: function() {
+        model.saving(false)
       }
     })
   }
