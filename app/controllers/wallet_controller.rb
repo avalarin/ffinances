@@ -6,7 +6,7 @@ class WalletController < ApplicationController
   def index
     respond_to do |format|
       format.json do
-        render_api_resp :ok, data: (current_book.wallets.map do |wallet|
+        render_api_resp :ok, data: (current_book.wallets.order(:display_name).map do |wallet|
           {
             key: wallet.key,
             balance: wallet.balance,
