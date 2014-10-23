@@ -37,7 +37,7 @@
       - panel.header do
         %span=t('.current_book', name: @book.display_name)
         %span.pull-right
-          = bt_button text: t('commands.change'), size: :xsmall, style: :link, href: books_index_path
+          = bt_button text: t('commands.settings'), size: :xsmall, style: :link, icon: :gear, href: book_details_path(key: current_book.key)
       - panel.body do
         %table
     = bt_panel ko: 'with: wallets' do |panel|

@@ -128,6 +128,7 @@ ru:
         copy: 'Копировать'
         continue_to_work: 'Продолжить работу'
         add_transaction: 'Добавить платеж'
+        settings: 'Настройки'
     messages:
         success_confirmation: 'Ваш email подтвержден, спасибо.'
 
