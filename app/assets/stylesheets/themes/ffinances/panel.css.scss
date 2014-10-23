@@ -14,8 +14,10 @@
     padding: 10px;
   }
 
-  .panel-heading + .panel-subheading {
-    margin-top: -10px;
+  .panel-heading + .panel-subheading,
+  .panel-heading + .panel-body, 
+  .panel-subheading + .panel-body {
+    padding-top: 0;
   }
 
   hr {
