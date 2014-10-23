@@ -4,9 +4,11 @@ class TransactionController < ApplicationController
   before_filter only: [ :new, :create  ] { need_book :master }
 
   def index
+    @transactions = Transaction.where(book_id: current_book.id).order(date: :desc)
+    @transactions = @transactions.limit(params[:limit]) if params[:limit]
     respond_to do |format|
       format.json do
-        render_api_resp :ok, data: Transaction.where(book_id: current_book.id).order(date: :desc)
+        render_api_resp :ok, data: @transactions
       end
     end
   end

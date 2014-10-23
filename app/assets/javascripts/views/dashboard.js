@@ -126,7 +126,7 @@ function TransationsModel(options) {
   model.refresh = function() {
     model.loading(true)
     http.request({
-      url: '/transaction.json',
+      url: '/transaction.json?limit=15',
       success: function(data) {
         model.items.removeAll()
         _.each(data, function(item) {
