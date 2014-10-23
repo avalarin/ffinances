@@ -9,6 +9,7 @@ class WalletController < ApplicationController
         render_api_resp :ok, data: (current_book.wallets.map do |wallet|
           {
             key: wallet.key,
+            balance: wallet.balance,
             display_name: wallet.display_name,
             currency: wallet.currency,
             image_url: wallet.type.image_url

@@ -12,7 +12,7 @@ class Wallet < ActiveRecord::Base
 
   def as_json(options = nil)
     super({ 
-      only: [ :key, :display_name ],
+      only: [ :key, :display_name, :balance ],
       methods: [ :currency, :image_url ]
     }.merge(options || {}))
   end

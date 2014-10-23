@@ -40,6 +40,24 @@ ul {
 
 }
 
+.wallets {
+  font-size: 13px;
+  width: 100%;
+  
+  td {
+    padding: 5px;
+  }
+
+  .column-name {
+
+  }
+
+  .column-balance {
+    text-align: right;
+  }
+
+}
+
 .tags {
   li {
     display: inline;
