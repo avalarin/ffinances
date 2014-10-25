@@ -56,15 +56,6 @@ ru:
             current_book: 'Книга: %{name}'
             last_transactions: 'Последние платежи'
             wallets: 'Кошельки'
-
-            transaction: 'Транзакция №%{id}'
-            transaction_date: 'Дата'
-            transaction_creator: 'Создатель'
-            transaction_description: 'Описание'
-            transaction_tags: 'Теги'
-            transaction_sum: 'Сумма'
-            no_description: 'Нет описания'
-            no_tags: 'Нет тегов'
     wallet:
         new:
             create_wallet: 'Добавление нового кошелька'
@@ -94,6 +85,13 @@ ru:
             sum_greater_than: 'Сумма должна быть больше 0.'
             sum_greater_or_less_than: 'Сумма не должна быть равна 0.'
             rate_greater_than: 'Курс должен быть больше 0.'
+        details_modal:
+            transaction: 'Платеж №%{id}'
+            no_description: 'Нет описания'
+            no_tags: 'Нет тегов'
+        delete_modal:
+            delete_transaction: 'Транзакция №%{id}'
+            message: 'Вы действительно хотите удалить платеж?'
     commands:
         search: 'Поиск'
         ok: 'Ok'
@@ -194,6 +192,12 @@ ru:
             email: 'Email'
             password: 'Пароль'
             password_confirmation: 'Подтверждение пароля'
+        transaction:
+            date: 'Дата'
+            creator: 'Создатель'
+            description: 'Описание'
+            tags: 'Теги'
+            sum: 'Сумма'
     user_mailer:
         success_registration:
             mail_subject: 'Регистрация на сайте %{app_name}'

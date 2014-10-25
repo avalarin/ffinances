@@ -1,4 +1,4 @@
-//= require knockout
+//= require custom-knockout
 //= require controls/page
 //= require controls/modal
 //= require modules/http
@@ -10,10 +10,13 @@
 $(function() {
   var page = new Page()
   page.addControl('wallets', new WalletsModel())
-  var transactionDetails = new TransactionDetailsModal($('#transaction-details-modal'))
-  page.addControl('transactionDetails', transactionDetails)
+  var transactionDetails = new TransactionModal($('#transaction-details-modal'))
+  var transactionDelete = new TransactionDeleteModal($('#transaction-delete-modal'))
+  page.addControl('transactionDetailsModal', transactionDetails)
+  page.addControl('transactionDeleteModal', transactionDelete)
   page.addControl('transactions', new TransationsModel({
-    detailsModal: transactionDetails
+    detailsModal: transactionDetails,
+    deleteModal: transactionDelete
   }))
   page.attach()
 
@@ -43,9 +46,12 @@ function WalletsModel() {
   }
 }
 
-function Transaction(data) {
+function Transaction(data, options) {
+  options = options || {}
   var http = require('http')
   var transaction = this
+  var deleteModal = options.deleteModal
+
   this.id = data.id
   this.date = data.date
   this.dateText = moment(this.date).format('L')
@@ -56,6 +62,11 @@ function Transaction(data) {
     displayName: data.creator.display_name,
     avatarUrl: data.creator.avatar_url
   }
+
+  var isAdmin = session.permissions.bookAdmin
+  var isMaster = session.permissions.bookMaster
+  this.canManage = isAdmin || (isMaster && transaction.creator.name == session.user.name)
+
   this.tags = _.map(data.tags, function(tag) {
     return {
       id: tag.id,
@@ -73,6 +84,15 @@ function Transaction(data) {
       }
     })
   }))
+
+  this.edit = function() {
+    console.log('edit', transaction)
+  }
+
+  this.remove = function() {
+    deleteModal.show(transaction)
+  }
+
   this.detalization = new (function () {
     var detalization = this
     detalization.loading = ko.observable(false)
@@ -115,6 +135,7 @@ function TransationsModel(options) {
   var http = require('http')
   var model = this;
   var detailsModal = options.detailsModal
+  var deleteModal = options.deleteModal
 
   model.loading = ko.observable(false)
   model.items = ko.observableArray([])
@@ -130,7 +151,11 @@ function TransationsModel(options) {
       success: function(data) {
         model.items.removeAll()
         _.each(data, function(item) {
-          model.items.push(new Transaction(item))
+          var transaction = new Transaction(item, { deleteModal: deleteModal })
+          transaction.delete = function() {
+            model.items.remove(transaction)
+          }
+          model.items.push(transaction)
         })
         model.loading(false)
       }
@@ -138,7 +163,7 @@ function TransationsModel(options) {
   }
 }
 
-function TransactionDetailsModal(element) {
+function TransactionModal(element) {
   var base = new Modal(element)
   var modal = _.extend(this, base)
   modal.transaction = ko.observable()
@@ -151,6 +176,29 @@ function TransactionDetailsModal(element) {
     }
 
     base.show()
+  }
+
+}
+
+function TransactionDeleteModal(element) {
+  var base = new TransactionModal(element)
+  var modal = _.extend(this, base)
+  var http = require('http')
+
+  modal.deleting = ko.observable(false)
+  modal.doDelete = function() {
+    modal.deleting(true)
+    http.request({
+      url: '/transaction/' + modal.transaction().id,
+      type: 'DELETE',
+      success: function() {
+        modal.transaction().delete()
+        modal.close()
+      },
+      complete: function() {
+        modal.deleting(false)
+      }
+    })
   }
 
 }

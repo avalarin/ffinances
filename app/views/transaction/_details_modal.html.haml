@@ -1,0 +1,52 @@
+= bt_modal id: "transaction-details-modal", header: raw(t('.transaction', id: '<span data-bind="text: id"><span>')), data: { bind: 'with: transactionDetailsModal.transaction' } do |m| 
+  - m.body do
+    %table.table-properties
+      %tbody
+        %tr
+          %td.column-key= t('model.transaction.date')
+          %td.column-value(data-bind="text: dateText")
+        %tr
+          %td.column-key= t('model.transaction.creator')
+          %td.column-value
+            %a{ href: '#' }
+              %img.avatar.s16(data-bind="attr: { src: creator.avatarUrl }")
+              %span(data-bind="text: creator.displayName")
+        %tr
+          %td.column-key= t('model.transaction.description')
+          %td.column-value(data-bind="text: description")    
+        %tr
+          %td.column-key= t('model.transaction.tags')
+          %td.column-value
+            %ul.tags(data-bind="foreach: tags")
+              %li(data-bind="text: text")
+        %tr
+          %td.column-key= t('model.transaction.sum')
+          %td.column-value
+            %ul.operations(data-bind="foreach: operations")
+              %li
+                %img(data-bind="attr: { src: wallet.imageUrl }")
+                %span.name(data-bind="text: wallet.displayName")
+                %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
+                  %span(data-bind="text: sumText")
+                  %span(data-bind="text: currency.code")
+    //= ko 'visible: $parent.canManage' do
+    .transation-actions(data-bind="visible: canManage")
+      = bt_link text: t('commands.edit'), size: :small, icon: :pencil, ko: 'click: edit', data: { dismiss: 'modal' }
+      = bt_link text: t('commands.delete'), size: :small, style: :danger, icon: :'trash-o', ko: 'click: remove', data: { dismiss: 'modal' }
+    %h4
+      %span= 'Детализация'
+      = ko 'if: detalization.loading' do
+        = bt_icon :spinner, spin: true
+    %table.table.table-condensed.detalization
+      %tbody(data-bind="foreach: detalization.items")
+        %tr
+          %td.column-name(data-bind="text: product ? product.displayName : ''")
+          %td.column-sum
+            %span(data-bind="text: countText")
+            %span(data-bind="text: unit ? unit.shortName : ''")
+            %span='×'
+            %span(data-bind="text: amountText")
+            %span(data-bind="text: currency.code")
+            %span='='
+            %span(data-bind="text: sumText")
+            %span(data-bind="text: currency.code")

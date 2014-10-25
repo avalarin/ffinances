@@ -1,0 +1,35 @@
+= bt_modal id: "transaction-delete-modal", header: raw(t('.delete_transaction', id: '<span data-bind="text: transaction.id"><span>')), data: { bind: 'with: transactionDeleteModal' } do |m| 
+  - m.body do
+    %span=t('.message')
+    %table.table-properties(data-bind="with: transaction")
+      %tbody
+        %tr
+          %td.column-key= t('model.transaction.date')
+          %td.column-value(data-bind="text: dateText")
+        %tr
+          %td.column-key= t('model.transaction.creator')
+          %td.column-value
+            %a{ href: '#' }
+              %img.avatar.s16(data-bind="attr: { src: creator.avatarUrl }")
+              %span(data-bind="text: creator.displayName")
+        %tr
+          %td.column-key= t('model.transaction.description')
+          %td.column-value(data-bind="text: description")    
+        %tr
+          %td.column-key= t('model.transaction.tags')
+          %td.column-value
+            %ul.tags(data-bind="foreach: tags")
+              %li(data-bind="text: text")
+        %tr
+          %td.column-key= t('model.transaction.sum')
+          %td.column-value
+            %ul.operations(data-bind="foreach: operations")
+              %li
+                %img(data-bind="attr: { src: wallet.imageUrl }")
+                %span.name(data-bind="text: wallet.displayName")
+                %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
+                  %span(data-bind="text: sumText")
+                  %span(data-bind="text: currency.code")
+  - m.footer do
+    = bt_button text: t('commands.delete'), style: :danger, ko: 'click: doDelete, loading: deleting'
+    = bt_button text: t('commands.cancel'), data: { dismiss: 'modal' }, ko: 'disabled: deleting'
