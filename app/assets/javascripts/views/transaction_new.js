@@ -1,6 +1,6 @@
 //= require avalarin/dropdown
 
-//= require knockout
+//= require custom-knockout
 //= require chosen-jquery
 //= require knockout-chosen
 //= require controls/page

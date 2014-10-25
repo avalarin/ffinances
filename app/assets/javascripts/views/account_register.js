@@ -1,4 +1,4 @@
-//= require knockout
+//= require custom-knockout
 //= require components/captcha-input
 //= require modules/http
 

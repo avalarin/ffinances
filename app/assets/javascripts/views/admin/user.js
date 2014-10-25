@@ -1,4 +1,4 @@
-//= require knockout
+//= require custom-knockout
 //= require modules/http
 //= require modules/messages
 //= require controls/page

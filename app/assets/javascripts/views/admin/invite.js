@@ -1,4 +1,4 @@
-//= require knockout
+//= require custom-knockout
 //= require zeroclipboard
 //= require modules/http
 //= require modules/messages

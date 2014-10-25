@@ -1,4 +1,4 @@
-//= require knockout
+//= require custom-knockout
 //= require modules/http
 //= require model/user
 //= require components/select-user
