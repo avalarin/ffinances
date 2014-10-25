@@ -26,13 +26,14 @@
     .panel.panel-default
       .panel-heading=t('.book_details', { name: @book.display_name })
       .panel-body
-        %form
-          .form-group
-            %label=t('.book_owner')
-            %p.form-control-static=user_profile_link(@book.owner, avatar: :small)
-          .form-group
-            %label=t('.book_created_at')
-            %p.form-control-static=time_tag(@book.created_at)
+        %table.table-properties
+          %tbody
+            %tr
+              %td.column-key= t('.book_owner')
+              %td.column-value= user_profile_link(@book.owner, avatar: :small)
+            %tr
+              %td.column-key= t('.book_created_at')
+              %td.column-value= time_tag(@book.created_at)
   .col-md-5
     .panel.panel-default
       .panel-heading
