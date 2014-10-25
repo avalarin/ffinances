@@ -82,4 +82,10 @@ module SessionHelper
     cookies.delete 'session'
   end 
 
+  def has_book_role role
+    role_index = get_book_role_index role
+    user_role_index = get_book_role_index current_book_role
+    return role_index <= user_role_index
+  end
+
 end
