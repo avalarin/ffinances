@@ -28,7 +28,7 @@ module BootstrapHelpers
       def self.get_link_class options
         css = "link"
         css << " " << Link.get_link_style_class(options[:style])
-        css << " " << Button.get_button_size_class(options[:size])
+        css << " " << Link.get_link_size_class(options[:size])
         css
       end
 
@@ -36,7 +36,7 @@ module BootstrapHelpers
         "link-#{ style }"
       end
 
-      def self.get_button_size_class size
+      def self.get_link_size_class size
         case size
           when :large
             "link-lg"
