@@ -53,4 +53,8 @@ module RenderHelper
     render_api_resp :bad_request, message: 'validation_error', data: model.errors
   end
 
+  def render_access_denied
+    render_api_resp :unauthorized, message: 'access_denied'
+  end
+
 end
