@@ -1,7 +1,7 @@
 class TransactionController < ApplicationController
   before_filter :authorize
   before_filter only: [ :index, :details ] { need_book :readonly }
-  before_filter only: [ :new, :create  ] { need_book :master }
+  before_filter only: [ :new, :create, :delete  ] { need_book :master }
 
   def index
     @transactions = Transaction.where(book_id: current_book.id).order(date: :desc)
@@ -118,6 +118,18 @@ class TransactionController < ApplicationController
         operations: t.operations
       }, valid: t.valid?, errors: t.errors }
     render_model_errors_api_resp t
+  end
+
+  def delete
+    @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
+    return render_not_found unless @transaction
+    return render_access_denied if ((current_user.id != @transaction.creator.id) && !has_book_role(:admin))
+    respond_to do |format|
+      format.json do
+        @transaction.delete
+        render_api_resp :ok
+      end
+    end
   end
 
 end

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/transaction/new/(:mode)', to: 'transaction#new', as: :new_transaction
   post '/transaction/new', to: 'transaction#create', as: :create_transaction
   get '/transaction/:id', to: 'transaction#details', as: :transaction_details
+  delete '/transaction/:id', to: 'transaction#delete', as: :delete_transaction
 
   get '/wallet', to: 'wallet#index', as: :wallets_index
   get '/wallet/new', to: 'wallet#new', as: :new_wallet
