@@ -4,8 +4,6 @@ class DashboardController < ApplicationController
 
   def index
     @book = current_book
-    @is_admin = has_book_role :admin
-    @is_master = has_book_role :master
   end
 
 end
