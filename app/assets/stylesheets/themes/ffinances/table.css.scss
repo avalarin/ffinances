@@ -6,19 +6,18 @@
   width: 100%;
 
   td {
-
+    padding: 3px;
   }
 
   .column-key {
     font-size: $font-size-small;
     width: 1px;
-    padding: 3px 0 3px 10px;
     vertical-align: top;
+    padding-right: 10px;
   }
 
   .column-value {
     font-size: $font-size-base;
-    padding: 3px 0 3px 10px;
   }
 
 }
