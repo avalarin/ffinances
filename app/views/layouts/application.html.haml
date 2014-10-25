@@ -6,6 +6,15 @@
     = stylesheet_link_tag "application", media: "all"
     = csrf_meta_tags
     = yield :styles
+    :javascript
+      session = {
+        user: #{ current_user.to_json },
+        book: #{ current_book.to_json },
+        permissions: {
+          bookAdmin: #{ has_book_role :admin },
+          bookMaster: #{ has_book_role :master }
+        }
+      }
   %body
     .site-content
       = render 'layouts/loader'
