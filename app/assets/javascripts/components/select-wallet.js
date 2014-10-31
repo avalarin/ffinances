@@ -1,29 +1,11 @@
 //= require custom-knockout
 //= require modules/http
+//= require model/wallet
 
 (function() {
   var http = require('http')
   var source = '/wallet.json'
   var wallets = ko.observableArray([])
-
-  function Wallet(data) {
-    var wallet = this
-    wallet.key = data.key
-    wallet.displayName = data.display_name
-    wallet.imageUrl = data.image_url
-    wallet.currency = {
-      code: data.currency.code,
-      name: data.currency.name
-    }
-
-    wallet.html = ko.computed(function() {
-      return '<img src="' + wallet.imageUrl + '" />\n<span>' + wallet.displayName + '</span>'
-    })
-
-    wallet.search = function(query) {
-      return wallet.displayName.indexOf(query) > -1
-    }
-  }
 
   function SelectWalletModel(params, element) {
     var model = this
@@ -35,16 +17,12 @@
     model.selected = params['selected'] || ko.observable()
     model.loading = ko.observable(false)
 
-    model.selectedHtml = ko.computed(function() {
-      return typeof(model.selected()) == 'undefined' ? '' : model.selected().html()
-    })
-
     model.items = ko.computed(function() {
       var search = model.search()
       var items = model.allItems()
       if (search != '') {
         items = _.filter(items, function(item) {
-          return item.search(search)
+          return wallet.displayName.indexOf(query) > -1
         })
       }
       return items
