@@ -18,7 +18,6 @@
     })
 
     model.items = ko.observableArray([])
-    model.search = ko.observable('')
     model.selected = params['selected'] || ko.observable()
     model.loading = ko.observable(false)
 
@@ -26,6 +25,7 @@
       var selected = model.selected()
       return typeof(selected) == 'undefined' ? '' : selected.displayName
     })
+    model.search = ko.observable(model.selectedText())
 
     model.select = function() {
       model.selected(this)
