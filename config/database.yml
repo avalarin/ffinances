@@ -21,7 +21,7 @@ default: &default
 development:
   <<: *default
 
-  host: dev2.local
+  host: localhost
   pool: 5
   database: ffinances
   username: ffinances
@@ -33,7 +33,7 @@ development:
 test:
   <<: *default
 
-  host: dev2.local
+  host: localhost
   pool: 5
   database: ffinances
   username: ffinances
