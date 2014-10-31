@@ -42,7 +42,7 @@ module RenderHelper
     data = nil
     message = options[:message] || default_message
     if (options[:data].is_a? String)
-      data = "{\"status\":\"#{ status_code }\", \"message\":\"#{ message }\", \"data\":\"#{ options[:data] }\"}"
+      data = "{\"status\":\"#{ status_code }\", \"message\":\"#{ message }\", \"data\":#{ options[:data] }}"
     else
       data = { status: status_code.to_s, message: message, data: options[:data] }
     end

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post '/transaction/new', to: 'transaction#create', as: :create_transaction
   get '/transaction/:id', to: 'transaction#details', as: :transaction_details
   delete '/transaction/:id', to: 'transaction#delete', as: :delete_transaction
+  get '/transaction/:id/edit', to: 'transaction#edit', as: :edit_transaction
+  post '/transaction/update', to: 'transaction#update', as: :update_transaction
 
   get '/wallet', to: 'wallet#index', as: :wallets_index
   get '/wallet/new', to: 'wallet#new', as: :new_wallet

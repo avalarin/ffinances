@@ -7,7 +7,7 @@
 :javascript
   var startData = {
     mode: '#{ @mode }',
-    transaction: null,
-    action: 'new'
+    transaction: #{ @transaction.to_json_with_operations(I18n.locale.to_s) },
+    action: 'edit'
   }
 = render 'transaction/new_or_edit'

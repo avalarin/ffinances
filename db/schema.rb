@@ -91,10 +91,6 @@ ActiveRecord::Schema.define(version: 20141023015909) do
     t.decimal "sum"
   end
 
-  create_table "opsum", id: false, force: true do |t|
-    t.decimal "sum"
-  end
-
   create_table "products", force: true do |t|
     t.integer "book_id"
     t.integer "unit_id"

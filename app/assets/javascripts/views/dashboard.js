@@ -86,7 +86,7 @@ function Transaction(data, options) {
   }))
 
   this.edit = function() {
-    console.log('edit', transaction)
+    http.redirect({ url: routes.editTransaction(transaction.id) })
   }
 
   this.remove = function() {

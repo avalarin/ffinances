@@ -1,4 +1,4 @@
-= bt_modal id: "transaction-details-modal", header: raw(t('.transaction', id: '<span data-bind="text: id"><span>')), data: { bind: 'with: transactionDetailsModal.transaction' } do |m| 
+= bt_modal id: "transaction-details-modal", header: raw(t('.transaction', id: '<span data-bind="text: id"><span>')), data: { bind: 'with: transactionDetailsModal.transaction' } do |m|
   - m.body do
     %table.table-properties
       %tbody
@@ -13,7 +13,7 @@
               %span(data-bind="text: creator.displayName")
         %tr
           %td.column-key= t('model.transaction.description')
-          %td.column-value(data-bind="text: description")    
+          %td.column-value(data-bind="text: description")
         %tr
           %td.column-key= t('model.transaction.tags')
           %td.column-value

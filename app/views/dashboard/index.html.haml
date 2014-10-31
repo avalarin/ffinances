@@ -9,7 +9,7 @@
       - panel.header do
         %span=t('.last_transactions')
         %span.pull-right
-          -if @is_master
+          -if has_book_role :master
             = bt_button text: t('commands.add_transaction'), size: :xsmall, style: :link, href: new_transaction_path
           = bt_icon :spinner, spin: true, ko: 'visible: loading'
           = bt_button icon: :refresh, text: t('commands.refresh'), style: :link, size: :xsmall, |
@@ -45,7 +45,7 @@
         %span
           = t('.wallets')
           %span.pull-right
-            -if @is_admin
+            -if has_book_role :admin
               =bt_button text: t('commands.create'), size: :xsmall, style: :link, href: new_wallet_path
             =bt_icon :spinner, spin: true, ko: 'visible: loading'
             =bt_button icon: :refresh, text: t('commands.refresh'), style: :link, size: :xsmall, |

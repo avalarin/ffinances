@@ -1,4 +1,4 @@
-ru: 
+ru:
     admin:
         main:
             index:
@@ -63,8 +63,13 @@ ru:
             wallet_description: 'Описание (необязательно)'
     transaction:
         new:
-            create_transaction: 'Добавление платежа'
-
+            product_required: 'Введите наменование.'
+            wallet_required: 'Выберите кошелек.'
+            sum_greater_than: 'Сумма должна быть больше 0.'
+            sum_greater_or_less_than: 'Сумма не должна быть равна 0.'
+            rate_greater_than: 'Курс должен быть больше 0.'
+            # create_transaction: 'Добавление платежа'
+        new_or_edit:
             income_transacion: 'Поступление средств'
             outcome_transacion: 'Расход средств'
             transfer_transacion: 'Перевод средств'
@@ -79,12 +84,6 @@ ru:
             transaction_outcome_description: 'Выберите кошелек с которого необходимо произвести списание. Сумма будет заполнена автоматически когда Вы заполните детализацию.'
             transaction_transfer_description: 'Выберите кошелек с которого необходимо произвести списание, а также кошелек на который Вы хотите перевести средства. С первого кошелька будет списана сумма указанная в первом поле ввода сумма, а на второй будет добавлена сумму указанная во втором поле.'
             detalization_outcome_description: 'Необходимо запонить список товаров или услуг. Для каждого товара или услуги должно быть заполнено "Наименование". Также небходимо ввести количество и цену.'
-
-            product_required: 'Введите наменование.'
-            wallet_required: 'Выберите кошелек.'
-            sum_greater_than: 'Сумма должна быть больше 0.'
-            sum_greater_or_less_than: 'Сумма не должна быть равна 0.'
-            rate_greater_than: 'Курс должен быть больше 0.'
         details_modal:
             transaction: 'Платеж №%{id}'
             no_description: 'Нет описания'
@@ -139,7 +138,7 @@ ru:
             unlocked: 'Пользователь разблокирован'
             activation_email_sended: 'Письмо отправлено'
 
-        invite: 
+        invite:
             created: 'Инвайт создан'
             deleted: 'Инвайт удален'
     layouts:
@@ -183,7 +182,7 @@ ru:
             display_name: Название
             owner: Владелец
             created_at: Создана
-        wallet: 
+        wallet:
             display_name: 'Название'
             description: 'Описание'
         user:

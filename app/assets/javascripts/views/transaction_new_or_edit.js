@@ -11,6 +11,8 @@
 
 //= require model/unit
 //= require model/product
+//= require model/wallet
+//= require model/currency
 
 //= require components/select-wallet
 //= require components/select-product
@@ -36,22 +38,43 @@ function Operation(options) {
   options = options || {}
   var model = this
   model.transaction = options['transaction']
-  model.wallet = options['wallet'] || ko.observable()
+
+  function makeObservable(value, maker, defVal) {
+    if (value) {
+      if (ko.isObservable(value)) {
+        return value
+      } else {
+        return ko.observable(maker(value))
+      }
+    } else {
+      return ko.observable(defVal)
+    }
+  }
+  var constructMaker = function(t) {
+    return function(data) {
+      return new t(data)
+    }
+  }
+  var origMaker = function(data) {
+    return data
+  }
+
+  model.id = makeObservable(options.id, origMaker)
+  model.wallet = makeObservable(options.wallet, constructMaker(Wallet))
   model.walletCurrency = ko.computed(function() {
     var wallet = model.wallet()
     return typeof(wallet) != 'undefined' ? wallet.currency : {}
   })
 
-  model.product = ko.observable()
-  model.count = ko.observable(1)
-  model.amount = ko.observable(0)
-  model.sum = ko.observable(0)
-  model.currency = options['currency'] || ko.observable(model.walletCurrency())
-  model.unit = ko.observable()
+  model.product = makeObservable(options.product, constructMaker(Product))
+  model.count = makeObservable(options.count, origMaker, 1)
+  model.amount = makeObservable(options.amount * -1, origMaker, 0)
+  model.sum = makeObservable(options.sum * -1, origMaker, 0)
+  model.currency = makeObservable(options.currency, constructMaker(Currency), model.walletCurrency())
+  model.unit = makeObservable(options.unit, constructMaker(Unit))
 
-  model.walletSum = ko.observable(0)  
-  
-  model.exchangeRate = ko.observable(1)
+  // TODO использовать exchangeRate вместо exchange_rate
+  model.exchangeRate = makeObservable(options.exchange_rate, origMaker, 1)
   model.exchangeRateText = ko.computed(function() {
     var rate = model.exchangeRate()
     var base = model.walletCurrency()
@@ -65,6 +88,7 @@ function Operation(options) {
     }
     return "1 " + base.code + " = " + numeral(rate).format("0,0.00") + " " + target.code
   })
+  model.walletSum = ko.observable(model.sum() * model.exchangeRate())
   model.exchangeRateLoading = ko.observable(false)
   model.refreshExchangeRate = function() {
     var base = model.walletCurrency()
@@ -106,7 +130,7 @@ function Operation(options) {
       locks[name] = false
     }
   })()
-  
+
   function syncWalletSum() {
     if (!model.exchangeRateLocked() && model.walletSum() != 0) {
       syncExchangeRate()
@@ -124,7 +148,7 @@ function Operation(options) {
         model.sum(model.walletSum() * model.exchangeRate())
       })
     }
-    
+
   }
   function syncExchangeRate() {
     lock('sum', function() {
@@ -206,6 +230,7 @@ function Operation(options) {
     var unit = model.unit()
     var product = model.product()
     return {
+      id: model.id(),
       wallet: model.wallet().key,
       currency: model.currency().code,
       currency_rate: model.exchangeRate(),
@@ -224,13 +249,14 @@ function Operation(options) {
 
 function TransactionModel() {
   var model = this
+  var transaction = startData.transaction
 
-  model.date = ko.observable(new Date())
+  model.date = ko.observable(transaction ? new Date(transaction.date) : new Date())
   model.dateText = ko.computed(function() {
     return moment(model.date()).format('LL')
   })
 
-  model.mode = ko.observable($('input[name=mode]').val())
+  model.mode = ko.observable(startData.mode)
   model.setMode = function(s, event) {
     model.mode($(event.currentTarget).attr('data-value'))
   }
@@ -238,16 +264,57 @@ function TransactionModel() {
     return $('.transaction-mode a[data-value=' + model.mode() + ']').text()
   })
 
-  model.tags = ko.observableArray([])
-  model.description = ko.observable('')
-  model.fromOperation = new Operation({ positiveSumRequired: true })
-  model.toOperation = new Operation({ positiveSumRequired: true })
-
+  model.id = ko.observable(transaction ? transaction.id : null)
+  model.tags = ko.observableArray(transaction ? transaction.tags : [])
+  model.description = ko.observable(transaction ? transaction.description : '')
   model.operations = ko.observableArray([])
+  model.deletedOperations = ko.observableArray([])
+
+  if (transaction) {
+    var operations = transaction.operations
+    if (operations.length == 0) throw 'Invalid transaction for edit: operations not found.'
+    if (startData.mode == 'income') {
+      if (operations.length > 1) throw 'Invalid transaction for edit: too many operations.'
+
+      model.fromOperation = new Operation(_.extend({ positiveSumRequired: true },operations[0]))
+      model.toOperation = new Operation({ positiveSumRequired: true })
+
+    } else if (startData.mode == 'transfer') {
+      var inops = _.filter(operations, function(op) { return op.sum > 0 })
+      var outops = _.filter(operations, function(op) {  return op.sum < 0 })
+      if (inops.length == 0) throw 'Invalid transaction for edit: income operation not found.'
+      if (outops.length == 0) throw 'Invalid transaction for edit: outcome operation not found.'
+      if (inops.length > 1) throw 'Invalid transaction for edit: too many income operations.'
+      if (outops.length > 1) throw 'Invalid transaction for edit: too many outcome operations.'
+
+      model.fromOperation = new Operation(_.extend({ positiveSumRequired: true }, inops[0]))
+      model.toOperation = new Operation(_.extend({ positiveSumRequired: true }, outops[0]))
+
+    } else if (startData.mode == 'outcome') {
+      var inops = _.filter(operations, function(op) { return op.sum > 0 })
+      if (inops.length > 0) throw 'Invalid transaction for edit: income operation found.'
+      model.fromOperation = new Operation(_.extend({ positiveSumRequired: true }, operations[0]))
+      model.toOperation = new Operation({ positiveSumRequired: true })
+      _.each(operations, function(item) {
+        item.transaction = model
+        item.productRequired = true
+        item.positiveSumRequired = true
+        var op = new Operation(item)
+        model.operations.push(op)
+        op.sum.subscribe(updateSum)
+      })
+      updateSum()
+
+    }
+  } else {
+    model.fromOperation = new Operation({ positiveSumRequired: true })
+    model.toOperation = new Operation({ positiveSumRequired: true })
+  }
+
   model.createOperation = function() {
-    return new Operation({ 
+    return new Operation({
       transaction: model,
-      wallet: model.fromOperation.wallet, 
+      wallet: model.fromOperation.wallet,
       currency: model.fromOperation.currency,
       productRequired: true,
       positiveSumRequired: true
@@ -260,12 +327,15 @@ function TransactionModel() {
   }
   model.addOperationAndFocus = function() {
     model.addOperation()
-    setTimeout(function() { 
+    setTimeout(function() {
       $('.detalization .transaction-operation').eq(-1).find('input').eq(0).focus()
     }, 20)
   }
 
   model.deleteOperation = function(op) {
+    if (op.id()) {
+      model.deletedOperations.push(op)
+    }
     if (model.operations().length == 1) {
       var temp = model.operations()
       temp[0] = model.createOperation()
@@ -276,7 +346,8 @@ function TransactionModel() {
     }
     updateSum()
   }
-  model.addOperation()
+
+  if (!model.operations().length) model.addOperation()
 
   model.valid = function() {
     var valid = true
@@ -298,7 +369,8 @@ function TransactionModel() {
   model.saving = ko.observable(false)
   model.save = function() {
     if (!model.valid()) return
-    var data = { 
+    var data = {
+      id: model.id(),
       tags: _.map(model.tags(), function(tag) {
         return tag.id
       }),
@@ -315,7 +387,7 @@ function TransactionModel() {
       var toData = model.toOperation.getData()
       fromData.sum = fromData.sum * -1
       fromData.amount = fromData.amount * -1
-      data.operations = [        
+      data.operations = [
         fromData, toData
       ]
     } else if (model.mode() == 'outcome') {
@@ -325,13 +397,16 @@ function TransactionModel() {
         data.amount = data.amount * -1
         return data
       })
+
+      data.deletedOperations = _.map(model.deletedOperations(), function(op) { return op.id() })
+
     } else {
       throw 'Invalid mode.'
     }
-    
+
     model.saving(true)
     http.request({
-      url: '/transaction/new',
+      url: startData.action == 'new' ? '/transaction/new' : '/transaction/update',
       type: 'POST',
       contentType: "application/json; charset=utf-8",
       dataType: 'json',

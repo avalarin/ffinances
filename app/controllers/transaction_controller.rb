@@ -19,31 +19,7 @@ class TransactionController < ApplicationController
     respond_to do |format|
       format.json do
         return render_api_resp :not_found unless @transaction
-        render_api_resp :ok, data: {
-          id: @transaction.id, date: @transaction.date, description: @transaction.description,
-          transaction_type: @transaction.transaction_type, creator: @transaction.creator,
-          operations_groupped: @transaction.operations_groupped, tags: @transaction.tags,
-          operations: (@transaction.operations.map do |op|
-            { currency_rate: op.currency_rate, count: op.count, amount: op.amount,
-              sum: op.sum, wallet: op.wallet, currency: op.currency, product: op.product,
-              unit: op.unit ? {
-                id: op.unit.id,
-                full_name: op.unit.names[@lang]['full'],
-                short_name: op.unit.names[@lang]['short'],
-                decimals: op.unit.decimals
-              } : nil
-            }
-          end)
-        }
-
-        @transaction .as_json({
-          only: [ :id, :date, :description, :transaction_type ],
-          methods: [ :creator, :operations_groupped ],
-          include: [ :tags, operations: {
-              only: [ :currency_rate, :count, :amount, :sum ],
-              methods: [ :wallet, :currency, :product, :unit ]
-            } ]
-        })
+        render_api_resp :ok, data: @transaction.to_json_with_operations(@lang)
       end
     end
   end
@@ -65,51 +41,17 @@ class TransactionController < ApplicationController
   end
 
   def create
-    permitted = params.require('transaction')
-                      .permit(:description, :date, :type,
-                              tags: [], 
-                              operations: [ :wallet, :currency, :currency_rate, :count, :amount, :unit, :sum, product: [ :id, :display_name ] ])
-    tags = permitted[:tags] ? permitted[:tags].map { |id| Tag.where(id: id, book_id: current_book.id).first } : []
+    permitted = get_raw_transaction_from_params
     t = Transaction.new({
       book: current_book,
       creator: current_user,
       transaction_type: permitted[:type],
       date: permitted[:date],
       description: permitted[:description],
-      tags: tags
+      tags: get_tags(permitted[:tags])
     })
+    put_new_operations(t, permitted[:operations])
 
-    permitted[:operations].each do |op|   
-      if op[:product]
-        unit = Unit.find(op[:unit])
-        if op[:product][:id]
-          product_model = Product.where(book_id: current_book.id, id: op[:product][:id]).first
-        end
-        if !product_model && op[:product][:display_name]
-          product_model = Product.where(book_id: current_book.id, display_name: op[:product][:display_name]).first
-        end
-        if !product_model
-          product_model = Product.new(book: current_book, unit: unit, display_name: op[:product][:display_name])
-          product_model.save
-        end
-      else
-        unit = nil
-        product_model = nil
-      end
-
-      op_model = Operation.new({
-        transact: t,
-        wallet: Wallet.where(key: op[:wallet], book_id: current_book.id).first,
-        currency: Currency.find_by_code(op[:currency]),
-        product: product_model,
-        unit: unit,
-        currency_rate: op[:currency_rate],
-        count: op[:count],
-        amount: op[:amount],
-        sum: op[:sum]
-      })
-      t.operations.push(op_model)
-    end
     if t.valid?
       t.save
       return render_api_resp :ok
@@ -118,6 +60,66 @@ class TransactionController < ApplicationController
         operations: t.operations
       }, valid: t.valid?, errors: t.errors }
     render_model_errors_api_resp t
+  end
+
+  def edit
+    @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
+    return render_not_found unless @transaction
+    @mode = @transaction.transaction_type
+    @wallets = Wallet.all
+    @currencies = Currency.all
+  end
+
+  def update
+    permitted = get_raw_transaction_from_params
+    @transaction = Transaction.where(book_id: current_book.id, id: permitted[:id]).first
+    return render_not_found unless @transaction
+
+    # Неудачное именование. Встроенный метод transaction создает транзакцию уровня БД.
+    @transaction.transaction do
+      @transaction.date = permitted[:date]
+      @transaction.description = permitted[:description]
+      @transaction.tags = get_tags(permitted[:tags])
+
+      # Удаление операций
+      if permitted[:deletedOperations]
+        begin
+          @deletedOperations = permitted[:deletedOperations]
+                                .map { |id| @transaction.operations.find(id) }
+                                .each { |op| op.delete }
+        rescue ActiveRecord::RecordNotFound
+          return render_api_resp :bad_request, message: 'deletion_operation_not_found'
+        end
+      end
+
+      permitted[:operations].each do |op|
+        op_model = op[:id] ? @transaction.operations.find(op[:id]) : nil
+        if (op_model)
+          product, unit = get_product_and_unit(op[:product], op[:unit])
+          op_model.wallet = Wallet.where(key: op[:wallet], book_id: current_book.id).first
+          op_model.currency = Currency.find_by_code(op[:currency])
+          op_model.product = product
+          op_model.unit = unit
+          op_model.currency_rate = op[:currency_rate]
+          op_model.count = op[:count]
+          op_model.amount = op[:amount]
+          op_model.sum = op[:sum]
+        else
+          op_model = create_operation(op)
+          op_model.transact = @transaction
+          @transaction.operations.push(op_model)
+        end
+      end
+
+      if @transaction.valid?
+        @transaction.save
+        return render_api_resp :ok
+      end
+      return render_api_resp :bad_request, data: { model: {
+          operations: @transaction.operations
+        }, valid: @transaction.valid?, errors: @transaction.errors }
+      render_model_errors_api_resp @transaction
+    end
   end
 
   def delete
@@ -130,6 +132,60 @@ class TransactionController < ApplicationController
         render_api_resp :ok
       end
     end
+  end
+
+  private
+
+  def get_raw_transaction_from_params
+    params.require('transaction')
+          .permit(:id, :description, :date, :type,
+                  tags: [],
+                  deletedOperations: [],
+                  operations: [ :id, :wallet, :currency, :currency_rate, :count, :amount, :unit, :sum, product: [ :id, :display_name ] ])
+  end
+
+  def get_tags(raw)
+    raw ? raw.map { |id| Tag.where(id: id, book_id: current_book.id).first } : []
+  end
+
+  def get_product_and_unit(raw_product, unit_id)
+    product, unit = [nil, nil]
+    if raw_product
+      unit = Unit.find(unit_id)
+      if raw_product[:id]
+        product = Product.where(book_id: current_book.id, id: raw_product[:id]).first
+      end
+      if !product && raw_product[:display_name]
+        product = Product.where(book_id: current_book.id, display_name: raw_product[:display_name]).first
+      end
+      if !product
+        product = Product.new(book: current_book, unit: unit, display_name: raw_product[:display_name])
+        product.save
+      end
+    end
+    return [product, unit]
+  end
+
+  def put_new_operations(transaction, raw)
+    raw.each do |op|
+      op_model = create_operation(op)
+      op_model.transact = transaction
+      transaction.operations.push(op_model)
+    end
+  end
+
+  def create_operation(raw)
+    product, unit = get_product_and_unit(raw[:product], raw[:unit])
+    Operation.new({
+        wallet: Wallet.where(key: raw[:wallet], book_id: current_book.id).first,
+        currency: Currency.find_by_code(raw[:currency]),
+        product: product,
+        unit: unit,
+        currency_rate: raw[:currency_rate],
+        count: raw[:count],
+        amount: raw[:amount],
+        sum: raw[:sum]
+      })
   end
 
 end

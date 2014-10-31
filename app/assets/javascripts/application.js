@@ -12,6 +12,8 @@
 //= require moment
 //= require moment-locales/ru.js
 
+//= require routes
+
 define('jquery', function () {
   return jQuery;
 })
