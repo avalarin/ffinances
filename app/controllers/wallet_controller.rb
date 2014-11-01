@@ -29,9 +29,6 @@ class WalletController < ApplicationController
     @wallet = Wallet.new(params.require(:wallet).permit(:display_name, :currency_id, :type_id, :description))
     @wallet.book = current_book
     @wallet.owner = current_user
-    begin
-      @wallet.key = SecureRandom.hex(6)
-    end while (Book.find_by_key @wallet.key)
     if (@wallet.valid?)
       @wallet.save!
       return redirect_to dashboard_path

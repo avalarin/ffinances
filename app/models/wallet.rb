@@ -6,12 +6,21 @@ class Wallet < ActiveRecord::Base
 
   validates :key, :display_name, :owner, :currency, :type, presence: true
 
+  after_initialize do |wallet|
+    unless wallet.key
+      begin
+        wallet.key = SecureRandom.hex(6)
+      end while (Wallet.find_by_key wallet.key)
+    end
+  end
+
+
   def image_url
     type.image_url
   end
 
   def as_json(options = nil)
-    super({ 
+    super({
       only: [ :key, :display_name, :balance ],
       methods: [ :currency, :image_url ]
     }.merge(options || {}))

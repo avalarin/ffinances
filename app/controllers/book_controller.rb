@@ -17,21 +17,21 @@ class BookController < ApplicationController
         return render_api_resp :not_found unless @book
         render_api_resp :ok, data: @book
       end
-    end  
+    end
   end
 
   def current
     @book = current_book
     respond_to do |f|
       f.html do
-        need_book 
+        need_book
         render 'details'
       end
       f.json do
         return render_api_resp :ok, message: 'book_not_selected' unless current_book
         render_api_resp :ok, data: current_book
       end
-    end    
+    end
   end
 
   def choose
@@ -52,12 +52,8 @@ class BookController < ApplicationController
 
     params.require(:currencies).each do |code|
       currency = Currency.find_by_code(code)
-      book.currencies.push(currency) if (currency) 
+      book.currencies.push(currency) if (currency)
     end
-
-    begin
-      book.key = SecureRandom.hex(6)
-    end while (Book.find_by_key book.key)
 
     if (book.valid?)
       book.save!
@@ -67,7 +63,7 @@ class BookController < ApplicationController
     @book = book
     render 'new'
   end
-  
+
   def update
     @book = Book.find_by_key(params.require(:key))
     return render_not_found unless @book

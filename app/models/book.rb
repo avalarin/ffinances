@@ -7,6 +7,14 @@ class Book < ActiveRecord::Base
 
   validates :key, :display_name, :owner, presence: true
 
+  after_initialize do |book|
+    unless book.key
+      begin
+        book.key = SecureRandom.hex(6)
+      end while (Book.find_by_key book.key)
+    end
+  end
+
   def users
     User.select("users.*, (case when (users.id = #{owner.id}) then \'owner\' else books_users.role end) as book_role")
         .joins('left outer join books_users on books_users.user_id = users.id')
@@ -21,9 +29,9 @@ class Book < ActiveRecord::Base
   end
 
   def as_json(options = nil)
-    super({ 
+    super({
       only: [:key, :display_name, :created_at, :updated_at ],
       methods: [ :owner ]
     }.merge(options || {}))
   end
-end 
+end
