@@ -26,7 +26,5 @@ module FamilyFinances
     config.i18n.default_locale = :ru
 
     config.middleware.use Captcha::Middleware
-
-    Rails.application.routes.default_url_options[:host] = 'dev2.local:3000'
   end
 end

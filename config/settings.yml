@@ -1,8 +1,9 @@
 defaults: &defaults
-  security: 
+  security:
     registration_mode: free
 
 development:
+  host_name: 'dev2dd.local:3000'
   <<: *defaults
 
 test:
