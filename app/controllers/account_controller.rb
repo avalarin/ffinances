@@ -28,11 +28,11 @@ class AccountController < ApplicationController
           login_user user, login[:remember] == "true", ip: client_ip, user_agent: client_user_agent
           return redirect_to(params[:r] || root_path)
         end
-    else 
+    else
         flash.now.alert = t('errors.messages.invalid_email_or_password')
     end
     @login = Login.new login
-    render 'new'
+    render 'login'
   end
 
   def do_logout
