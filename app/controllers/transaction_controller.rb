@@ -126,9 +126,12 @@ class TransactionController < ApplicationController
     @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
     return render_not_found unless @transaction
     return render_access_denied if ((current_user.id != @transaction.creator.id) && !has_book_role(:admin))
+    @transaction.transaction do
+      @transaction.operations.delete_all
+      @transaction.delete
+    end
     respond_to do |format|
       format.json do
-        @transaction.delete
         render_api_resp :ok
       end
     end
