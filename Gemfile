@@ -12,6 +12,7 @@ gem 'will_paginate'
 gem 'validates_email_format_of'
 
 gem 'sprockets', '~> 2.11.0'
+gem 'therubyracer'
 gem 'sass-rails'
 gem 'haml-rails'
 
