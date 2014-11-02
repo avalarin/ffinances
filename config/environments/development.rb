@@ -33,17 +33,4 @@ FamilyFinances::Application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.secret_key_base = '0a9e749cb985b557e1c7271d2c20c21129f8003fae32f064b42cfe9d736a64a3cb21eb7a49183695c8eb00eb5d78caa4534de653a20a4d3b04cec99f0b44ae11'
-
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => '20036267683555a99',
-    :password => '6880495d28d20a',
-    :address => 'mailtrap.io',
-    :domain => 'mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5,
-    :enable_starttls_auto => true
-  }
-
 end

@@ -15,6 +15,14 @@ class Settings < Settingslogic
         raise "Unknown registration mode " + Settings.security[:registration_mode].to_s
     end
 
+    Settings[:mail] ||= Settingslogic.new({})
+    Settings.mail[:from] ||= 'ffinances@localhost'
+    Settings.mail[:smtp] ||= Settingslogic.new({})
+    Settings.mail.smtp[:server] ||= 'localhost'
+    Settings.mail.smtp[:port] ||= 25
+    Settings.mail.smtp[:user_name] ||= 'user'
+    Settings.mail.smtp[:password] ||= 'password'
+
     Settings[:admin] ||= Settingslogic.new({})
     Settings.admin[:page_size] ||= 12
 end
