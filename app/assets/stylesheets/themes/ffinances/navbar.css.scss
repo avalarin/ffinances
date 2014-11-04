@@ -1,23 +1,38 @@
 .navbar-nav {
   & > li {
+    height: $navbar-height;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+
     & > a {
       border: 0;
+    }
+
+    span, a {
+      vertical-align: middle;
+      line-height: 24px;
+    }
+
+    &:hover {
+      background: $navbar-default-bg;
+      border-left: 1px solid $navbar-default-border;
+      border-right: 1px solid $navbar-default-border;
     }
   }
 }
 
 .navbar-brand {
-  img {
-    height: 28px;
-    width: 28px;
-    margin-top: -4px;
-  }
+  line-height: inherit;
 }
 
 .nav-condensed a {
     padding-left: 8px !important;
     padding-right: 8px !important;
-} 
+}
 
 .navbar-nav-justified {
   margin: 0 auto;
