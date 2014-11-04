@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
-  before_save { 
-    self.email = email.downcase 
+  before_save {
+    self.email = email.downcase
     self.name = name.downcase
   }
 
-  has_attached_file :avatar, default_url: ActionController::Base.helpers.asset_path('missing_avatar.png'), styles: { 
-    large: '256x256>', 
-    middle: '128x128>', 
-    small: '24x24>' 
+  has_attached_file :avatar, default_url: '/images/missing_avatar_:style.png', styles: {
+    large: '256x256>',
+    middle: '128x128>',
+    small: '24x24>'
   }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
   end
 
   def as_json(options = nil)
-    super({ 
+    super({
       only: [:name, :email, :display_name ],
       methods: [ :avatar_url ]
     }.merge(options || {}))
