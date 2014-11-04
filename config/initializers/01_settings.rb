@@ -23,8 +23,7 @@ class Settings < Settingslogic
     Settings.mail.smtp[:user_name] ||= 'user'
     Settings.mail.smtp[:password] ||= 'password'
 
-    Settings[:redis] ||= Settingslogic.new({})
-    Settings.redis[:socket] ||= '/tmp/redis.sock'
+    Settings[:redis] ||= 'unix:/tmp/redis.sock'
 
     Settings[:admin] ||= Settingslogic.new({})
     Settings.admin[:page_size] ||= 12

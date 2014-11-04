@@ -1,6 +1,5 @@
 defaults: &defaults
-  redis:
-    socket: '/tmp/redis.sock'
+  redis: 'unix:/tmp/redis.sock'
   security:
     registration_mode: free
 
