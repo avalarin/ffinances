@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
     roles_str ? roles_str.split(';') : []
   end
 
-  def is_admin?
+  def admin?
     has_role? :admin
   end
 
