@@ -22,6 +22,9 @@ class Settings < Settingslogic
     Settings.mail.smtp[:port] ||= 25
     Settings.mail.smtp[:user_name] ||= 'user'
     Settings.mail.smtp[:password] ||= 'password'
+    Settings.mail.smtp[:domain] ||= nil
+    Settings.mail.smtp[:authentication] = Settings.mail.smtp[:authentication] ?
+      Settings.mail.smtp[:authentication].to_sym : :plain
 
     Settings[:redis] ||= 'unix:/tmp/redis.sock'
 

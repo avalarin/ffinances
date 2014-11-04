@@ -6,11 +6,13 @@ defaults: &defaults
 development:
   host_name: 'dev2.local:3000'
   mail:
-    smtp:
-      host_name: mailtrap.io
-      port: 2525
-      user_name: 20036267683555a99
-      password: 6880495d28d20a
+    from: ffinances@dev2.local
+    mail:
+      smtp:
+        host_name: mailtrap.io
+        port: 2525
+        user_name: 20036267683555a99
+        password: 6880495d28d20a
   <<: *defaults
 
 test:

@@ -4,9 +4,9 @@ Rails.application.config.action_mailer.smtp_settings = {
   :user_name => Settings.mail.smtp.user_name,
   :password => Settings.mail.smtp.password,
   :address => Settings.mail.smtp.host_name,
-  :domain => Settings.mail.smtp.host_name,
+  :domain => Settings.mail.smtp.domain || Settings.mail.smtp.host_name,
   :port => Settings.mail.smtp.port,
-  :authentication => :cram_md5,
+  :authentication => Settings.mail.smtp.authentication,
   :enable_starttls_auto => true
 }
 
