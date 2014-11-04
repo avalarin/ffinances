@@ -16,7 +16,7 @@
         - if authenticated?
           - if current_user.admin?
             %li
-              %a{ href: admin_main_path }="Администрирование"
+              %a{ href: admin_main_path }=t('.administration')
           %li.dropdown
             %a.dropdown-toggle(href="#" class="" data-toggle="dropdown")
               %span=current_user.display_name

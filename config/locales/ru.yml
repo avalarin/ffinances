@@ -145,6 +145,8 @@ ru:
         navbar:
             current_book: 'Текущая книга'
             current_book_not_selected: 'Книга не выбрана'
+
+            administration: 'Администрирование'
         admin:
             administration: 'Администрирование'
             main: 'Главная'
