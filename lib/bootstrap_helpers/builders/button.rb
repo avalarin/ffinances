@@ -22,7 +22,7 @@ module BootstrapHelpers
           href: options[:href]
         }
         html[:title] ||= options[:text]
-        
+
         template.content_tag :a, content, html
       end
 
@@ -30,6 +30,7 @@ module BootstrapHelpers
         css = "btn "
         css << Button.get_button_style_class(options[:style])
         css << " " << Button.get_button_size_class(options[:size])
+        css << " btn-block" if options[:block]
         css
       end
 
