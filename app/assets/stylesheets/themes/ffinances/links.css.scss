@@ -33,6 +33,10 @@
     }
   }
 
+  &.link-white {
+    @include link-variant(#fff)
+  }
+
   &.link-primary {
     @include link-variant($btn-primary-bg)
   }
