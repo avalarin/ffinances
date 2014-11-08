@@ -21,7 +21,7 @@ AvDropdown = (function() {
         return false
       })
       $element.on(clickEvent, function(event) {
-        return false
+        event.stopPropagation()
       })
       $(document).on(clickEvent, function(event) {
         dropdown.hide()
@@ -65,7 +65,7 @@ AvDropdown = (function() {
         dd.hide(true)
       })
       lastFocusedElement = $(':focus')
-      drop.addClass('open')
+      $element.addClass('open')
       toggle.addClass('active')
       attachHandlers()
       if (options['onshow']) options['onshow']()
@@ -74,7 +74,7 @@ AvDropdown = (function() {
 
     dropdown.hide = function(nofocus) {
       if (!shown) return
-      drop.removeClass('open')
+      $element.removeClass('open')
       toggle.removeClass('active')
       detachHandlers()
       if (lastFocusedElement && !nofocus) {
