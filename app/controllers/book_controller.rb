@@ -127,4 +127,7 @@ class BookController < ApplicationController
     render_model_errors_api_resp @book_user
   end
 
+  def no_books
+  end
+
 end

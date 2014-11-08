@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post '/tag/new', to: 'tag#create', as: :create_tag
 
   get '/book', to: 'book#index', as: :books_index
+  get '/book/no_books', to: 'book#no_books', as: :no_books
   get '/book/current', to: 'book#current', as: :current_book
   post '/book/choose', to: 'book#choose', as: :choose_book
   get '/book/new', to: 'book#new', as: :new_book

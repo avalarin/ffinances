@@ -1,0 +1,6 @@
+.row
+  .col-md-4.col-md-offset-4
+    = bt_panel do |p|
+      - p.body do
+        %p=t('.no_books_message')
+        = bt_button text: t('commands.create'), style: :success, href: create_book_path

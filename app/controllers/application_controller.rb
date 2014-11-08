@@ -25,13 +25,13 @@ class ApplicationController < ActionController::Base
       next unless initializer
       if initializer.is_a? Proc
         message = instance_eval(&initializer)
-        messages.push(message) 
+        messages.push(message)
       else
         messages.push(Message.new(initializer))
       end
     end
   end
-  
+
   def authorize role = nil
     if (!authenticated?)
       respond_to do |f|
@@ -59,12 +59,18 @@ class ApplicationController < ActionController::Base
     end
     true
   end
-  
+
   def need_book role = nil
     book = current_book
     if (!book)
-      redirect_to books_index_path
-      return false
+      books = current_user.books
+      if (books.size > 0)
+        book = books[0]
+        set_current_book book
+      else
+        redirect_to no_books_path
+        return false
+      end
     end
     if (role)
       unless has_book_role role
