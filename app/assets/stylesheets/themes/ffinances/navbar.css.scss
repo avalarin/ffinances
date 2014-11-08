@@ -52,3 +52,57 @@
 .navbar-second {
   z-index: auto;
 }
+
+.books-menu {
+
+  li {
+
+    table {
+      height: 28px;
+      width: 100%;
+    }
+
+    td {
+      font-size: $font-size-base;
+    }
+
+    .actions {
+      width: 16px;
+      a {
+        display: none;
+      }
+    }
+
+    i.fa {
+      height: auto;
+    }
+
+    &:hover .actions a {
+      display: inline-block;
+    }
+
+    &.active td {
+      color: $component-active-color;
+    }
+
+  }
+
+  table.manage {
+    width: 100%;
+
+    td {
+      padding: 0 2px;
+      text-align: center;
+    }
+
+    .btn {
+      line-height: 1.5;
+    }
+
+    i.fa {
+      height: auto;
+    }
+
+  }
+
+}
