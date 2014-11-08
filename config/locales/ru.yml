@@ -222,3 +222,5 @@ ru:
             select_user: 'Выберите пользователя'
             no_search: 'Для поиска начните вводить текст'
             no_users: 'Нет доступных для выбора пользователей'
+        current_book_menu_template:
+            is_current_book: '(текущая)'

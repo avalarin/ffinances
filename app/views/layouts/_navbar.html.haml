@@ -1,4 +1,4 @@
-.navbar.navbar-default.navbar-static-top(role="navigation")
+.navbar.navbar-default.navbar-static-top#main-nav-bar(role="navigation")
   .container
     .navbar-header
       %button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbar-collapse-1")
@@ -16,31 +16,17 @@
         - if authenticated?
           - if current_user.admin?
             %li
-              %a{ href: admin_main_path }=t('.administration')
-          %li.dropdown
-            %a.dropdown-toggle(href="#" class="" data-toggle="dropdown")
-              %span=current_user.display_name
-              = avatar_image current_user
-            %ul.dropdown-menu(role="menu")
-              %li.dropdown-header(role="presentation")= current_user.display_name
-              %li.divider
-              - if current_book
-                %li.dropdown-header(role="presentation")= t('.current_book')
-                %li
-                  %a{ href: book_details_path(key: current_book.key) }
-                    = "#{current_book.display_name} (#{t('model.book_user.role_' + current_book_role.to_s)})"
-                %li
-                  %a{ href: books_index_path }= t('commands.change')
-              - else
-                %li.dropdown-header(role="presentation")= t('.current_book_not_selected')
-                %li
-                  %a{ href: books_index_path }= t('commands.choose')
-              %li.divider
-              %li
-                %a{ href: logout_path }=t('commands.logout')
+              %a{ href: admin_main_path }
+                = bt_icon :gears
+                %span=t('.administration')
+          - if current_book
+            = ko 'component: { name: "current-book-menu" }'
+          = render 'layouts/current_user_menu'
         - else
           %li
             %a{ href: login_path }=t('commands.login')
           - if Settings.security.registration_mode != :disabled
             %li
               %a{ href: register_path }=t('commands.register')
+
+= render 'components/current_book_menu_template'

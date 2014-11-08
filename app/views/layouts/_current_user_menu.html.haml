@@ -1,0 +1,10 @@
+%li.dropdown
+  %a.dropdown-toggle(href="#" class="" data-toggle="dropdown")
+    = avatar_image current_user, size: :small
+    %span= current_user.display_name
+    %span.caret
+  %ul.dropdown-menu(role="menu")
+    %li.dropdown-header(role="presentation")= current_user.display_name
+    %li.divider
+    %li
+      %a{ href: logout_path }=t('commands.logout')
