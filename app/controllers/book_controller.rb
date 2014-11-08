@@ -4,6 +4,14 @@ class BookController < ApplicationController
 
   def index
     @books = current_user.books.order :display_name
+    respond_to do |f|
+      f.html do
+        render 'index'
+      end
+      f.json do
+        render_api_resp :ok, data: @books
+      end
+    end
   end
 
   def details
