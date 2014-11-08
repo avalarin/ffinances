@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function() {
   var http = require('http')
   var unitsSource = '/data/unit.json'
@@ -35,7 +32,7 @@
         return '0,0'
       } else {
         if (unit.decimals == 0) return '0,0'
-        return '0,0.' + Array(unit.decimals).join("0") 
+        return '0,0.' + Array(unit.decimals).join("0")
       }
     })
     model.dropdownShown = ko.observable(false)
@@ -69,7 +66,7 @@
       model.unit(unit)
       if (!staticUnit) dropdown.hide()
     }
-    
+
     function selectFirst() {
       if (!model.unit() && model.allUnits().length > 0) {
         model.unit(model.allUnits()[0])

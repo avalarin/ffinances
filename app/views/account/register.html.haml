@@ -4,7 +4,7 @@
   = javascript_include_tag "views/account_register"
 
 
-.account-container
+.account-container(data-bind="with: register")
   = bt_form_for @user, html: { :'class' => 'form-stack' }, id: 'register-form' do |f|
     - if @invite
       = f.hidden_input property: 'invite', value: @invite.code

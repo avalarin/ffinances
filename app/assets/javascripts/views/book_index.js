@@ -1,5 +1,3 @@
-//= require modules/http
-
 var http = require('http')
 
 function choose(key) {
@@ -11,5 +9,4 @@ function choose(key) {
       location.reload()
     }
   })
-  
 }

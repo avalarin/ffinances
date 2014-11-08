@@ -34,7 +34,7 @@
             %tr
               %td.column-key= t('.book_created_at')
               %td.column-value= time_tag(@book.created_at)
-  .col-md-5
+  .col-md-5(data-bind="with: book")
     .panel.panel-default
       .panel-heading
         %span=t('.book_users')
@@ -56,7 +56,7 @@
             .pull-right
               - if @admin
                 .btn-group
-                  %button.btn.btn-default.btn-xs.dropdown-toggle(type="button" data-toggle="dropdown" data-bind="css: { disabled: bookRole() == 'owner' }") 
+                  %button.btn.btn-default.btn-xs.dropdown-toggle(type="button" data-toggle="dropdown" data-bind="css: { disabled: bookRole() == 'owner' }")
                     %span(data-bind="text: rolesLocalization[bookRole()]")
                     %span.caret
                   %ul.dropdown-menu(role="menu" data-bind="foreach: window.rolesAndDelete")

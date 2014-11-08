@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function () {
   "use strict"
   var http = require('http')

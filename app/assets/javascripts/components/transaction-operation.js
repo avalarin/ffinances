@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function() {
   var http = require('http')
 
@@ -23,5 +20,5 @@
     },
     template: { element: 'transaction-simple-operation-template' }
   })
-  
+
 })()

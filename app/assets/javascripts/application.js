@@ -1,10 +1,12 @@
-//= require jquery
+//= require modules/require
+//= require modules/custom-jquery
+//= require modules/custom-knockout
+
 //= require jquery.validate
 //= require jquery.validate.unobtrusive
 //= require jquery_ujs
 //= require bootstrap
 //= require underscore
-//= require modules/require
 
 //= require numeral
 //= require numeral-locales/ru.js
@@ -12,15 +14,10 @@
 //= require moment
 //= require moment-locales/ru.js
 
+//= require modules/page
+//= require modules/http
+
 //= require routes
+//= require localization
 
-define('jquery', function () {
-  return jQuery;
-})
-
-numeral.language('ru')
-moment.locale('ru')
-
-if (!window.values) window.values = {}
-if (!window.urls) window.urls = {}
-if (!window.localization) window.localization = {}
+//= require components/current-book-menu

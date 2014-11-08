@@ -1,5 +1,3 @@
-//= require custom-knockout
-//= require modules/http
 //= require model/user
 //= require components/select-user
 //= require components/select-value
@@ -24,7 +22,7 @@
             model.users.push(userModel)
           })
           model.usersLoading(false)
-        } 
+        }
       })
     }
 
@@ -87,6 +85,6 @@
     model.refreshUsers()
   }
 
-  ko.applyBindings(new BookModel())
+  window.page.addControl('book', new BookModel())
 
 })()

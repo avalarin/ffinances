@@ -1,5 +1,3 @@
-//= require custom-knockout
-//= require modules/http
 //= require model/wallet
 
 (function() {

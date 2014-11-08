@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function() {
   var http = require('http')
   var source = '/tag.json'
@@ -42,13 +39,13 @@
     })
 
     model.create = function() {
-      
+
       http.request({
         url: createUrl,
         type: 'POST',
         data: { text: model.search() },
         success: function(data) {
-          var nTag = new Tag(data) 
+          var nTag = new Tag(data)
           model.allItems.push(nTag)
           model.add(nTag)
         }

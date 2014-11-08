@@ -1,7 +1,4 @@
-//= require custom-knockout
-//= require modules/http
 //= require modules/messages
-//= require controls/page
 //= require controls/datatable
 //= require controls/modal
 //= require model/user
@@ -10,7 +7,6 @@
   var usersPath = '/admin/user'
   var http = require('http')
   var messages = require('messages')
-  var page = new Page()
   var datatable = new Datatable(usersPath + ".json", { wrapper: function(item) {
     return new User(item)
   } })
@@ -86,10 +82,8 @@
     this.close()
   }
 
-  page.addControl('datatable', datatable)
-  page.addControl('createModal', createModal)
+  window.page.addControl('datatable', datatable)
+  window.page.addControl('createModal', createModal)
 
-  page.attach()
   datatable.refresh()
-
 })()

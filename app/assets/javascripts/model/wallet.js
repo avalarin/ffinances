@@ -1,3 +1,5 @@
+//= require model/currency
+
 function Wallet(data) {
   this.key = data.key
   this.displayName = data.display_name

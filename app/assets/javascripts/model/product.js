@@ -1,3 +1,5 @@
+//= require model/unit
+
 function Product(data) {
   data = data || {}
   var product = this

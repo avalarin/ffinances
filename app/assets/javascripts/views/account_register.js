@@ -1,6 +1,4 @@
-//= require custom-knockout
 //= require components/captcha-input
-//= require modules/http
 
 (function() {
   var http = require('http')
@@ -25,8 +23,8 @@
       http.request({
         url: '/register',
         type: 'POST',
-        data: { user: { display_name: m.displayName(), name: m.name(), email: m.email(), password: m.password() }, 
-                captcha: { code: m.captcha.code(), value: $('#captcha-value').val() } 
+        data: { user: { display_name: m.displayName(), name: m.name(), email: m.email(), password: m.password() },
+                captcha: { code: m.captcha.code(), value: $('#captcha-value').val() }
         },
         success: function(data) {
           http.redirect({
@@ -52,5 +50,5 @@
       }
   })
 
-  ko.applyBindings(model)
+  window.page.addControl('register', model)
 })()

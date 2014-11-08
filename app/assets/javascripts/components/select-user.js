@@ -1,5 +1,3 @@
-//= require custom-knockout
-//= require modules/http
 //= require avalarin/dropdown
 //= require model/user
 

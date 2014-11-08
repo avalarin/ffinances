@@ -1,9 +1,6 @@
-//= require custom-knockout
 //= require zeroclipboard
-//= require modules/http
 //= require modules/messages
 //= require modules/modals
-//= require controls/page
 //= require controls/datatable
 //= require controls/modal
 
@@ -23,9 +20,8 @@
   var messages = require('messages')
   var modals = require('modals')
 
-  var page = new Page()
   var datatable = new Datatable(invitesPath + ".json")
-  
+
   datatable.create = function() {
     http.request({
       url: invitesPath + ".json",
@@ -54,9 +50,7 @@
     modal.find('.btn-copy').attr('data-clipboard-text', this.link)
   }
 
-  page.addControl('datatable', datatable)
+  window.page.addControl('datatable', datatable)
 
-  page.attach()
   datatable.refresh()
-
 })()

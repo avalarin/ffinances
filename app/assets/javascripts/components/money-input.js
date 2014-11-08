@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function() {
   var http = require('http')
   var currenciesSource = '/data/currency.json'
@@ -60,7 +57,7 @@
       model.currency({code: currency.code, name: currency.name})
       if (!staticCurrency) dropdown.hide()
     }
-    
+
     model.refreshCurrencies = function() {
       model.loadingCurrencies(true)
       http.request({

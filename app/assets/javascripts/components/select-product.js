@@ -1,6 +1,3 @@
-//= require custom-knockout
-//= require modules/http
-
 (function() {
   var http = require('http')
   var source = '/product.json'
