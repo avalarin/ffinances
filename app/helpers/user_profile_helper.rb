@@ -4,13 +4,11 @@ module UserProfileHelper
     css = 'avatar '
     case options[:size]
     when :large
-      css << 's128'
+      css << 's64'
     when :medium
-      css << 's128'
+      css << 's24'
     when :small
-      css << 's24'
-    else
-      css << 's24'
+      css << 's18'
     end
 
     html = get_html_attributes css, options, {
