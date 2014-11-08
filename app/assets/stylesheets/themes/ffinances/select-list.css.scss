@@ -5,22 +5,30 @@ ul.select-list {
 
   > li {
     list-style: none;
+    cursor: pointer;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    vertical-align: middle;
+    line-height: 24px;
+    color: $dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
 
-    > a {
-      display: block;
-      padding: 3px 20px;
-      clear: both;
-      font-weight: normal;
-      line-height: $line-height-base;
-      color: $dropdown-link-color;
-      white-space: nowrap; // prevent links from randomly breaking onto new lines
-    }
-    > a:hover, a:focus {
+    a:hover {
       text-decoration: none;
+    }
+
+    &:hover, &:focus {
       color: $dropdown-link-hover-color;
       background-color: $dropdown-link-hover-bg;
 
       outline: 0;
+    }
+
+    &.active {
+      color: $component-active-color;
+      background-color: $component-active-bg;
     }
 
   }
