@@ -12,12 +12,12 @@
       border: 0;
     }
 
-    span, a {
+    span, a, i {
       vertical-align: middle;
       line-height: 24px;
     }
 
-    &:hover {
+    &:hover, &.active, &.open {
       background: $navbar-default-bg;
       border-left: 1px solid $navbar-default-border;
       border-right: 1px solid $navbar-default-border;
