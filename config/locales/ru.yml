@@ -226,3 +226,14 @@ ru:
             no_users: 'Нет доступных для выбора пользователей'
         current_book_menu_template:
             is_current_book: '(текущая)'
+    public:
+      landing:
+        big_title: "Управляйте своими финансами с FamilyFinances!"
+        feature_open_source_title: "Открытый исходный код"
+        feature_mobile_title: "Приложение для смартфона"
+        feature_api_title: "Открытое API"
+        register: "Я новый пользователь"
+        login: "Я уже зарегистрирован"
+        feature_open_source_desc: 'Исходный код проекта открыт и доступен на <a href="https://github.com/avalarin/ffinances">GitHub</a>. Вы можете использовать его в своих целях.'
+        feature_mobile_desc: 'Мобильные приложения для популярных платформ дополят функциональность сайта и позволят управлять финансами не имея под рукой компьютера.'
+        feature_api_desc: 'Открытое API позволит реализовать взаимодействие с другими финансовыми системами, такими как другие системы управления финансами или банковские сервисы.'

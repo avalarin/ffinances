@@ -1,0 +1,22 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/landing', media: "all"
+
+%h1.big-title=t('.big_title')
+
+.controls
+  = bt_button text: t('.register'), size: :large, href: register_path
+  = bt_button text: t('.login'), size: :large, href: login_path
+
+.row.features
+  .col-md-4.feature
+    = bt_icon :'github-alt', :class => 'icon'
+    %h3= t('.feature_open_source_title')
+    %p= raw(t('.feature_open_source_desc'))
+  .col-md-4.feature
+    = bt_icon :'mobile', :class => 'icon'
+    %h3= t('.feature_mobile_title')
+    %p= t('.feature_mobile_desc')
+  .col-md-4.feature
+    = bt_icon :'gears', :class => 'icon'
+    %h3= t('.feature_api_title')
+    %p= t('.feature_api_desc')

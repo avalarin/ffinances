@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'public#index'
 
   get '/login', to: 'account#login', as: :login
   post '/login', to: 'account#do_login', as: :login_post
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/', to: 'main#index', as: :main
+    get '/', to: 'public#index', as: :public
 
     get '/user', to: 'user#index', as: :users_index
     post '/user', to: 'user#create', as: :create_user
