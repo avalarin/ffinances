@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
 
   def books
     Book.joins('left outer join books_users on books_users.book_id = books.id')
-        .where('books.owner_user_id = ? or books_users.user_id = ?', id, id)
+        .where('books.owner_user_id = ? or books_users.user_id = ?', id, id).uniq
   end
 
   def avatar_url
