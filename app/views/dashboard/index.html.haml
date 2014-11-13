@@ -33,13 +33,6 @@
                       %span(data-bind="text: sumText")
                       %span(data-bind="text: currency.code")
   .col-md-4
-    = bt_panel do |panel|
-      - panel.header do
-        %span=t('.current_book', name: @book.display_name)
-        %span.pull-right
-          = bt_button text: t('commands.settings'), size: :xsmall, style: :link, icon: :gear, href: book_details_path(key: current_book.key)
-      - panel.body do
-        %table
     = bt_panel ko: 'with: wallets' do |panel|
       - panel.header do
         %span
@@ -61,6 +54,5 @@
                 %span(data-bind="css: { income: balance > 0, outcome: balance <= 0 }")
                   %span(data-bind="text: balance")
                   %span(data-bind="text: currency.code")
-
 = render 'transaction/details_modal'
 = render 'transaction/delete_modal'
