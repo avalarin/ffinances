@@ -1,10 +1,15 @@
-%li.dropdown
-  %a.dropdown-toggle(href="#" class="" data-toggle="dropdown")
+%li.av-dropdown.user-menu
+  %a.dropdown-toggle(href="#" class="" data-toggle="av-dropdown")
     = avatar_image current_user, size: :small
     %span= current_user.display_name
     %span.caret
-  %ul.dropdown-menu(role="menu")
-    %li.dropdown-header(role="presentation")= current_user.display_name
-    %li.divider
-    %li
-      %a{ href: logout_path }=t('commands.logout')
+  .av-dropdown-drop
+    %table.header
+      %tr
+        %td.avatar
+          = avatar_image current_user, size: :medium
+        %td.info
+          %span.name= current_user.display_name
+          %span.email= current_user.email
+        %td.actions
+          = bt_link icon: :'sign-out', title: t('commands.logout'), href: logout_path
