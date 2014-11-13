@@ -10,14 +10,9 @@
     var $element = $(element)
     var input = $element.find('.value')
     if (!staticUnit) {
-      var dropdown = AvDropdown.attach($element.find('.av-dropdown'), {
-        onshow: function() {
-          model.dropdownShown(true)
-        },
-        onhide: function() {
-          model.dropdownShown(false)
-        }
-      })
+      var dropdown = $element.find('.av-dropdown').avDropdown()
+      dropdown.on('shown.av.dropdown', function() { model.dropdownShown(true) })
+              .on('hiden.av.dropdown', function() { model.dropdownShown(false) })
     }
 
     model.unit = params['unit'] || ko.observable()
@@ -64,7 +59,7 @@
     })
     model.setUnit = function(unit) {
       model.unit(unit)
-      if (!staticUnit) dropdown.hide()
+      if (!staticUnit) dropdown.avDropdown('hide')
     }
 
     function selectFirst() {

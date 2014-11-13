@@ -2,8 +2,7 @@
   %li.av-dropdown.books-menu
     %a.dropdown-toggle(href="#" class="" data-toggle="av-dropdown")
       = bt_icon :book
-      / TODO Переименовать display_name в displayName
-      %span(data-bind="text: window.session.book.display_name")
+      %span= current_book.display_name
       %span.caret
     .av-dropdown-drop
       = ko 'if: loading' do
@@ -12,13 +11,15 @@
       = ko 'if: !loading()' do
         %ul.select-list(data-bind="foreach: items")
           %li(data-bind="click: $parent.choose, css: { active: window.session.book.key == key }")
-            %table
-              %tr
-                %td.name
-                  %span(data-bind="text: displayName")
-                  %span(data-bind="visible: window.session.book.key == key")=t('.is_current_book')
-                %td.actions
-                  = bt_link :'class' => 'action', icon: :gear, title: t('commands.settings'), ko: 'attr: { href: window.routes.book(key) }, css: { "link-white": window.session.book.key == key }, click: $parent.goSettings'
+            .list-item
+              %table
+                %tr
+                  %td.name
+                    %a(href="javascript:")
+                      %span(data-bind="text: displayName")
+                      %span(data-bind="visible: window.session.book.key == key")=t('.is_current_book')
+                  %td.actions
+                    = bt_link :'class' => 'action', icon: :gear, title: t('commands.settings'), ko: 'attr: { href: window.routes.book(key) }, css: { "link-white": window.session.book.key == key }, click: $parent.goSettings'
         %table.manage
           %tr
             %td

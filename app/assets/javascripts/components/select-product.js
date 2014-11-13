@@ -4,13 +4,12 @@
 
   function SelectProductModel(params, element) {
     var model = this
-    var dropdown = AvDropdown.attach($(element).find('.av-dropdown'), {
-      onhide: function() {
-        if (model.search() != model.selectedText()) {
-          var product = new Product()
-          product.displayName = model.search()
-          model.selected(product)
-        }
+    var dropdown = $(element).find('.av-dropdown').avDropdown()
+    dropdown.on('hiden.av.dropdown', function() {
+      if (model.search() != model.selectedText()) {
+        var product = new Product()
+        product.displayName = model.search()
+        model.selected(product)
       }
     })
 
@@ -27,7 +26,7 @@
     model.select = function() {
       model.selected(this)
       model.search(this.displayName)
-      dropdown.hide()
+      dropdown.avDropdown('hide')
     }
 
     model.refresh = function() {
@@ -47,10 +46,10 @@
 
     model.search.subscribe(function(v) {
       if (v != '') {
-        dropdown.show()
+        dropdown.avDropdown('show')
         model.refresh()
       } else {
-        dropdown.hide()
+        dropdown.avDropdown('hide')
       }
     })
 

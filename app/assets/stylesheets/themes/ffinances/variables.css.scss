@@ -1,4 +1,4 @@
-$font-family-sans-serif:  "Open Sans", sans-serif;
+$font-family-sans-serif:  tahoma,arial,verdana,sans-serif,"Lucida Sans";
 $font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -15,8 +15,8 @@ $font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
 $font-size-h5:            $font-size-base;
 $font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
 
-$navbar-height:                    45px;
-$navbar-padding-vertical:          10px;
+$navbar-height:                    42px;
+$navbar-padding-vertical:          8px;
 // $navbar-margin-bottom:            0;
 
 $navbar-default-color:             #777;

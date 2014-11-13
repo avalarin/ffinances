@@ -1,107 +1,134 @@
-AvDropdown = (function() {
+(function() {
   var clickEvent = 'click.av-dropdown'
   var focusoutEvent = 'focusout.av-dropdown'
   var keydownEvent = 'keydown.av-dropdown'
   var keypressEvent = 'keypress.av-dropdown'
-  var dropdowns = []
 
-  function AvDropdown(element, options) {
-    options = options || {}
-    dropdowns.push(this)
-    var dropdown = this
-    var $element = $(element)
-    var shown = false
-    var toggle = $element.find('[data-toggle=av-dropdown]')
-    var drop = $element.find('.av-dropdown-drop')
-    var lastFocusedElement
+  var dropSelector = '.av-dropdown-drop'
+  var toggleSelector   = '[data-toggle=av-dropdown]'
 
-    function attachHandlers() {
-      toggle.on(clickEvent, function(event) {
-        dropdown.hide()
-        return false
-      })
-      $element.on(clickEvent, function(event) {
-        event.stopPropagation()
-      })
-      $(document).on(clickEvent, function(event) {
-        dropdown.hide()
-        return false
-      }).on(keydownEvent, function(event) {
-        var keyCode = event.keyCode
-        if (keyCode == 27) { // escape
-          dropdown.hide()
-        } else if (keyCode == 8) { // backspace
-          if (!$(event.target).is('.search')) {
-            $element.find('.search').focus()
-          } else {
-            return true
-          }
-        } else if (keyCode == 38 || keyCode == 40) { // up/down
-          var items = drop.find('.select-list li:not(.divider):visible a')
-          var index = items.index(items.filter(':focus'))
-          if (keyCode == 38 && index > 0) index--
-          if (keyCode == 40 && index < items.length - 1) index++
-          if (!~index) index = 0
-          items.eq(index).trigger('focus')
-        }
-        else {
-          return true
-        }
-        return false
-      }).on(keypressEvent, function(event) {
-        $element.find('.search').focus()
-      })
-    }
+  function AvDropdown(element) {
+    $(element).find(toggleSelector).on(clickEvent, this.toggle)
+  }
 
-    function detachHandlers() {
-      toggle.off(clickEvent)
-      $element.off(clickEvent)
-      $(document).off(clickEvent).off(keydownEvent).off(keypressEvent)
-    }
+  AvDropdown.prototype.hide = function(e) {
+    hide(this)
+  }
 
-    dropdown.show = function() {
-      if (shown) return
-      _.each(dropdowns, function(dd) {
-        dd.hide(true)
-      })
-      lastFocusedElement = $(':focus')
-      $element.addClass('open')
-      toggle.addClass('active')
-      attachHandlers()
-      if (options['onshow']) options['onshow']()
-      shown = true
-    }
+  AvDropdown.prototype.show = function(e) {
+    show(this)
+  }
 
-    dropdown.hide = function(nofocus) {
-      if (!shown) return
-      $element.removeClass('open')
-      toggle.removeClass('active')
-      detachHandlers()
-      if (lastFocusedElement && !nofocus) {
-        lastFocusedElement.focus()
+  AvDropdown.prototype.toggle = function(e) {
+    var isActive = getRoot($(this)).hasClass('open')
+    hideAll()
+    if (!isActive) show(this)
+    return false;
+  }
+
+  AvDropdown.prototype.keydown = function(e) {
+    var active = getActive()
+    if (!active.length || active.is('.disabled, :disabled')) return
+    var root = getRoot(active)
+    var isActive = root.hasClass('open')
+    if (e.isDefaultPrevented()) return
+
+    var keyCode = e.keyCode
+    if (keyCode == 27) { // escape
+      hideAll()
+    } else if (keyCode == 8) { // backspace
+      if (!$(e.target).is('.search')) {
+        root.find('.search').focus()
+      } else {
+        return true
       }
-      if (options['onhide']) options['onhide']()
-      shown = false
+    } else if (keyCode == 38 || keyCode == 40) { // up/down
+      var items = root.find('.select-list li:not(.divider):visible a')
+      var index = items.index(items.filter(':focus'))
+      if (keyCode == 38 && index > 0) index--
+      if (keyCode == 40 && index < items.length - 1) index++
+      if (!~index) index = 0
+      items.eq(index).trigger('focus')
     }
-
-    toggle.on('click', dropdown.show).on('keydown', function(event) {
-        var keyCode = event.keyCode
-        if (keyCode == 40) {
-          dropdown.show()
-        }
-      }).on('keypress', function(event) {
-        dropdown.show()
-        $element.find('.search').focus()
-      })
+    else {
+      return true
+    }
+    return false
   }
 
-  AvDropdown.attach = function(element, options) {
-    var dropdown = new AvDropdown(element, options)
-    $(element).data('av-dropdown', dropdown)
-    return dropdown
+  AvDropdown.prototype.keypress = function() {
+    var active = getActive()
+    if (!active.length || active.is('.disabled, :disabled')) return
+    var root = getRoot(active)
+    var isActive = root.hasClass('open')
+    if (e.isDefaultPrevented() || !isActive) return
+    root.find('.search').focus()
   }
 
-  return AvDropdown
+  function hide(elm) {
+    var $elm = $(elm)
+    if ($elm.is('.disabled, :disabled')) return
+    var root = getRoot($elm)
+    var isActive = root.hasClass('open')
+
+    if (!isActive) return
+
+    var relatedTarget = { relatedTarget: elm }
+    var e = $.Event('hide.av.dropdown', relatedTarget)
+    root.trigger(e)
+    if (e.isDefaultPrevented()) return
+
+    root.removeClass('open').trigger('hidden.av.dropdown', relatedTarget)
+  }
+
+  function hideAll() {
+    $('.av-dropdown').each(function() { hide(this) })
+  }
+
+  function show(elm) {
+    var $elm = $(elm)
+    if ($elm.is('.disabled, :disabled')) return
+    var root = getRoot($elm)
+    var isActive = root.hasClass('open')
+
+    if (isActive) return
+
+    var relatedTarget = { relatedTarget: this }
+    root.trigger(e = $.Event('show.av.dropdown', relatedTarget))
+    if (e.isDefaultPrevented()) return
+
+    root.toggleClass('open').trigger('shown.av.dropdown', relatedTarget)
+    var drop = root.find(dropSelector).focus()
+  }
+
+  function getRoot(elm) {
+    return elm.closest('.av-dropdown')
+  }
+
+  function getActive() {
+    return $('.av-dropdown.open')
+  }
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('av.dropdown')
+
+      if (!data) $this.data('av.dropdown', (data = new AvDropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  $.fn.avDropdown = Plugin
+  $.fn.avDropdown.Constructor = AvDropdown
+
+  $(document)
+    .on(clickEvent, hideAll)
+    .on(clickEvent, '.av-dropdown .av-dropdown-drop', function (e) { e.stopPropagation() })
+    .on(clickEvent, toggleSelector, AvDropdown.prototype.toggle)
+    .on(keydownEvent, AvDropdown.prototype.keydown)
+    .on(keypressEvent, AvDropdown.prototype.keypress)
+
+  $('.av-dropdown').avDropdown()
+
 })()
-
-

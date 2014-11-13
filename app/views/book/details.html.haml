@@ -41,7 +41,7 @@
         %span.pull-right
           = bt_icon :spinner, spin: true, ko: 'visible: usersLoading'
           = bt_link icon: :refresh, text: t('commands.refresh'), size: :xsmall, |
-                       ko: 'click: refreshUsers, visible: !usersLoading()'
+                        ko: 'click: refreshUsers, visible: !usersLoading()'
       .panel-body
         - if @admin
           .av-inline(data-bind="component: { name: 'select-user', params: { selected: addUser.users, disabled: addUser.loading } }")
@@ -61,7 +61,7 @@
                     %span.caret
                   %ul.dropdown-menu(role="menu" data-bind="foreach: window.rolesAndDelete")
                     %li
-                      %a(href="#" data-bind="text: content, click: function(role, event) { $root.setRole($parent, role, event) }")
+                      %a(href="#" data-bind="text: content, click: function(role, event) { $root.book.setRole($parent, role, event) }")
               - else
                 %span(data-bind="text: rolesLocalization[bookRole()]")
 

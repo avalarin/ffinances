@@ -106,3 +106,38 @@
   }
 
 }
+
+.user-menu {
+  .header {
+    padding: 3px;
+    width: 100%;
+  }
+
+  .avatar {
+    width: 30px;
+  }
+
+  .info {
+    .name, .email {
+      font-size: $font-size-small;
+      display: block;
+      line-height: 16px;
+    }
+
+    .email {
+      color: $text-muted;
+    }
+  }
+
+  .actions {
+      text-align: right;
+
+      a {
+        padding: 0;
+
+        i.fa {
+          height: auto;
+        }
+      }
+  }
+}

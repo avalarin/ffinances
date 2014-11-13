@@ -3,7 +3,7 @@
   function SelectValueModel(params, element) {
     var model = this
 
-    var dropdown = AvDropdown.attach($(element).find('.av-dropdown'))
+    var dropdown = $(element).find('.av-dropdown').avDropdown()
 
     model.allItems = params['items'] || []
     model.search = ko.observable('')
@@ -27,7 +27,7 @@
 
     model.select = function() {
       model.selected(this)
-      dropdown.hide()
+      dropdown.avDropdown('hide')
     }
 
     function selectFirst() {

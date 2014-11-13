@@ -11,14 +11,9 @@
     var $element = $(element)
     var input = $element.find('.value')
     if (!staticCurrency) {
-      var dropdown = AvDropdown.attach($element.find('.av-dropdown'), {
-        onshow: function() {
-          model.dropdownShown(true)
-        },
-        onhide: function() {
-          model.dropdownShown(false)
-        }
-      })
+      var dropdown = $(element).find('.av-dropdown').avDropdown()
+      dropdown.on('shown.av.dropdown', function() { model.dropdownShown(true) })
+              .on('hiden.av.dropdown', function() { model.dropdownShown(false) })
     }
 
     model.dropdownShown = ko.observable(false)
@@ -55,7 +50,7 @@
     })
     model.setCurrency = function(currency) {
       model.currency({code: currency.code, name: currency.name})
-      if (!staticCurrency) dropdown.hide()
+      if (!staticCurrency) dropdown.avDropdown('hide')
     }
 
     model.refreshCurrencies = function() {

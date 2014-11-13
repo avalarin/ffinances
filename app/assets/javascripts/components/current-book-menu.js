@@ -6,16 +6,14 @@
 
   function Model(params, element) {
     var model = this;
-    // TODO Костыль, жесткая привязка к <!-- ko: ... -->
+    // TODO Костыль, жесткая привязка к <!-- ko: .. . -->
     // В element будет содержаться коментарий, чтобы получить dropdown нужно вывать метод next()
     // который вернет следующий элемент
     element = $(element).next()
-
-    var dropdown = AvDropdown.attach(element, {
-      onshow: function () {
-        if (model.items().length == 0) {
-          model.refresh();
-        }
+    var dropdown = element.avDropdown()
+    dropdown.on('shown.av.dropdown', function () {
+      if (model.items().length == 0) {
+        model.refresh();
       }
     })
 

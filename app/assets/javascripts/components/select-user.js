@@ -8,7 +8,7 @@
   function SelectUserModel(params, element) {
     var model = this
 
-    var dropdown = AvDropdown.attach($(element).find('.av-dropdown'))
+    var dropdown = $(element).find('.av-dropdown').avDropdown()
 
     model.multiple = false
 
@@ -32,7 +32,7 @@
         model.selected.removeAll()
       }
       model.selected.push(this)
-      dropdown.hide()
+      dropdown.avDropdown('hide')
       model.search('')
     }
 

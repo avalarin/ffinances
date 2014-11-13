@@ -8,7 +8,7 @@
   function SelectWalletModel(params, element) {
     var model = this
 
-    var dropdown = AvDropdown.attach($(element).find('.av-dropdown'))
+    var dropdown = $(element).find('.av-dropdown').avDropdown()
 
     model.allItems = wallets
     model.search = ko.observable('')
@@ -20,7 +20,7 @@
       var items = model.allItems()
       if (search != '') {
         items = _.filter(items, function(item) {
-          return wallet.displayName.indexOf(query) > -1
+          return item.displayName.indexOf(search) > -1
         })
       }
       return items
@@ -28,7 +28,7 @@
 
     model.select = function() {
       model.selected(this)
-      dropdown.hide()
+      dropdown.avDropdown('hide')
     }
 
     function selectFirst() {

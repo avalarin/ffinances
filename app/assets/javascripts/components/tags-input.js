@@ -12,7 +12,7 @@
     var model = this
     var $element = $(element)
     var searchInput = $element.find('input.search')
-    var dropdown = AvDropdown.attach($(element).find('.av-dropdown'))
+    var dropdown = $(element).find('.av-dropdown').avDropdown()
     var dropdownShowed = false;
 
     model.search = ko.observable('')
@@ -22,10 +22,10 @@
 
     model.search.subscribe(function(newValue) {
       if (newValue == '' && dropdownShowed) {
-        dropdown.hide()
+        dropdown.avDropdown('hide')
         dropdownShowed = false
       } else if (!dropdownShowed) {
-        dropdown.show()
+        dropdown.avDropdown('show')
         dropdownShowed = true
       }
     })
