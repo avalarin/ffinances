@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/', to: 'public#index', as: :public
+    get '/', to: 'main#index', as: :main
 
     get '/user', to: 'user#index', as: :users_index
     post '/user', to: 'user#create', as: :create_user
