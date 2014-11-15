@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023015909) do
+ActiveRecord::Schema.define(version: 20141114124424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 20141023015909) do
     t.integer "unit_id"
     t.decimal "count"
     t.decimal "amount"
+    t.decimal "sum"
+  end
+
+  create_table "opsum", id: false, force: true do |t|
     t.decimal "sum"
   end
 
@@ -168,7 +172,7 @@ ActiveRecord::Schema.define(version: 20141023015909) do
     t.integer  "book_id"
     t.integer  "owner_user_id"
     t.integer  "currency_id"
-    t.string   "type_id"
+    t.integer  "type_id",       default: 0
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
