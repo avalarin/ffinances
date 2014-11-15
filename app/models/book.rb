@@ -5,6 +5,8 @@ class Book < ActiveRecord::Base
 
   has_many :wallets
 
+  default_scope { joins(:owner).includes(:owner) }
+
   validates :key, :display_name, :owner, presence: true
 
   after_initialize do |book|
