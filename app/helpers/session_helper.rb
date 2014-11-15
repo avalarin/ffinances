@@ -19,21 +19,28 @@ module SessionHelper
     session_key = cookies['session']
     return nil if !session_key
 
-    s = Session.find_by_key(session_key)
-    return nil if !s || s.closed || DateTime.now > s.expires_at;
-    s
+    if !@current_session || @current_session.key != session_key
+      s = Session.find_by_key(session_key)
+      return nil if !s || s.closed || DateTime.now > s.expires_at;
+      @current_session = s
+    end
+
+    return @current_session
   end
 
   def current_user
     s = current_session;
-    return nil if !s 
-    s.user
+    return nil if !s
+    return s.user
   end
 
   def current_book
     key = session[:current_book]
     return nil unless key
-    return Book.find_by_key(key)
+    if !@current_book || @current_book.key != key
+      @current_book = Book.find_by_key(key)
+    end
+    return @current_book
   end
 
   def set_current_book book
@@ -64,7 +71,7 @@ module SessionHelper
     s.expires_at = DateTime.now + lifetime
     s.save!
 
-    cookies['session'] = {   
+    cookies['session'] = {
         value: s.key,
         expires: persistence ? s.expires_at : nil,
         httponly: true
@@ -80,7 +87,7 @@ module SessionHelper
     s.save!
 
     cookies.delete 'session'
-  end 
+  end
 
   def has_book_role role
     role_index = get_book_role_index role
