@@ -5,7 +5,7 @@
   function SelectProductModel(params, element) {
     var model = this
     var dropdown = $(element).find('.av-dropdown').avDropdown()
-    dropdown.on('hiden.av.dropdown', function() {
+    dropdown.on('hidden.av.dropdown', function() {
       if (model.search() != model.selectedText()) {
         var product = new Product()
         product.displayName = model.search()

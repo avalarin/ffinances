@@ -13,7 +13,7 @@
     if (!staticCurrency) {
       var dropdown = $(element).find('.av-dropdown').avDropdown()
       dropdown.on('shown.av.dropdown', function() { model.dropdownShown(true) })
-              .on('hiden.av.dropdown', function() { model.dropdownShown(false) })
+              .on('hidden.av.dropdown', function() { model.dropdownShown(false) })
     }
 
     model.dropdownShown = ko.observable(false)
