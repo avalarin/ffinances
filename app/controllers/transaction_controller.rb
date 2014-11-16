@@ -1,7 +1,7 @@
 class TransactionController < ApplicationController
   before_filter :authorize
-  before_filter only: [ :index, :details ] { need_book :readonly }
-  before_filter only: [ :new, :create, :delete  ] { need_book :master }
+  before_filter(only: [ :index, :details ]) { need_book :readonly }
+  before_filter(only: [ :new, :create, :delete ]) { need_book :master }
 
   def index
     @transactions = Transaction.where(book_id: current_book.id).order(date: :desc)
