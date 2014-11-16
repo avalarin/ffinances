@@ -25,15 +25,8 @@ class TransactionController < ApplicationController
   end
 
   def new
-    if params[:mode]
-      if %w(income outcome transfer other).include? params[:mode]
-        @mode = params[:mode]
-      else
-        render_not_found
-      end
-    else
-      @mode = 'income'
-    end
+    @mode = params[:mode] || 'income'
+    render_not_found unless %w(income outcome transfer other).include? @mode
 
     @transaction = Transaction.new
     @wallets = Wallet.all
