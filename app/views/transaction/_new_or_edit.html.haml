@@ -1,13 +1,12 @@
-- modes = [ "income", "outcome", "transfer" ]
+- modes = %w(income outcome transfer)
 
 .page-panel(data-bind="with: transaction")
   .page-title 
-    = bt_dropdown html: { :'class' => 'transaction-mode' }, | 
-                  source: modes do |d|
+    = bt_dropdown html: { :'class' => 'transaction-mode' }, source: modes do |d|
       - d.header do
         %span(data-bind="text: modeText")
       - d.item_template do |item|
-        %a{ href: '#', 'data-value' => item, 'data-bind' => "click: setMode" }
+        %a{ href: '#', 'data-value' => item, 'data-bind' => 'click: setMode' }
           =t(".#{item}_transacion")
     %span.transaction-date(data-bind="text: dateText")
   .page-description
