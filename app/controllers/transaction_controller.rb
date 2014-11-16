@@ -15,7 +15,7 @@ class TransactionController < ApplicationController
 
   def details
     @lang = params[:lang] || I18n.locale.to_s
-    @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
+    @transaction = current_book.transactions.find(params.require(:id))
     respond_to do |format|
       format.json do
         return render_api_resp :not_found unless @transaction
@@ -123,7 +123,7 @@ class TransactionController < ApplicationController
   end
 
   def delete
-    @transaction = Transaction.where(book_id: current_book.id, id: params.require(:id)).first
+    @transaction = current_book.transactions.find(params.require(:id))
     return render_not_found unless @transaction
     return render_access_denied if ((current_user.id != @transaction.creator.id) && !has_book_role(:admin))
     @transaction.destroy

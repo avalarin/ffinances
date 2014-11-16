@@ -4,6 +4,7 @@ class Book < ActiveRecord::Base
   has_and_belongs_to_many :currencies
 
   has_many :wallets
+  has_many :transactions
 
   default_scope { joins(:owner).includes(:owner) }
 
