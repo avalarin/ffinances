@@ -18,14 +18,13 @@
     this.captcha = new CaptchaModel()
 
     this.register = function() {
-      if (!$('#register-form').valid()) return
+      var form = $('#register-form')
+      if (!form.valid()) return
       $('#register-form .btn-success').addClass('loading disabled')
       http.request({
         url: '/register',
         type: 'POST',
-        data: { user: { display_name: m.displayName(), name: m.name(), email: m.email(), password: m.password() },
-                captcha: { code: m.captcha.code(), value: $('#captcha-value').val() }
-        },
+        data: form.serialize(),
         success: function(data) {
           http.redirect({
             url: '/register/success'

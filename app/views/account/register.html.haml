@@ -15,6 +15,7 @@
 
     %div.av-inline{'data-bind' => "component: { name: 'captcha-input', params: { model: captcha } }"}
     %input.form-control.first.last{ type: 'text', 'id' => 'captcha-value', name: 'captcha[value]', placeholder: t('.captcha'), 'data-bind' => 'value: captcha.value', 'data-val' => 'true', 'data-val-required' => t('errors.messages.empty') }
+    %input{ type: 'hidden', 'id' => 'captcha-code', name: 'captcha[code]', 'data-bind' => 'value: captcha.code'}
 
     %button.btn.btn-lg.btn-success.btn-block(data-bind="click: register")
       =t('commands.register')
