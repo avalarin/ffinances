@@ -4,4 +4,8 @@ class CurrencyRate < ActiveRecord::Base
 
   validates :base, :target, presence: true
   validates :value, numericality: { only_integer: false, greater_than: 0 }
+
+  def get(base, target)
+    where(base: base, target: target).first
+  end
 end

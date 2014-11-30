@@ -17,11 +17,11 @@ class Data::CurrencyController < ApplicationController
     return render_api_resp :bad_request, message: "Currency #{@base_code} not found." unless @base
     return render_api_resp :bad_request, message: "Currency #{@target_code} not found." unless @target
 
-    @rate = CurrencyRate.where(base: @base, target: @target).first
-    if (!@rate || @rate.date.to_date != DateTime.now.to_date)
+    @rate = CurrencyRate.get(@base, @target)
+    unless @rate && @rate.date.to_date == DateTime.now.to_date
       @rate = @rate || CurrencyRate.new(base: @base, target: @target)
       @rate.date = DateTime.now
-      resp_obj = Net::HTTP.get_response("rate-exchange.appspot.com","/currency?from=#{@base.code}&to=#{@target.code}")
+      resp_obj = Net::HTTP.get_response('rate-exchange.appspot.com',"/currency?from=#{@base_code}&to=#{@target_code}")
       resp = JSON.parse(resp_obj.body)
       @rate.value = resp['rate']
       @rate.save!
