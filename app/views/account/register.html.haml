@@ -7,7 +7,7 @@
 .account-container(data-bind="with: register")
   = bt_form_for @user, html: { :'class' => 'form-stack' }, id: 'register-form' do |f|
     - if @invite
-      = f.hidden_input property: 'invite', value: @invite.code
+      = f.hidden_input id: 'invite', name: 'invite', value: @invite.code
     = f.text_input property: :display_name, placeholder: t(".display_name"), ko: 'value: displayName', html: { :'class' => 'first' }
     = f.text_input property: :name, placeholder: t(".name"), ko: 'value: name'
     = f.text_input property: :email, placeholder: t(".email"), ko: 'value: email'
