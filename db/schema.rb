@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114124424) do
+ActiveRecord::Schema.define(version: 20141202181452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(version: 20141114124424) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "balance"
+    t.decimal  "balance",       default: 0.0
   end
 
   add_index "wallets", ["key"], name: "index_wallets_on_key", unique: true, using: :btree
