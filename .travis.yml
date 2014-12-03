@@ -1,9 +1,7 @@
 language: ruby
 rvm:
-- ruby-head
+  - ruby-head
+before_install:
+  - openssl aes-256-cbc -K $encrypted_5e767356331d_key -iv $encrypted_5e767356331d_iv -in config/keys/production_deploy_rsa_enc -out config/keys/production_deploy_rsa -d
 after_success:
-- openssl aes-256-cbc -k '$DEPLOY_KEY' -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa
-- bundle exec cap production deploy
-env:
-  global:
-    - secure: "dmMcAdXQ0bhuM5PP7Px7A5LTLdwIhMRmmAV89t923eXGgiwN/gIVsjKBZ63agNzajJZ9s1UjFH05ciFzBCPIVtrb9qsqR0vaRLXuFCUXJvIM8gfrTz87y4p9nVsXrUGCjD3Y5HPnm8NXR7B6mikKmlWw6HInWeRMc3qxIF0BJnc="
+  - bundle exec cap production deploy

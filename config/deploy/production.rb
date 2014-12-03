@@ -1,5 +1,5 @@
 set :deploy_to, '/var/www/ffinances'
-set :ssh_options, keys: ["config/deploy_id_rsa"] if File.exist?("config/deploy_id_rsa")
+set :ssh_options, keys: ["config/keys/production_deploy_rsa"] if File.exist?("config/keys/production_deploy_rsa")
 
 server 'ffinances.avalarin.net',
   user: 'ffinances',
