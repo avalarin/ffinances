@@ -3,6 +3,7 @@ rvm:
   - ruby-head
 before_install:
   - openssl aes-256-cbc -K $encrypted_5e767356331d_key -iv $encrypted_5e767356331d_iv -in config/keys/production_deploy_rsa_enc -out config/keys/production_deploy_rsa -d
+  - chmod 600 config/keys/production_deploy_rsa
   - eval `ssh-agent -s`
   - ssh-add config/keys/production_deploy_rsa
 after_success:
