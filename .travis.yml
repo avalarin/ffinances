@@ -1,9 +1,12 @@
 language: ruby
 rvm:
-  - ruby-head
+- ruby-head
 after_success:
-  - "openssl aes-256-cbc -k '$DEPLOY_KEY' -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
-  - "bundle exec cap production deploy"
+- openssl aes-256-cbc -k '$DEPLOY_KEY' -in config/deploy_id_rsa_enc_travis -d -a -out
+  config/deploy_id_rsa
+- bundle exec cap production deploy
 env:
   global:
     secure: MXAkFiE1aRvDtcG9ko5XQI7PZAq9e2uoKJWTF0jDUB2qO4pFW9jSMidiFsT8igiD8h913WwA+8aUpCkN9RSvrDsCpuItdxBzzhuivCmlCvEUysrGYXe8IXacDW01+YJ32UonPq6p4uf59KlczKnEYtTxEEjDhRVPN4j0i88nZ2Y=
+dd:
+  secure: ik859V2vnlBkgubykckIfWH8SwDib9UDvXyxK6dCCnrdBoG/MMK42cR42sH65SXqScANLUC4VLm3frBc72JZlSj9HwkqQ5LXcIXf6XR25fFD/r5atnvpVWfKCTFEXmu5XewTyM+U9JzHANsuQVcDRcyZdS8vW/Ql1vZ5oP7NU3I=
