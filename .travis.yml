@@ -6,6 +6,4 @@ after_success:
 - bundle exec cap production deploy
 env:
   global:
-    secure: MXAkFiE1aRvDtcG9ko5XQI7PZAq9e2uoKJWTF0jDUB2qO4pFW9jSMidiFsT8igiD8h913WwA+8aUpCkN9RSvrDsCpuItdxBzzhuivCmlCvEUysrGYXe8IXacDW01+YJ32UonPq6p4uf59KlczKnEYtTxEEjDhRVPN4j0i88nZ2Y=
-dd:
-  secure: ik859V2vnlBkgubykckIfWH8SwDib9UDvXyxK6dCCnrdBoG/MMK42cR42sH65SXqScANLUC4VLm3frBc72JZlSj9HwkqQ5LXcIXf6XR25fFD/r5atnvpVWfKCTFEXmu5XewTyM+U9JzHANsuQVcDRcyZdS8vW/Ql1vZ5oP7NU3I=
+    - secure: "dmMcAdXQ0bhuM5PP7Px7A5LTLdwIhMRmmAV89t923eXGgiwN/gIVsjKBZ63agNzajJZ9s1UjFH05ciFzBCPIVtrb9qsqR0vaRLXuFCUXJvIM8gfrTz87y4p9nVsXrUGCjD3Y5HPnm8NXR7B6mikKmlWw6HInWeRMc3qxIF0BJnc="
