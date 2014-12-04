@@ -11,5 +11,11 @@
         %td.info
           %span.name= current_user.display_name
           %span.email= current_user.email
-        %td.actions
-          = bt_link icon: :'sign-out', title: t('commands.logout'), href: logout_path
+    %ul.select-list
+      %li
+        = bt_link icon: :gear, text: t('commands.settings'), href: '#'
+      - if current_user.admin?
+        %li
+          = bt_link icon: :gears, text: t('commands.site_settings'), href: admin_main_path
+      %li
+        = bt_link icon: :'sign-out', text: t('commands.logout'), href: logout_path

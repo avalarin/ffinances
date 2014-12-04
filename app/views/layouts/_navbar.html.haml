@@ -14,11 +14,6 @@
       %ul.nav.navbar-nav
       %ul.nav.navbar-nav.navbar-right
         - if authenticated?
-          - if current_user.admin?
-            %li
-              %a{ href: admin_main_path }
-                = bt_icon :gears
-                %span=t('.administration')
           - if current_book
             = ko 'component: { name: "current-book-menu" }'
           = render 'layouts/current_user_menu'
