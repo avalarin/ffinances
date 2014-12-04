@@ -11,11 +11,3 @@ set :rails_env, 'production'
 set :linked_files, %w{config/unicorn.rb config/database.yml config/settings.yml config/secrets.yml}
 
 set :log_level, :info
-
-desc 'Restart application'
-task :restart do
-  on roles(:app), in: :sequence, wait: 5 do
-    run "#{sudo} service ffinances restart"
-  end
-end
-after :publishing, :restart
