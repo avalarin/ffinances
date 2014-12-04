@@ -23,7 +23,10 @@
                 %a{ href: '#' }
                   %img.avatar.s16(data-bind="attr: { src: creator.avatarUrl }")
                   %span(data-bind="text: creator.displayName")
-              %td.column-fill
+                %ul.tags-horizontal(data-bind="foreach: tags")
+                  %li
+                    %span(data-bind="text: '#' + text")
+                %span.description(data-bind="text: description")
               %td.column-operations
                 %ul.operations(data-bind="foreach: operations")
                   %li

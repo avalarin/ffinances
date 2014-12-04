@@ -1,4 +1,4 @@
-ul.operations, ul.tags {
+ul.operations, ul.tags, ul.tags-horizontal {
   margin: 0;
   padding: 0;
 
@@ -6,15 +6,24 @@ ul.operations, ul.tags {
     list-style: none;
     margin-bottom: 5px;
   }
-  li:last-child {
-    margin-bottom: 0;
-  }
-
 }
 
 ul.tags {
   li {
     display: inline;
+    margin-bottom: 5px;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul.tags-horizontal {
+  display: inline-block;
+
+  li {
+    display: inline;
+    font-size: 85%;
   }
 }
 
@@ -27,7 +36,7 @@ ul.tags {
   }
 
   td {
-    padding: 5px;
+    padding: 5px 2px 0 2px;
     line-height: 1.428571429;
     vertical-align: top;
     border-bottom: 1px solid #dddddd;
@@ -43,6 +52,11 @@ ul.tags {
   .column-operations {
     text-align: right;
   }
+
+  .description {
+    font-size: 85%;
+  }
+
 
 }
 
