@@ -18,8 +18,8 @@
   %body
     .site-content
       = render 'layouts/loader'
-      = render 'layouts/navbar'
       .container
+        = render 'layouts/navbar'
         = render('layouts/messages') if !@hide_messages
         = content_for?(:content) ? yield(:content) : yield
     = render 'layouts/footer'
