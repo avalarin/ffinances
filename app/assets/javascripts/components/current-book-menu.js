@@ -33,7 +33,7 @@
       }
     }
     model.goSettings = function(book, event) {
-      var settingsUrl = routes.book(book.key)
+      var settingsUrl = routes.book()
       http.redirect({ url: settingsUrl })
       event.stopPropagation()
     }
@@ -41,7 +41,7 @@
     model.refresh = function() {
       model.loading(true)
       http.request({
-        url: routes.books(),
+        url: routes.books({ format: 'json' }),
         success: function(items) {
           model.items.removeAll()
           _.each(items, function(item) {

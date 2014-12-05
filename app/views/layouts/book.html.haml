@@ -1,0 +1,18 @@
+-content_for :content do
+  .row
+    .col-md-3
+      .panel.panel-default
+        .panel-heading=t('.book')
+        .list-group
+          %a.list-group-item{ href: book_details_path }
+            =bt_icon :book
+            %span=t('.details')
+          %a.list-group-item{ href: book_users_path }
+            =bt_icon :users
+            %span=t('.users')
+    .col-md-9
+      / -content_for :messages do '' end
+      / =render 'layouts/messages'
+      =yield
+/ -@hide_messages = true
+=render template: "layouts/application"

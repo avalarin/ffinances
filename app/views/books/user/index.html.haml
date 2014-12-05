@@ -1,0 +1,56 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/books/user', media: "all"
+- content_for :scripts do
+  = javascript_include_tag 'views/books/user'
+:javascript
+  book = #{ @book.to_json }
+  rolesLocalization = {
+    owner: '#{ t('model.book_user.role_owner') }',
+    admin: '#{ t('model.book_user.role_admin') }',
+    master: '#{ t('model.book_user.role_master') }',
+    readonly: '#{ t('model.book_user.role_readonly') }'
+  }
+  roles = [
+    { key: 'readonly', content: rolesLocalization.readonly },
+    { key: 'master', content: rolesLocalization.master },
+    { key: 'admin', content: rolesLocalization.admin }
+  ]
+  rolesAndDelete = [
+    { key: 'readonly', content: rolesLocalization.readonly },
+    { key: 'master', content: rolesLocalization.master },
+    { key: 'admin', content: rolesLocalization.admin },
+    { key: 'delete', content: '#{ t('commands.delete') }' }
+  ]
+.panel.panel-default(data-bind="with: book")
+  .panel-heading
+    %span=t('.book_users')
+    %span.pull-right
+      = bt_icon :spinner, spin: true, ko: 'visible: usersLoading'
+      = bt_link icon: :refresh, text: t('commands.refresh'), size: :xsmall, |
+                    ko: 'click: refreshUsers, visible: !usersLoading()'
+  .panel-subheading= t('.book_users_desc')
+  .panel-body
+    - if @admin
+      .av-inline(data-bind="component: { name: 'select-user', params: { selected: addUser.users, disabled: addUser.loading } }")
+      .av-inline(data-bind="component: { name: 'select-value', params: { items: window.roles, disabled: addUser.loading, selected: addUser.role } }")
+      = bt_button text: t('commands.add'), style: :success, ko: 'click: addUser.add, css: { disabled: !addUser.canAdd(), loading: addUser.loading }'
+    %hr
+    %ul.users(data-bind="foreach: users")
+      %li
+        %a.user-profile-link{ href: '#' }
+          %img.avatar.s16(data-bind="attr: { src: avatarUrl }")
+          %span(data-bind="text: displayName")
+        .pull-right
+          - if @admin
+            .btn-group
+              %button.btn.btn-default.btn-xs.dropdown-toggle(type="button" data-toggle="dropdown" data-bind="css: { disabled: bookRole() == 'owner' }")
+                %span(data-bind="text: rolesLocalization[bookRole()]")
+                %span.caret
+              %ul.dropdown-menu(role="menu" data-bind="foreach: window.rolesAndDelete")
+                %li
+                  %a(href="#" data-bind="text: content, click: function(role, event) { $root.book.setRole($parent, role, event) }")
+          - else
+            %span(data-bind="text: rolesLocalization[bookRole()]")
+
+= render 'components/select_user_template'
+= render 'components/select_value_template'

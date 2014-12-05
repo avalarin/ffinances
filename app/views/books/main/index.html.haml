@@ -7,7 +7,7 @@
   .page-title= t('.books_list')
   .page-description= t('.books_list_desc')
   .page-toolbar.btn-toolbar(role="toolbar")
-    = bt_button text: t('commands.create'), href: create_book_path, style: :primary
+    = bt_button text: t('commands.create'), href: book_create_path, style: :primary
   - if @books.size == 0
     %span= t('.no_books')
   %table.table.table-hover.books-table

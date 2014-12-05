@@ -13,7 +13,7 @@
     model.refreshUsers = function() {
       model.usersLoading(true)
       http.request({
-        url: '/book/' + book.key + '/users',
+        url: routes.bookUsers({ format: 'json' }),
         success: function(data) {
           model.users.removeAll()
           _.each(data, function(user) {
@@ -30,7 +30,7 @@
       var button = $(event.target).closest('.btn-group').find('.btn').addClass('loading disabled')
 
       http.request({
-        url: '/book/' + book.key + '/users/' + user.name,
+        url: routes.bookUser({ name: user.name }),
         type: 'POST',
         data: { role: role.key },
         success: function() {
@@ -68,7 +68,7 @@
         addUserModel.users.removeAll()
 
         http.request({
-          url: '/book/' + book.key + '/users',
+          url: routes.bookUsers({ format: 'json' }),
           type: 'POST',
           data: { user: user.name, role: addUserModel.role().key },
           success: function() {

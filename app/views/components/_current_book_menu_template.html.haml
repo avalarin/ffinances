@@ -13,15 +13,10 @@
           %ul.select-list(data-bind="foreach: items")
             %li(data-bind="click: $parent.choose, css: { active: window.session.book.key == key }")
               .list-item
-                %table
-                  %tr
-                    %td.name
-                      %a(href="javascript:")
-                        %span(data-bind="text: displayName")
-                        %span(data-bind="visible: window.session.book.key == key")=t('.is_current_book')
-                    %td.actions
-                      = bt_link :'class' => 'action', icon: :gear, title: t('commands.settings'), ko: 'attr: { href: window.routes.book(key) }, css: { "link-white": window.session.book.key == key }, click: $parent.goSettings'
+                %a(href="javascript:" data-bind="text: displayName")
           %table.manage
             %tr
               %td
-                = bt_link icon: :plus, text: t('commands.create'), size: :small, href: create_book_path
+                = bt_link icon: :plus, text: t('commands.create'), size: :small, href: book_create_path
+              %td
+                = bt_link icon: :gear, text: t('commands.book_settings'), size: :small, href: book_details_path

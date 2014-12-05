@@ -32,19 +32,6 @@ Rails.application.routes.draw do
   get '/tag', to: 'tag#index', as: :tags_index
   post '/tag/new', to: 'tag#create', as: :create_tag
 
-  get '/book', to: 'book#index', as: :books_index
-  get '/book/no_books', to: 'book#no_books', as: :no_books
-  get '/book/current', to: 'book#current', as: :current_book
-  post '/book/choose', to: 'book#choose', as: :choose_book
-  get '/book/new', to: 'book#new', as: :new_book
-  post '/book/new', to: 'book#create', as: :create_book
-  get '/book/:key', to: 'book#details', as: :book_details
-
-  post '/book/:key', to: 'book#update', as: :update_book
-  get '/book/:key/users', to: 'book#users', as: :book_users
-  post '/book/:key/users', to: 'book#add_user', as: :add_book_user
-  post '/book/:key/users/:user', to: 'book#update_user', as: :update_book_user
-
   namespace :data do
     get '/country', to: 'country#index', as: :countries_index
     get '/country/:code/currencies', to: 'country#currencies', as: :country_currencies_index
@@ -55,6 +42,22 @@ Rails.application.routes.draw do
     get '/unit', to: 'unit#index', as: :units_index
 
     get '/user', to: 'user#index', as: :users_index
+  end
+
+  namespace :book, module: 'books' do
+    get '/no_books', to: 'main#no_books', as: :no_books
+    post '/choose', to: 'main#choose', as: :choose
+    get '/index', to: 'main#index', as: :index
+
+    get '/', to: 'main#details', as: :details
+    post '/', to: 'main#update', as: :update
+
+    get '/new', to: 'main#new', as: :new
+    post '/new', to: 'main#create', as: :create
+
+    get '/users', to: 'user#index', as: :users
+    post '/users', to: 'user#create', as: :create_user
+    post '/users/:user', to: 'user#update', as: :update_user
   end
 
   namespace :admin do

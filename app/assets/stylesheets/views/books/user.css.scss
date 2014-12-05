@@ -1,0 +1,18 @@
+.users {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 5px;
+    height: 22px;
+
+    a {
+      vertical-align: middle;
+    }
+
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+}

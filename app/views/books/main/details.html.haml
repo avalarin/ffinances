@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading=t('.book_details', { name: @book.display_name })
+  .panel-body
+    %table.table-properties
+      %tbody
+        %tr
+          %td.column-key= t('.book_owner')
+          %td.column-value= user_profile_link(@book.owner, avatar: :small)
+        %tr
+          %td.column-key= t('.book_created_at')
+          %td.column-value= time_tag(@book.created_at)
