@@ -23,12 +23,8 @@ $navbar-default-color:             #777;
 $navbar-default-bg:                rgba(231, 231, 231, 0.4);
 $navbar-default-border:            #ccc;
 
-// $border-radius-base:        0px;
-// $border-radius-large:       0px;
-// $border-radius-small:       0px;
-
 $panel-bg:                          #fff;
 $panel-body-padding:                15px;
 $panel-heading-padding:             10px 15px;
 $panel-footer-padding:              $panel-heading-padding;
-$panel-border-radius:               0;
+$panel-border-radius:               $border-radius-base;
