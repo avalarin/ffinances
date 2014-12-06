@@ -1,6 +1,7 @@
 //= require model/user
 //= require components/select-user
 //= require components/select-value
+//= require components/user-profile-link
 
 (function() {
   var http = require('http')

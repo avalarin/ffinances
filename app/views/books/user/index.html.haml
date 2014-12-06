@@ -37,9 +37,7 @@
     %hr
     %ul.users(data-bind="foreach: users")
       %li
-        %a.user-profile-link{ href: '#' }
-          %img.avatar.s16(data-bind="attr: { src: avatarUrl }")
-          %span(data-bind="text: displayName")
+        .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: $data } }")
         .pull-right
           - if @admin
             .btn-group
@@ -54,3 +52,4 @@
 
 = render 'components/select_user_template'
 = render 'components/select_value_template'
+= render 'components/user_profile_link_template'
