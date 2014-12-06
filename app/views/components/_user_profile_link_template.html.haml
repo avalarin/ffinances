@@ -1,0 +1,4 @@
+= ko_template 'user-profile-link-template' do
+  %a.user-profile-link(data-bind="attr: { href: link }")
+    %img.avatar.s16(data-bind="attr: { src: user.avatarUrl }")
+    %span(data-bind="text: user.displayName")
