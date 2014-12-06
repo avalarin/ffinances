@@ -90,3 +90,12 @@ a {
     color: #333;
   }
 }
+
+.user-profile-link:hover {
+  text-decoration: none;
+
+  span {
+    text-decoration: underline;
+  }
+
+}
