@@ -1,0 +1,33 @@
+.user-info {
+  width: 100%;
+  font-size: 12px;
+
+
+  .column-avatar {
+    width: 64px;
+  }
+
+  .column-details {
+
+    ul {
+      margin-left: 20px;
+
+      li {
+
+        padding: 3px 0;
+
+      }
+
+    }
+
+    .display-name {
+      font-size: 18px;
+    }
+
+    .name, .email {
+
+    }
+
+  }
+
+}

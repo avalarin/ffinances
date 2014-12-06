@@ -1,0 +1,24 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/profile', media: "all"
+
+.row
+  .col-md-4.col-md-offset-4
+    = bt_panel do |p|
+      - p.header do
+        Пользователь
+      - p.body do
+        %table.user-info
+          %tr
+            %td.column-avatar
+              = avatar_image @user, size: :large
+            %td.column-details
+              %ul.list-unstyled
+                %li.display-name=@user.display_name
+                %li.name
+                  %span
+                    = bt_icon :user
+                    = @user.name
+                %li.email
+                  %span
+                    = bt_icon :envelope
+                    = @user.email

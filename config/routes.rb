@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get '/tag', to: 'tag#index', as: :tags_index
   post '/tag/new', to: 'tag#create', as: :create_tag
 
+  get '/user/:name', to: 'user#profile', as: :user_profile
+
   namespace :data do
     get '/country', to: 'country#index', as: :countries_index
     get '/country/:code/currencies', to: 'country#currencies', as: :country_currencies_index
