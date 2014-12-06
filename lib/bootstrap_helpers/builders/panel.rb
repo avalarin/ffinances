@@ -3,6 +3,7 @@ module BootstrapHelpers
     class Panel < Base
       def initialize template, options = {}, &block
         @header_html = options[:header]
+        @subheader_html = options[:subheader]
         @capture_all = true
         super template, options, &block
       end
@@ -14,6 +15,11 @@ module BootstrapHelpers
 
       def header &block
         @header_html = template.capture &block
+        @capture_all = false
+      end
+
+      def subheader &block
+        @subheader_html = template.capture &block
         @capture_all = false
       end
 
@@ -32,6 +38,7 @@ module BootstrapHelpers
 
         template.content_tag :div, html do
           template.concat(template.content_tag(:div, @header_html, class: "panel-heading"))
+          template.concat(template.content_tag(:div, @subheader_html, class: "panel-subheading")) if @subheader_html
           template.concat(template.content_tag(:div, @body_html, class: "panel-body")) if @body_html
           template.concat(@table_html) if @table_html
         end
