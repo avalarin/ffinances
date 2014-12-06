@@ -28,4 +28,6 @@ window.routes = new (function() {
   route('bookUser', '/book/users/:name')
   route('editTransaction', '/transaction/:id/edit')
   route('updateTransaction', '/transaction/update')
+
+  route('userProfile', '/user/:name')
 })
