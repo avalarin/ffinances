@@ -22,7 +22,7 @@ module UserProfileHelper
   def user_profile_link user, options = {}
     html = get_html_attributes 'user-profile-link', options, {
       id: options[:id],
-      href: '#'
+      href: user_profile_path(user.name)
     }
     content_tag :a, html do
       out = ActiveSupport::SafeBuffer.new
