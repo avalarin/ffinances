@@ -1,3 +1,4 @@
+//= require components/user-profile-link
 //= require controls/modal
 //= require model/wallet
 //= require model/product

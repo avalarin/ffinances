@@ -20,9 +20,7 @@
             %tr(data-bind="click: $parent.goDetails")
               %td.column-info
                 %span(data-bind="text: dateText")
-                %a{ href: '#' }
-                  %img.avatar.s16(data-bind="attr: { src: creator.avatarUrl }")
-                  %span(data-bind="text: creator.displayName")
+                .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
                 %ul.tags-horizontal(data-bind="foreach: tags")
                   %li
                     %span(data-bind="text: '#' + text")
@@ -59,3 +57,4 @@
                   %span(data-bind="text: currency.code")
 = render 'transaction/details_modal'
 = render 'transaction/delete_modal'
+= render 'components/user_profile_link_template'
