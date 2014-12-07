@@ -48,7 +48,7 @@ module BootstrapHelpers
 
       def static options = {}, &block
         property_name = options[:property] || @property_name
-        
+
         css = 'form-control-static'
         html = get_html_attributes css, options, {
           id: options[:id] || @element_id || generate_element_id(property_name)
@@ -79,7 +79,7 @@ module BootstrapHelpers
         template.content_tag :input, '', html
       end
 
-      def hidden_input options = {} 
+      def hidden_input options = {}
         property_name = options[:property] || @property_name
         value = model.respond_to?(property_name) ? model.send(property_name) : ''
         html = get_html_attributes '', options, {
@@ -196,6 +196,15 @@ module BootstrapHelpers
         end
       end
 
+      def validation_message options = {}
+        property_name = options[:property] || @property_name
+
+        value = model.errors.include?(property_name) ? model.errors[property_name][0] : ''
+        html = get_html_attributes 'text-danger', options, {}
+
+        template.content_tag :span, value, html
+      end
+
       def submit_button options = {}
         property_name = options[:property] || @property_name
         options[:style] ||= :success
@@ -226,7 +235,7 @@ module BootstrapHelpers
       def validation_attributes property
         attrs = { :'data-val' => 'true' }
         errors = ActiveModel::Errors.new model
-        model_class.validators.each do |validator| 
+        model_class.validators.each do |validator|
           next unless validator.attributes.include? property
           validator_options = {}
           validator.options.each_pair { |k, v| validator_options[k] = v }
@@ -320,7 +329,7 @@ module BootstrapHelpers
           @label_col_size = 3
           @control_col_size = 9
         end
-                
+
         @property_name = options[:property] || ''
         @element_name = options[:input_name] || generate_full_name(@property_name)
         @element_id = options[:input_id] || generate_element_id(@property_name)
@@ -339,7 +348,10 @@ module BootstrapHelpers
         label_size = @label_col_size
         ctrl_size = @control_col_size
         content = capture_content
-        
+
+        form_group_class = 'form-group'
+        form_group_class += ' has-error' if (model.errors.include? @property_name)
+
         template.capture do
           if options[:style] == :horizontal
             label_class = "col-sm-#{label_size} "
@@ -349,13 +361,13 @@ module BootstrapHelpers
             ctrl_class = ''
           end
           if @label
-            template.content_tag(:div, class: 'form-group') do
+            template.content_tag(:div, class: form_group_class) do
               html = template.content_tag(:label, @label, class: label_class + 'control-label', for: @element_id)
               html << template.content_tag(:div, content, class: ctrl_class)
               html
             end
           else
-            template.content_tag(:div, class: "form-group") do
+            template.content_tag(:div, class: form_group_class) do
               content
             end
           end
