@@ -23,8 +23,11 @@ gem 'knockoutjs-rails'
 gem 'underscore-rails'
 gem 'chosen-rails'
 gem 'zeroclipboard-rails'
+gem 'jquery-fileapi-rails'
+gem 'jcrop-rails-v2'
 
 gem 'paperclip'
+gem 'rmagick'
 
 group :development do
   gem 'capistrano', '~> 3.2.1'
