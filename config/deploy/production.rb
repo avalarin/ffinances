@@ -6,11 +6,3 @@ server 'ffinances.avalarin.net',
   ssh_options: {
     user: 'ffinances', port: 2208
   }
-
-namespace :deploy do
- task :start do ; end
- task :stop do ; end
- task :restart, :roles => :app, :except => { :no_release => true } do
-   run "#{sudo} service ffinances restart"
- end
-end
