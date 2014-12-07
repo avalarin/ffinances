@@ -62,6 +62,14 @@ Rails.application.routes.draw do
     post '/users/:user', to: 'user#update', as: :update_user
   end
 
+  namespace :settings, module: 'settings_area' do
+    get '/', to: 'main#index', as: :main
+
+    get '/profile', to: 'profile#index', as: :profile
+    post '/profile', to: 'profile#update', as: :update_profile
+    post '/profile/avatar', to: 'profile#update_avatar', as: :update_avatar
+  end
+
   namespace :admin do
     get '/', to: 'main#index', as: :main
 

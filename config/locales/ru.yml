@@ -57,6 +57,16 @@ ru:
                 book_users_desc: 'Здесь Вы можете управлять пользователями которые имеют доступ к книге'
                 user: 'Пользователь'
                 permissions: 'Права'
+    settings_area:
+        profile:
+            index:
+                profile: 'Профиль'
+                avatar: 'Картинка'
+
+                avatar_upload_message: 'Выберите новую картинку для Вашего профиля'
+                avatar_uploaded_message: 'Картинка обновлена'
+                crop_new_avatar: 'Выбор области'
+
     dashboard:
         index:
             current_book: 'Книга: %{name}'
@@ -165,6 +175,9 @@ ru:
             details: 'Книга'
             users: 'Пользователи'
             wallets: 'Кошельки'
+        settings:
+            settings: 'Настройки'
+            profile: 'Профиль'
         error_modal:
           modal_header: "Ошибка"
           modal_message: "Во время выполнения операции возникла непредвиденная ошибка. Сообщение об ошибке отправлено администратору."

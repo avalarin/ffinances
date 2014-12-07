@@ -1,0 +1,15 @@
+-content_for :content do
+  .row
+    .col-md-3
+      .panel.panel-default
+        .panel-heading=t('.settings')
+        .list-group
+          %a.list-group-item{ href: settings_profile_path }
+            =bt_icon :user
+            %span=t('.profile')
+    .col-md-9
+      / -content_for :messages do '' end
+      / =render 'layouts/messages'
+      =yield
+/ -@hide_messages = true
+=render template: "layouts/application"

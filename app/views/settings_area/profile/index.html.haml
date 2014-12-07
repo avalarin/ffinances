@@ -1,0 +1,44 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/settings_area/profile', media: "all"
+- content_for :scripts do
+  = javascript_include_tag 'views/settings_area/profile'
+:javascript
+  avatarMessages = {
+    wait: { style: 'muted', text: '#{ t('.avatar_upload_message') }' },
+    success: { style: 'success', text: '#{ t('.avatar_uploaded_message') }' },
+    error_file_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_size') }' },
+    error_file_type: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_type') }' },
+    error_image_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_image_size') }' },
+    error_upload: { style: 'danger', text: '#{ t('errors.messages.avatar_error_upload') }' },
+    error_read: { style: 'danger', text: '#{ t('errors.messages.avatar_error_read') }' },
+  }
+
+= bt_panel header: t('.profile') do
+  =bt_form_for @user do |f|
+    =f.group label: t('.avatar') do |g|
+      .clearfix.avatar-uploader
+        = avatar_image @user, size: :large
+        .avatar-upload
+          .btn.btn-default.js-fileapi-wrapper.btn-upload.js-browse
+            %span.btn-txt=t('commands.change')
+            %input(type="file" name="avatar")
+          .avatar-upload-message.text-muted
+            =t('.avatar_upload_message')
+
+  .row
+    .col-lg-5
+      =bt_form_for @user do |f|
+        =f.group property: :display_name do |g|
+          =g.text_input
+          =g.validation_message
+        =f.group property: :email  do |g|
+          =g.text_input
+          =g.validation_message
+        =f.submit_button text: t('commands.save')
+
+= bt_modal id: 'avatar-cropper-modal', header: t('.crop_new_avatar') do |m|
+  - m.body do
+    %img.cropper-target
+  - m.footer do
+    = bt_button text: t('commands.save'), style: :primary, html: { :class => 'btn-save' }
+    = bt_button text: t('commands.cancel'), html: { 'data-dismiss' => 'modal' }

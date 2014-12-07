@@ -1,0 +1,38 @@
+/*
+ *= require jquery.Jcrop
+ */
+
+.avatar-uploader {
+  .avatar {
+    float: left;
+  }
+
+  .avatar-upload {
+    float: left;
+    margin-left: 20px;
+
+    .avatar-upload-message {
+      margin-top: 5px;
+    }
+  }
+
+  .btn-upload {
+    position: relative;
+
+    input[type=file] {
+      left: 0;
+      top: 0;
+      z-index: 2;
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      font-size: 1px;
+      cursor: pointer;
+    }
+  }
+}
+
+.jcrop-keymgr {
+  left: -5000px !important;
+}

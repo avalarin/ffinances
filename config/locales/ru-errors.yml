@@ -1,4 +1,4 @@
-ru: 
+ru:
     errors: &errors
         format: '%{attribute} %{message}'
         models:
@@ -9,6 +9,12 @@ ru:
                     email:
                         taken: Email занят.
         messages:
+            avatar_error_file_size: Размер файла не должен превышать 2МБ
+            avatar_error_file_type: Загрузите файл с картинкой (jpg или png)
+            avatar_error_image_size: Размер картинки должен быть больше 64x64 пикселей
+            avatar_error_upload: Произошла ошибка во время загрузки
+            avatar_error_read: 'Произошла ошибка чтения, возможно картинка повреждена'
+
             invalid_captcha: Текст с картинки введен не верно.
             invalid_invite_code: Неверный код приглашения.
             access_denied: Доступ запрещен.
