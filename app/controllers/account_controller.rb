@@ -29,7 +29,7 @@ class AccountController < ApplicationController
           return redirect_to(params[:r] || root_path)
         end
     else
-        flash.now.alert = t('errors.messages.invalid_email_or_password')
+      flash.now.alert = t('errors.messages.invalid_email_or_password')
     end
     @login = Login.new login
     render 'login'

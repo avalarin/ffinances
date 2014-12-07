@@ -68,6 +68,9 @@ Rails.application.routes.draw do
     get '/profile', to: 'profile#index', as: :profile
     post '/profile', to: 'profile#update', as: :update_profile
     post '/profile/avatar', to: 'profile#update_avatar', as: :update_avatar
+
+    get '/security', to: 'security#index', as: :security
+    post '/security', to: 'security#update', as: :update_security
   end
 
   namespace :admin do

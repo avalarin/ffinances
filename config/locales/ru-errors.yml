@@ -23,6 +23,7 @@ ru:
             directory_not_found: Папка не существует.
             share_already_exists: Общая папка с таким именем уже существует.
             invalid_email_or_password: Email или пароль введены неверно.
+            invalid_password: Введен неверный пароль.
             invalid_email_address: Введен неверный email.
             password_confirmation: Пароли не совпадают.
             user_locked: Пользователь заблокирован.

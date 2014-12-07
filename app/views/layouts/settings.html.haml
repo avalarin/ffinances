@@ -7,6 +7,9 @@
           %a.list-group-item{ href: settings_profile_path }
             =bt_icon :user
             %span=t('.profile')
+          %a.list-group-item{ href: settings_security_path }
+            =bt_icon :shield
+            %span=t('.security')
     .col-md-9
       / -content_for :messages do '' end
       / =render 'layouts/messages'
