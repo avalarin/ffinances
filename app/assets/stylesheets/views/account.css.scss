@@ -1,13 +1,14 @@
 @import "components/captcha-input";
 
-.account-container {
+.panel-account {
     position: relative;
     width: 300px;
     margin: 80px auto;
     padding: 30px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+    .panel-heading, .panel-body {
+        padding: 0;
+    }
 
     .form-control {
         font-size: 16px;

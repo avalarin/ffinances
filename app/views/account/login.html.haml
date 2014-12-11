@@ -1,7 +1,7 @@
 - content_for :styles do
   = stylesheet_link_tag 'views/account', media: "all"
 
-.account-container
+= bt_panel html: { :class => 'panel-account' } do |p|
   %img.profile-img{ src: asset_url('login_default_user.png') }
   = bt_form_for @login, as: :login, html: { :'class' => 'form-stack' } do |f|
     = f.text_input property: :name, placeholder: t(".name"), html: { :'class' => 'first' }
