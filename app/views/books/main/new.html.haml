@@ -36,7 +36,6 @@
                 %span=t('.currencies_manual')
                 %ul(data-bind="template: { name: 'currency-template', foreach: list_manual }")
         =f.submit_button text: t('commands.create')
-        =bt_button text: t('commands.cancel'), href: books_index_path
 
 =ko_template 'currency-template' do
   %li
