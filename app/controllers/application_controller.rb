@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
         book = books[0]
         set_current_book book
       else
-        redirect_to no_books_path
+        redirect_to book_no_books_path
         return false
       end
     end
