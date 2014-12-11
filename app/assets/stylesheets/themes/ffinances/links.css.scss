@@ -19,9 +19,8 @@
     text-decoration: inherit;
   }
 
-  &:hover {
+  &:visited, &:focus, &:active, &:hover {
     text-decoration: none;
-    color: $text-color;
   }
 
   .link-default {
