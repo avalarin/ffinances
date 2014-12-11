@@ -38,6 +38,7 @@ module Books
 
     def new
       @book = Book.new
+      render 'new', layout: 'application'
     end
 
     def create
@@ -56,7 +57,7 @@ module Books
       end
 
       @book = book
-      render 'new'
+      render 'new', layout: 'application'
     end
 
     def update
@@ -68,6 +69,7 @@ module Books
     end
 
     def no_books
+      render 'no_books', layout: 'application'
     end
 
   end
