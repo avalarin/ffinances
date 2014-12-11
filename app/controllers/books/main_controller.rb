@@ -46,7 +46,8 @@ module Books
       book = Book.new(book.permit(:display_name))
       book.owner = current_user
 
-      params.require(:currencies).each do |code|
+      currencies = params[:currencies] || []
+      currencies.each do |code|
         currency = Currency.find_by_code(code)
         book.currencies.push(currency) if (currency)
       end
