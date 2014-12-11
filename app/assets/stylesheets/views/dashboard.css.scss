@@ -1,11 +1,7 @@
 ul.operations, ul.tags, ul.tags-horizontal {
   margin: 0;
   padding: 0;
-
-  li {
-    list-style: none;
-    margin-bottom: 5px;
-  }
+  list-style: none;
 }
 
 ul.tags {
@@ -25,6 +21,10 @@ ul.tags-horizontal {
     display: inline;
     font-size: 85%;
   }
+}
+
+ul.operations li {
+  margin-bottom: 5px;
 }
 
 .transactions {
