@@ -54,7 +54,8 @@ module Books
 
       if (book.valid?)
         book.save!
-        return redirect_to books_index_path
+        set_current_book(book)
+        return redirect_to root_path
       end
 
       @book = book
