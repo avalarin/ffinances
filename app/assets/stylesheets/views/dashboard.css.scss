@@ -49,14 +49,18 @@ ul.operations li {
   .column-fill {
     width: auto;
   }
-  .column-operations {
+
+  .column-wallets {
+    text-align: left;
+  }
+
+  .column-sums {
     text-align: right;
   }
 
   .description {
     font-size: 85%;
   }
-
 
 }
 

@@ -25,11 +25,14 @@
                   %li
                     %span(data-bind="text: '#' + text")
                 %span.description(data-bind="text: description")
-              %td.column-operations
+              %td.column-wallets
                 %ul.operations(data-bind="foreach: operations")
                   %li
                     %img(data-bind="attr: { src: wallet.imageUrl }")
                     %span.name(data-bind="text: wallet.displayName")
+              %td.column-sums
+                %ul.operations(data-bind="foreach: operations")
+                  %li
                     %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
                       %span(data-bind="text: sumText")
                       %span(data-bind="text: currency.code")
