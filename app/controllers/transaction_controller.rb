@@ -3,7 +3,7 @@ class TransactionController < ApplicationController
   before_filter(only: [ :index, :details ]) { need_book :readonly }
   before_filter(only: [ :new, :create, :delete ]) { need_book :master }
 
-  def index
+  def last
     @transactions = Transaction.where(book_id: current_book.id).order(date: :desc)
     @transactions = @transactions.limit(params[:limit]) if params[:limit]
     respond_to do |format|

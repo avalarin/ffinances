@@ -27,7 +27,7 @@ window.routes = new (function() {
   route('bookUsers', '/book/users')
   route('bookUser', '/book/users/:name')
   route('editTransaction', '/transaction/:id/edit')
-  route('lastTransactions', '/transaction')
+  route('lastTransactions', '/transaction/last')
   route('transaction', '/transaction/:id')
   route('wallets', '/wallet')
   route('updateTransaction', '/transaction/update')
