@@ -17,7 +17,7 @@
     model.refresh = function() {
       model.loading(true)
       http.request({
-        url: '/wallet.json',
+        url: routes.wallets({ format: 'json' }),
         success: function(data) {
           model.items.removeAll()
           _.each(data, function(item) {
@@ -84,7 +84,7 @@
       detalization.load = function() {
         detalization.loading(true)
         http.request({
-          url: '/transaction/' + transaction.id,
+          url: routes.transaction({ id: transaction.id }),
           success: function(data) {
             detalization.items.removeAll()
             _.each(data.operations, function(item) {
@@ -130,7 +130,8 @@
     model.refresh = function() {
       model.loading(true)
       http.request({
-        url: '/transaction.json?limit=15',
+        url: routes.lastTransactions({ format: 'json' }),
+        data: { limit: 15 },
         success: function(data) {
           model.items.removeAll()
           _.each(data, function(item) {
@@ -172,7 +173,7 @@
     modal.doDelete = function() {
       modal.deleting(true)
       http.request({
-        url: '/transaction/' + modal.transaction().id,
+        url: routes.transaction({ id: transaction.id }),
         type: 'DELETE',
         success: function() {
           modal.transaction().delete()
