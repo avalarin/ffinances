@@ -5,7 +5,7 @@ define('http', ['jquery'], function ($) {
   function showLoader() {
     var element = $('.site-loader');
     element.removeClass('hiding').addClass('visible');
-  } 
+  }
 
   function hideLoader() {
     var element = $('.site-loader');
@@ -16,6 +16,8 @@ define('http', ['jquery'], function ($) {
   }
 
   function defaultErrorHandler(status, message, data) {
+    if (status == 0 && message == 'abort') return
+
     var modal = $('#unhandled-error');
     modal.find('.details').text(message);
     modal.modal('show');
@@ -24,7 +26,7 @@ define('http', ['jquery'], function ($) {
   $(document).ajaxStart(function () {
     requestsCount++;
   });
-  
+
   $(document).ajaxStop(function () {
     if (--requestsCount == 0) {
       hideLoader();
@@ -81,7 +83,7 @@ define('http', ['jquery'], function ($) {
     var loaderElement;
     var sourceElement;
     var isCompleted;
-    
+
     if (data.loader) {
         if (typeof (data.loader) == "string") {
             loaderElement = $(data.loader);
