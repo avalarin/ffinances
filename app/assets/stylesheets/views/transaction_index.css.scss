@@ -1,0 +1,119 @@
+@import "bootstrap-datepicker3";
+
+ul.operations, ul.tags, ul.tags-horizontal {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.tags {
+  li {
+    display: inline;
+    margin-bottom: 5px;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul.tags-horizontal {
+  display: inline-block;
+
+  li {
+    display: inline;
+    font-size: 85%;
+  }
+}
+
+ul.operations li {
+  margin-bottom: 5px;
+}
+
+.transactions {
+  font-size: 13px;
+  width: 100%;
+
+  tr {
+    cursor: pointer;
+  }
+
+  td {
+    padding: 5px 2px 0 2px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .column-fill {
+    width: auto;
+  }
+  .column-operations {
+    text-align: right;
+  }
+
+  .description {
+    font-size: 85%;
+  }
+
+
+}
+
+.income {
+  color: #3c763d;
+}
+
+.outcome {
+  color: #a94442;
+}
+
+.detalization {
+  font-size: 13px;
+  // width: 100%;
+
+  .column-name {
+  }
+
+  .column-sum {
+    text-align: right;
+  }
+}
+
+.no-transactions, .transactions-loading {
+  text-align: center;
+}
+
+.paginator {
+  margin-top: 5px;
+  font-size: 110%;
+}
+
+.date-filter {
+  font-size: 110%;
+  text-align: center;
+}
+
+.select-date {
+  cursor: pointer;
+  border-bottom: 1px dotted #333;
+}
+
+.filters {
+  margin: 10px 0 0 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 5px;
+
+    font-size: 110%;
+  }
+
+  .label {
+    padding: 3px 5px;
+  }
+
+}

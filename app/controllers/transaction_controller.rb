@@ -3,6 +3,35 @@ class TransactionController < ApplicationController
   before_filter(only: [ :index, :details ]) { need_book :readonly }
   before_filter(only: [ :new, :create, :delete ]) { need_book :master }
 
+   def index
+    @transactions = Transaction.where(book_id: current_book.id)
+
+    if params[:from] && params[:to]
+      from = DateTime.parse(params[:from])
+      to = DateTime.parse(params[:to])
+      @transactions = @transactions.where(date: from..to)
+    end
+
+    @transactions = @transactions.paginate(page: params[:page] || 1, per_page: 30).order(date: :desc)
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+      format.json do
+        render_api_resp :ok, data: {
+          pagination: {
+            page: @transactions.current_page,
+            totalPages: @transactions.total_pages,
+            totalItems: @transactions.total_entries,
+            perPage: @transactions.per_page
+          },
+          items: @transactions
+        }
+      end
+    end
+  end
+
   def last
     @transactions = Transaction.where(book_id: current_book.id).order(date: :desc)
     @transactions = @transactions.limit(params[:limit]) if params[:limit]

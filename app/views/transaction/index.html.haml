@@ -1,0 +1,61 @@
+-content_for :styles do
+  =stylesheet_link_tag 'views/transaction_index', media: "all"
+-content_for :scripts do
+  =javascript_include_tag 'views/transaction_index'
+
+.row(data-bind="with: transactions")
+  .col-md-3
+    .panel.panel-default
+      / .panel-heading=t('.administration')
+      .panel-body
+        .date-filter
+          %span.select-date.date-from(data-bind="text: dates.dateFromText")
+          %span='-'
+          %span.select-date.date-to(data-bind="text: dates.dateToText")
+      .list-group
+        - %w(last_week last_month current_week current_month current_year).each do |t|
+          %a.list-group-item(data-bind="click: function() { dates.select('#{t}') }" href="javascript:")
+            %span=t(".#{t}")
+  .col-md-9
+    .panel.panel-default.panel-transactions
+      .panel-body
+        = ko 'if: loading()' do
+          = ko 'if: items().length == 0' do
+            %div.text-muted.transactions-loading
+              = bt_icon :spinner, spin: true
+              = t('.loading')
+        = ko 'if: !loading()' do
+          = ko 'if: items().length > 0' do
+            %table.transactions.table-hover
+              %tbody(data-bind="foreach: items")
+                %tr(data-bind="click: $parent.goDetails")
+                  %td.column-info
+                    %span(data-bind="text: dateText")
+                    .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
+                    %ul.tags-horizontal(data-bind="foreach: tags")
+                      %li
+                        %span(data-bind="text: '#' + text")
+                    %span.description(data-bind="text: description")
+                  %td.column-operations
+                    %ul.operations(data-bind="foreach: operations")
+                      %li
+                        %img(data-bind="attr: { src: wallet.imageUrl }")
+                        %span.name(data-bind="text: wallet.displayName")
+                        %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
+                          %span(data-bind="text: sumText")
+                          %span(data-bind="text: currency.code")
+          = ko 'if: items().length == 0' do
+            %div.text-muted.no-transactions= t('.no_transactions')
+          = ko 'if: pagination.totalPages() > 1' do
+            .pull-right.paginator
+              = bt_link icon: :'caret-left', ko: 'click: pagination.goPrev'
+              %span(data-bind="text: pagination.startItem")
+              %span='-'
+              %span(data-bind="text: pagination.endItem")
+              %span='/'
+              %span(data-bind="text: pagination.totalItems")
+              = bt_link icon: :'caret-right', ko: 'click: pagination.goNext'
+
+= render 'transaction/details_modal'
+= render 'transaction/delete_modal'
+= render 'components/user_profile_link_template'

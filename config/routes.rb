@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#index', as: :dashboard
 
+  get '/transaction', to: 'transaction#index', as: :transactions
   get '/transaction/last', to: 'transaction#last', as: :last_transactions
   get '/transaction/new/(:mode)', to: 'transaction#new', as: :new_transaction
   post '/transaction/new', to: 'transaction#create', as: :create_transaction
