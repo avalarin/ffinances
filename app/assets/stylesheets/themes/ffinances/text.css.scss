@@ -1,0 +1,23 @@
+.text-centered {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-small {
+  font-size: $font-size-small;
+}
+
+.text-large {
+  font-size: $font-size-large;
+}
+
+.text-income {
+  color: #3c763d;
+}
+
+.text-outcome {
+  color: #a94442;
+}
