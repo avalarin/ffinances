@@ -1,0 +1,21 @@
+%table.transactions.table-hover
+  %tbody(data-bind="foreach: items")
+    %tr(data-bind="click: $parent.goDetails")
+      %td.column-info
+        %span(data-bind="text: dateText")
+        .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
+        %ul.tags(data-bind="foreach: tags")
+          %li
+            %span.text-small(data-bind="text: '#' + text")
+        %span.text-small(data-bind="text: description")
+      %td.column-wallets
+        %ul.operations(data-bind="foreach: operations")
+          %li
+            %img(data-bind="attr: { src: wallet.imageUrl }")
+            %span.name(data-bind="text: wallet.displayName")
+      %td.column-sums.text-right
+        %ul.operations(data-bind="foreach: operations")
+          %li
+            %span(data-bind="css: { 'text-income': type == 'in', 'text-outcome': type == 'out' }")
+              %span(data-bind="text: sumText")
+              %span(data-bind="text: currency.code")

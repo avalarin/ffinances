@@ -1,68 +1,4 @@
-ul.operations, ul.tags, ul.tags-horizontal {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-ul.tags {
-  li {
-    display: inline;
-    margin-bottom: 5px;
-  }
-  li:last-child {
-    margin-bottom: 0;
-  }
-}
-
-ul.tags-horizontal {
-  display: inline-block;
-
-  li {
-    display: inline;
-    font-size: 85%;
-  }
-}
-
-ul.operations li {
-  margin-bottom: 5px;
-}
-
-.transactions {
-  font-size: 13px;
-  width: 100%;
-
-  tr {
-    cursor: pointer;
-  }
-
-  td {
-    padding: 5px 2px 0 2px;
-    line-height: 1.428571429;
-    vertical-align: top;
-    border-bottom: 1px solid #dddddd;
-  }
-
-  tr:last-child td {
-    border-bottom: 0;
-  }
-
-  .column-fill {
-    width: auto;
-  }
-
-  .column-wallets {
-    text-align: left;
-  }
-
-  .column-sums {
-    text-align: right;
-  }
-
-  .description {
-    font-size: 85%;
-  }
-
-}
+@import "views/transactions_table";
 
 .wallets {
   font-size: 13px;
@@ -70,34 +6,5 @@ ul.operations li {
 
   td {
     padding: 5px;
-  }
-
-  .column-name {
-
-  }
-
-  .column-balance {
-    text-align: right;
-  }
-
-}
-
-.income {
-  color: #3c763d;
-}
-
-.outcome {
-  color: #a94442;
-}
-
-.detalization {
-  font-size: 13px;
-  // width: 100%;
-
-  .column-name {
-  }
-
-  .column-sum {
-    text-align: right;
   }
 }

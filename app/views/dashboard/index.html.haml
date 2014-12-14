@@ -15,27 +15,7 @@
           = bt_button icon: :refresh, text: t('commands.refresh'), style: :link, size: :xsmall, |
                        ko: 'click: refresh, visible: !loading()'
       - panel.body do
-        %table.transactions.table-hover
-          %tbody(data-bind="foreach: items")
-            %tr(data-bind="click: $parent.goDetails")
-              %td.column-info
-                %span(data-bind="text: dateText")
-                .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
-                %ul.tags-horizontal(data-bind="foreach: tags")
-                  %li
-                    %span(data-bind="text: '#' + text")
-                %span.description(data-bind="text: description")
-              %td.column-wallets
-                %ul.operations(data-bind="foreach: operations")
-                  %li
-                    %img(data-bind="attr: { src: wallet.imageUrl }")
-                    %span.name(data-bind="text: wallet.displayName")
-              %td.column-sums
-                %ul.operations(data-bind="foreach: operations")
-                  %li
-                    %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
-                      %span(data-bind="text: sumText")
-                      %span(data-bind="text: currency.code")
+        = render 'transaction/transactions_table'
   .col-md-4
     = bt_panel ko: 'with: wallets' do |panel|
       - panel.header do
@@ -51,11 +31,11 @@
         %table.wallets
           %tbody(data-bind="foreach: items")
             %tr
-              %td.column-name
+              %td
                 %img(data-bind="attr: { src: imageUrl }")
                 %span.name(data-bind="text: displayName")
-              %td.column-balance
-                %span(data-bind="css: { income: balance > 0, outcome: balance <= 0 }")
+              %td.text-right
+                %span(data-bind="css: { 'text-income': balance > 0, 'text-outcome': balance <= 0 }")
                   %span(data-bind="text: balance")
                   %span(data-bind="text: currency.code")
 = render 'transaction/details_modal'

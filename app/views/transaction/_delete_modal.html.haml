@@ -1,4 +1,4 @@
-= bt_modal id: "transaction-delete-modal", header: raw(t('.delete_transaction', id: '<span data-bind="text: transaction.id"><span>')), data: { bind: 'with: transactionDeleteModal' } do |m| 
+= bt_modal id: "transaction-delete-modal", header: raw(t('.delete_transaction', id: '<span data-bind="text: transaction.id"><span>')), data: { bind: 'with: transactionDeleteModal' } do |m|
   - m.body do
     %span=t('.message')
     %table.table-properties(data-bind="with: transaction")
@@ -14,7 +14,7 @@
               %span(data-bind="text: creator.displayName")
         %tr
           %td.column-key= t('model.transaction.description')
-          %td.column-value(data-bind="text: description")    
+          %td.column-value(data-bind="text: description")
         %tr
           %td.column-key= t('model.transaction.tags')
           %td.column-value
@@ -27,7 +27,7 @@
               %li
                 %img(data-bind="attr: { src: wallet.imageUrl }")
                 %span.name(data-bind="text: wallet.displayName")
-                %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
+                %span(data-bind="css: { 'text-income': type == 'in', 'text-outcome': type == 'out' }")
                   %span(data-bind="text: sumText")
                   %span(data-bind="text: currency.code")
   - m.footer do

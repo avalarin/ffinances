@@ -26,7 +26,7 @@
               %li
                 %img(data-bind="attr: { src: wallet.imageUrl }")
                 %span.name(data-bind="text: wallet.displayName")
-                %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
+                %span(data-bind="css: { 'text-income': type == 'in', 'text-outcome': type == 'out' }")
                   %span(data-bind="text: sumText")
                   %span(data-bind="text: currency.code")
     //= ko 'visible: $parent.canManage' do
@@ -41,7 +41,7 @@
       %tbody(data-bind="foreach: detalization.items")
         %tr
           %td.column-name(data-bind="text: product ? product.displayName : ''")
-          %td.column-sum
+          %td.column-sum.text-right
             %span(data-bind="text: countText")
             %span(data-bind="text: unit ? unit.shortName : ''")
             %span='×'

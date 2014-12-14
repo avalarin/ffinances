@@ -21,31 +21,14 @@
       .panel-body
         = ko 'if: loading()' do
           = ko 'if: items().length == 0' do
-            %div.text-muted.transactions-loading
+            %div.text-muted.text-centered
               = bt_icon :spinner, spin: true
               = t('.loading')
         = ko 'if: !loading()' do
           = ko 'if: items().length > 0' do
-            %table.transactions.table-hover
-              %tbody(data-bind="foreach: items")
-                %tr(data-bind="click: $parent.goDetails")
-                  %td.column-info
-                    %span(data-bind="text: dateText")
-                    .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
-                    %ul.tags-horizontal(data-bind="foreach: tags")
-                      %li
-                        %span(data-bind="text: '#' + text")
-                    %span.description(data-bind="text: description")
-                  %td.column-operations
-                    %ul.operations(data-bind="foreach: operations")
-                      %li
-                        %img(data-bind="attr: { src: wallet.imageUrl }")
-                        %span.name(data-bind="text: wallet.displayName")
-                        %span(data-bind="css: { income: type == 'in', outcome: type == 'out' }")
-                          %span(data-bind="text: sumText")
-                          %span(data-bind="text: currency.code")
+            = render 'transaction/transactions_table'
           = ko 'if: items().length == 0' do
-            %div.text-muted.no-transactions= t('.no_transactions')
+            %div.text-muted.text-centered= t('.no_transactions')
           = ko 'if: pagination.totalPages() > 1' do
             .pull-right.paginator
               = bt_link icon: :'caret-left', ko: 'click: pagination.goPrev'

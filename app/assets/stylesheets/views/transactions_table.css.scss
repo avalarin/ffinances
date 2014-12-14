@@ -1,0 +1,42 @@
+ul.operations, ul.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.tags {
+  display: inline-block;
+
+  li {
+    display: inline;
+  }
+}
+
+ul.operations li {
+  margin-bottom: 5px;
+}
+
+.transactions {
+  font-size: 13px;
+  width: 100%;
+
+  tr {
+    cursor: pointer;
+  }
+
+  td {
+    padding: 5px 2px 0 2px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .column-fill {
+    width: auto;
+  }
+
+}
