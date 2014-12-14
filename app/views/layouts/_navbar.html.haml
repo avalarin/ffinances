@@ -12,6 +12,12 @@
           = Settings.app_name
     .collapse.navbar-collapse(id="navbar-collapse-1")
       %ul.nav.navbar-nav
+        %li
+          %a{ href: root_path }
+            = t('.main_page')
+        %li
+          %a{ href: transactions_path }
+            = t('.transactions_page')
       %ul.nav.navbar-nav.navbar-right
         - if authenticated?
           - if current_book

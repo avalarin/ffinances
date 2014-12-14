@@ -176,6 +176,9 @@ ru:
             deleted: 'Инвайт удален'
     layouts:
         navbar:
+            main_page: 'Главная'
+            transactions_page: 'Платежи'
+
             current_book: 'Текущая книга'
             current_book_not_selected: 'Книга не выбрана'
 
