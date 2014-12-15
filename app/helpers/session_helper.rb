@@ -15,6 +15,10 @@ module SessionHelper
     end
   end
 
+  def reload_session
+    @current_session = nil
+  end
+
   def current_session
     session_key = cookies['session']
     return nil unless session_key
