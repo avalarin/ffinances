@@ -6,16 +6,14 @@
 .page-panel
   .page-title=t('.create_wallet')
   .page-description=t('.create_wallet_desc')
-  .row
-    .col-lg-5
-      =bt_form_for @wallet do |f|
-        .form-group
-          =f.text_input property: :display_name
-        .form-group
-          =f.select property: :currency_id, source: @currencies, text_property: :name
-        .form-group
-          =f.select property: :type_id, source: @types, text_property: :display_name
-        .form-group
-          =f.text_area property: :description, placeholder: t('.wallet_description')
+  =bt_form_for @wallet, controls_col_size: 5 do |f|
+    .form-group
+      =f.text_input property: :display_name
+    .form-group
+      =f.select property: :currency_id, source: @currencies, text_property: :name
+    .form-group
+      =f.select property: :type_id, source: @types, text_property: :display_name
+    .form-group
+      =f.text_area property: :description, placeholder: t('.wallet_description')
 
-        =f.submit_button text: t('commands.create')
+    =f.submit_button text: t('commands.create')

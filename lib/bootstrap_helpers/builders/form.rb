@@ -352,13 +352,14 @@ module BootstrapHelpers
         form_group_class = 'form-group'
         form_group_class += ' has-error' if (model.errors.include? @property_name)
 
-        template.capture do
+        group_html = template.capture do
           if options[:style] == :horizontal
             label_class = "col-sm-#{label_size} "
             ctrl_class = "col-sm-#{ctrl_size} "
           else
             label_class = ''
             ctrl_class = ''
+            form_group_class += " col-sm-#{ctrl_size}"
           end
           if @label
             template.content_tag(:div, class: form_group_class) do
@@ -372,6 +373,12 @@ module BootstrapHelpers
             end
           end
         end
+
+        unless options[:style] == :horizontal
+          group_html = template.content_tag(:div, group_html, class: 'row')
+        end
+
+        group_html
       end
 
     end

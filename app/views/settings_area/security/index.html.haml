@@ -1,14 +1,12 @@
 = bt_panel header: t('.password') do
-  .row
-    .col-lg-5
-      =bt_form_for @user do |f|
-        =f.group property: :old_password do |g|
-          =g.password_input html: { :'data-val-required' => t('errors.messages.empty') }
-          =g.validation_message
-        =f.group label: t('model.user.new_password'), property: :password  do |g|
-          =g.password_input
-          =g.validation_message
-        =f.group property: :password_confirmation  do |g|
-          =g.password_input
-          =g.validation_message
-        =f.submit_button text: t('commands.save')
+  =bt_form_for @user, controls_col_size: 5 do |f|
+    =f.group property: :old_password do |g|
+      =g.password_input html: { :'data-val-required' => t('errors.messages.empty') }
+      =g.validation_message
+    =f.group label: t('model.user.new_password'), property: :password  do |g|
+      =g.password_input
+      =g.validation_message
+    =f.group property: :password_confirmation  do |g|
+      =g.password_input
+      =g.validation_message
+    =f.submit_button text: t('commands.save')
