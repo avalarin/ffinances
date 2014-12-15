@@ -1,5 +1,5 @@
 = bt_panel header: t('.password') do
-  =bt_form_for @user, controls_col_size: 5 do |f|
+  =bt_form_for @user, controls_col_size: 7 do |f|
     =f.group property: :old_password do |g|
       =g.password_input html: { :'data-val-required' => t('errors.messages.empty') }
       =g.validation_message

@@ -29,14 +29,14 @@
           .avatar-upload-message.text-muted
             =t('.avatar_upload_message')
 
-  =bt_form_for @user, controls_col_size: 5 do |f|
+  =bt_form_for @user, controls_col_size: 7 do |f|
     =f.group property: :display_name do |g|
       =g.text_input
       =g.validation_message
     =f.group property: :email  do |g|
       =g.text_input
       =g.validation_message
-    -unless @user.confirmed
+      %br
       .alert.alert-danger
         %p.text-danger
           =raw(t('.email_not_confirmed', email: current_user.email))
