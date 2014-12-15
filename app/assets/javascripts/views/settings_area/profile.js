@@ -1,5 +1,6 @@
 //= require jquery-fileapi
 //= require jquery.Jcrop
+//= require modules/messages
 
 function AvatarCropper(options) {
   var cropper = this;
@@ -134,3 +135,32 @@ $(function() {
     })
   })
 })
+
+function showEmailMessage(name) {
+  var msg = emailMessages[name]
+  $('#email-message')
+    .removeClass('hidden text-muted text-success text-danger')
+    .addClass('text-' + msg.style)
+    .text(msg.text)
+}
+
+function resendConfirmationEmail() {
+  var http = require('http')
+  var messages = require('messages')
+  $('#email-resend').addClass('hidden')
+  $('#email-sending').removeClass('hidden')
+  http.request({
+    url: routes.sendConfirmationEmail(),
+    success: function() {
+      showEmailMessage('success')
+    },
+    error: function() {
+      showEmailMessage('error')
+    },
+    complete: function() {
+      $('#email-resend').removeClass('hidden')
+      $('#email-sending').addClass('hidden')
+    },
+    type: 'POST'
+  })
+}

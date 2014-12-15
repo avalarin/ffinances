@@ -66,6 +66,9 @@ ru:
                 avatar_upload_message: 'Выберите новую картинку для Вашего профиля'
                 avatar_uploaded_message: 'Картинка обновлена'
                 crop_new_avatar: 'Выбор области'
+
+                email_not_confirmed: '<b>Внимание!</b><br/>Текущий Email (%{email}) не подтвержден. Вы не сможете восстановить пароль в случае утери. Для подтверждения мы отправили Вам электронное письмо, для подтверждения следуйте инструкциям в письме.'
+                resend_confirmaion_email: 'Я не получил письма.'
         security:
             index:
                 password: 'Пароль'
@@ -169,7 +172,7 @@ ru:
         user:
             locked: 'Пользователь заблокирован'
             unlocked: 'Пользователь разблокирован'
-            activation_email_sended: 'Письмо отправлено'
+            activation_email_sended: 'Письмо успешно отправлено'
 
         invite:
             created: 'Инвайт создан'

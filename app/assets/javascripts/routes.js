@@ -32,5 +32,6 @@ window.routes = new (function() {
   route('wallets', '/wallet')
   route('updateTransaction', '/transaction/update')
   route('uploadAvatar', '/settings/profile/avatar')
+  route('sendConfirmationEmail', '/settings/profile/send_confirmation_email')
   route('userProfile', '/user/:name')
 })

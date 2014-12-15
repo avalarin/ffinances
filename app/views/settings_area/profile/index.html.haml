@@ -2,16 +2,20 @@
   = stylesheet_link_tag 'views/settings_area/profile', media: "all"
 - content_for :scripts do
   = javascript_include_tag 'views/settings_area/profile'
-:javascript
-  avatarMessages = {
-    wait: { style: 'muted', text: '#{ t('.avatar_upload_message') }' },
-    success: { style: 'success', text: '#{ t('.avatar_uploaded_message') }' },
-    error_file_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_size') }' },
-    error_file_type: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_type') }' },
-    error_image_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_image_size') }' },
-    error_upload: { style: 'danger', text: '#{ t('errors.messages.avatar_error_upload') }' },
-    error_read: { style: 'danger', text: '#{ t('errors.messages.avatar_error_read') }' },
-  }
+  :javascript
+    emailMessages = {
+      success: { style: 'success', text: '#{ t('messages.user.activation_email_sended') }' },
+      error: { style: 'danger', text: '#{ t('errors.messages.activation_email_error') }' },
+    }
+    avatarMessages = {
+      wait: { style: 'muted', text: '#{ t('.avatar_upload_message') }' },
+      success: { style: 'success', text: '#{ t('.avatar_uploaded_message') }' },
+      error_file_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_size') }' },
+      error_file_type: { style: 'danger', text: '#{ t('errors.messages.avatar_error_file_type') }' },
+      error_image_size: { style: 'danger', text: '#{ t('errors.messages.avatar_error_image_size') }' },
+      error_upload: { style: 'danger', text: '#{ t('errors.messages.avatar_error_upload') }' },
+      error_read: { style: 'danger', text: '#{ t('errors.messages.avatar_error_read') }' },
+    }
 
 = bt_panel header: t('.profile') do
   =bt_form_for @user do |f|
@@ -25,16 +29,23 @@
           .avatar-upload-message.text-muted
             =t('.avatar_upload_message')
 
-  .row
-    .col-lg-5
-      =bt_form_for @user do |f|
-        =f.group property: :display_name do |g|
-          =g.text_input
-          =g.validation_message
-        =f.group property: :email  do |g|
-          =g.text_input
-          =g.validation_message
-        =f.submit_button text: t('commands.save')
+  =bt_form_for @user, controls_col_size: 5 do |f|
+    =f.group property: :display_name do |g|
+      =g.text_input
+      =g.validation_message
+    =f.group property: :email  do |g|
+      =g.text_input
+      =g.validation_message
+    -unless @user.confirmed
+      .alert.alert-danger
+        %p.text-danger
+          =raw(t('.email_not_confirmed', email: current_user.email))
+        %p#email-message.hidden
+        %p#email-sending.hidden
+          = bt_icon :spinner, spin: true
+        =bt_link id: 'email-resend', text: t('.resend_confirmaion_email'), html: { onclick: 'resendConfirmationEmail()' }
+
+    =f.submit_button text: t('commands.save')
 
 = bt_modal id: 'avatar-cropper-modal', header: t('.crop_new_avatar') do |m|
   - m.body do

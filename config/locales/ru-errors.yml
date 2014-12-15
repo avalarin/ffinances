@@ -14,7 +14,7 @@ ru:
             avatar_error_image_size: Размер картинки должен быть больше 64x64 пикселей
             avatar_error_upload: Произошла ошибка во время загрузки
             avatar_error_read: 'Произошла ошибка чтения, возможно картинка повреждена'
-
+            activation_email_error: 'Не удалось отправить письмо, попробуйте позже'
             invalid_captcha: Текст с картинки введен не верно.
             invalid_invite_code: Неверный код приглашения.
             access_denied: Доступ запрещен.
