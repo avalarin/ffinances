@@ -3,7 +3,7 @@
 - content_for :scripts do
   = javascript_include_tag "views/account_register"
 
-= bt_panel html: { :class => 'panel-account', :data-bind => 'with: register' } do |p|
+= bt_panel html: { :class => 'panel-account', :'data-bind' => 'with: register' } do |p|
   = bt_form_for @user, html: { :'class' => 'form-stack' }, id: 'register-form' do |f|
     - if @invite
       = f.hidden_input id: 'invite', name: 'invite', value: @invite.code
