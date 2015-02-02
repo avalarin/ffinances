@@ -68,10 +68,22 @@ class User < ActiveRecord::Base
     avatar.url
   end
 
+  def small_avatar_url
+    avatar.url(:small)
+  end
+
+  def medium_avatar_url
+    avatar.url(:medium)
+  end
+
+  def large_avatar_url
+    avatar.url(:large)
+  end
+
   def as_json(options = nil)
     super({
       only: [:name, :email, :display_name ],
-      methods: [ :avatar_url ]
+      methods: [ :avatar_url, :small_avatar_url, :medium_avatar_url, :large_avatar_url ]
     }.merge(options || {}))
   end
 
