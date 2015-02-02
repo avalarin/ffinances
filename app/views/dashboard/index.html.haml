@@ -36,7 +36,7 @@
                 %span.name(data-bind="text: displayName")
               %td.text-right
                 %span(data-bind="css: { 'text-income': balance > 0, 'text-outcome': balance <= 0 }")
-                  %span(data-bind="text: balance")
+                  %span(data-bind="text: balanceText")
                   %span(data-bind="text: currency.code")
 = render 'transaction/details_modal'
 = render 'transaction/delete_modal'
