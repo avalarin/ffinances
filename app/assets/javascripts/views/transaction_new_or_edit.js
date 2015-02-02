@@ -63,8 +63,8 @@
     model.exchangeRate = makeObservable(options.exchange_rate, origMaker, 1)
     model.exchangeRateText = ko.computed(function() {
       var rate = model.exchangeRate()
-      var base = model.walletCurrency()
-      var target = model.currency()
+      var base = model.currency()
+      var target = model.walletCurrency()
       if (rate == 0 || typeof(base) == 'undefined' || typeof(target) == 'undefined') return ''
       if (rate < 1) {
         var temp = target
@@ -77,8 +77,8 @@
     model.walletSum = ko.observable(model.sum() * model.exchangeRate())
     model.exchangeRateLoading = ko.observable(false)
     model.refreshExchangeRate = function() {
-      var base = model.walletCurrency()
-      var target = model.currency()
+      var base = model.currency()
+      var target = model.wallet().currency
       if (typeof(base) == 'undefined' || typeof(target) == 'undefined') return
       if (typeof(base.code) == 'undefined' || typeof(target.code) == 'undefined') return
       if (base.code == target.code) {
@@ -122,7 +122,7 @@
         syncExchangeRate()
       } else {
         lock('sum', function() {
-          model.walletSum(model.sum() / model.exchangeRate())
+          model.walletSum(model.sum() * model.exchangeRate())
         })
       }
     }
@@ -131,14 +131,14 @@
         syncExchangeRate()
       } else {
         lock('sum', function() {
-          model.sum(model.walletSum() * model.exchangeRate())
+          model.sum(model.walletSum() / model.exchangeRate())
         })
       }
 
     }
     function syncExchangeRate() {
       lock('sum', function() {
-        model.exchangeRate(model.sum() / model.walletSum())
+        model.exchangeRate(model.walletSum() / model.sum())
       })
     }
     model.count.subscribe(function(count) {
