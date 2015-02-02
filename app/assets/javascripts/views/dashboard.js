@@ -173,7 +173,7 @@
     modal.doDelete = function() {
       modal.deleting(true)
       http.request({
-        url: routes.transaction({ id: transaction.id }),
+        url: routes.transaction({ id: modal.transaction().id }),
         type: 'DELETE',
         success: function() {
           modal.transaction().delete()
