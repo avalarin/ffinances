@@ -43,7 +43,7 @@
       name: data.creator.name,
       email: data.creator.name,
       displayName: data.creator.display_name,
-      avatarUrl: data.creator.avatar_url
+      smallAvatarUrl: data.creator.small_avatar_url,
     }
 
     var isAdmin = session.permissions.bookAdmin
