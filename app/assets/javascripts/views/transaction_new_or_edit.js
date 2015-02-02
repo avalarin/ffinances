@@ -154,8 +154,8 @@
     model.sum.subscribe(function(sum) {
       syncWalletSum()
       lock('amount', function() {
-        var count = model.count()
-        model.amount(count == 0 ? 0 : sum / model.count())
+        var amount = model.amount()
+        model.count(amount == 0 ? 0 : sum / amount)
       })
       checkValidation()
     })
