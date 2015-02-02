@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   }
 
   has_attached_file :avatar, default_url: '/images/missing_avatar_:style.png', styles: {
-    large: '64x64>',
-    middle: '24x24>',
+    large: '256x256>',
+    medium: '64x64>',
     small: '18x18>'
   }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
