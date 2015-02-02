@@ -9,9 +9,7 @@
         %tr
           %td.column-key= t('model.transaction.creator')
           %td.column-value
-            %a{ href: '#' }
-              %img.avatar.s16(data-bind="attr: { src: creator.avatarUrl }")
-              %span(data-bind="text: creator.displayName")
+            .av-inline(data-bind="component: { name: 'user-profile-link', params: { user: creator } }")
         %tr
           %td.column-key= t('model.transaction.description')
           %td.column-value(data-bind="text: description")
