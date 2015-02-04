@@ -2,9 +2,9 @@
   = stylesheet_link_tag 'views/account', media: "all"
 
 = bt_panel html: { :class => 'panel-centered' } do |p|
-  %img.profile-img{ src: asset_url('login_default_user.png') }
   = bt_form_for @login, as: :login, html: { :'class' => 'form-stack' } do |f|
     = f.text_input property: :name, placeholder: t(".name"), html: { :'class' => 'first' }
     = f.password_input property: :password, placeholder:(t ".password"), html: { :'class' => 'last' }
     = f.checkbox property: :remember, text: t('.remember')
     = f.submit_button text: t(".login"), html: { class: 'btn btn-lg btn-block' }
+    = bt_link text: t('.need_help'), href: restore_password_path
