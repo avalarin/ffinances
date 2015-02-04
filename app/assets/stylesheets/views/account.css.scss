@@ -1,13 +1,8 @@
 @import "components/captcha-input";
 
-.panel-account {
-    position: relative;
-    width: 300px;
-    margin: 80px auto;
-    padding: 30px;
-
-    .panel-heading, .panel-body {
-        padding: 0;
+.panel-centered {
+    form {
+        padding: 25px;
     }
 
     .form-control {
@@ -29,7 +24,7 @@
     .profile-img {
         width: 96px;
         height: 96px;
-        margin: 0 auto 20px;
+        margin: 25px auto 20px auto;
         display: block;
         -moz-border-radius: 50%;
         -webkit-border-radius: 50%;
@@ -39,5 +34,4 @@
     .btn-success {
         height: 44px;
     }
-
 }

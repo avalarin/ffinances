@@ -7,7 +7,7 @@
     border: none;
     padding: 10px;
   }
-  
+
   .panel-subheading {
     font-size: $font-size-small;
     color: #999;
@@ -15,13 +15,19 @@
   }
 
   .panel-heading + .panel-subheading,
-  .panel-heading + .panel-body, 
+  .panel-heading + .panel-body,
   .panel-subheading + .panel-body {
     padding-top: 0;
   }
 
   hr {
-    margin: 18px -15px; 
+    margin: 18px -15px;
   }
 
+}
+
+.panel-centered {
+    position: relative;
+    width: 350px;
+    margin: 80px auto 0 auto;
 }

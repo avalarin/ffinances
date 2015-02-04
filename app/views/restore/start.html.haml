@@ -3,7 +3,7 @@
 - content_for :scripts do
   = javascript_include_tag "views/restore_start"
 
-= bt_panel html: { :class => 'panel-account', :'data-bind' => 'with: restore' }, header: t('.title') do |p|
+= bt_panel html: { :class => 'panel-centered', :'data-bind' => 'with: restore' }, header: t('.title') do |p|
   %p= t('.message')
 
   = bt_form_for :user, html: { :'class' => 'form-stack' } do |f|
