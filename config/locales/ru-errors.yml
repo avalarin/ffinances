@@ -25,8 +25,10 @@ ru:
             invalid_email_or_password: Email или пароль введены неверно.
             invalid_password: Введен неверный пароль.
             invalid_email_address: Введен неверный email.
+            invalid_restore_token: Код востановления доступа не существует или истек срок действия кода.
             password_confirmation: Пароли не совпадают.
             user_locked: Пользователь заблокирован.
+            user_not_found: 'Пользователь не найден.'
             accepted: Нужно подтвердить.
             blank: Не может быть пустым.
             confirmation: Не совпадает со значением поля %{attribute}.

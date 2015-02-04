@@ -1,0 +1,18 @@
+- content_for :styles do
+  = stylesheet_link_tag 'views/account', media: "all"
+- content_for :scripts do
+  = javascript_include_tag "views/restore_start"
+
+= bt_panel html: { :class => 'panel-account', :'data-bind' => 'with: restore' }, header: t('.title') do |p|
+  %p= t('.message')
+
+  = bt_form_for :user, html: { :'class' => 'form-stack' } do |f|
+    = f.text_input property: :name, placeholder: t(".name"), html: { :'class' => 'first last' }
+
+    %div.av-inline{'data-bind' => "component: { name: 'captcha-input', params: { model: captcha } }"}
+    %input.form-control.first.last{ type: 'text', 'id' => 'captcha-value', name: 'captcha[value]', placeholder: t('.captcha'), 'data-bind' => 'value: captcha.value', 'data-val' => 'true', 'data-val-required' => t('errors.messages.empty') }
+    %input{ type: 'hidden', 'id' => 'captcha-code', name: 'captcha[code]', 'data-bind' => 'value: captcha.code'}
+
+    = f.submit_button text: t("commands.next"), html: { class: 'btn btn-lg btn-block' }
+
+= render 'components/captcha_input_template'

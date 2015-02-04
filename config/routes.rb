@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   get '/register/success', to: 'account#success_registration', as: :success_registration
   get '/confirm/:code', to: 'account#confirm', as: :confirm_account
 
+  get '/restore/:code', to: 'restore#change_password', as: :restore_password_confirm
+  post '/restore/:code', to: 'restore#update_password', as: :update_password
+
+  get '/restore', to: 'restore#start', as: :restore_password
+  post '/restore', to: 'restore#send_email'
+
   get '/dashboard', to: 'dashboard#index', as: :dashboard
 
   get '/transaction', to: 'transaction#index', as: :transactions
