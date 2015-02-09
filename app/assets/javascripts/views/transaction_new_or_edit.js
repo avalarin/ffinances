@@ -44,6 +44,10 @@
     var origMaker = function(data) {
       return data
     }
+    var makePositive = function(num) {
+      num = Number(num)
+      return num < 0 ? num * -1 : num
+    }
 
     model.id = makeObservable(options.id, origMaker)
     model.wallet = makeObservable(options.wallet, constructMaker(Wallet))
@@ -54,8 +58,8 @@
 
     model.product = makeObservable(options.product, constructMaker(Product))
     model.count = makeObservable(options.count, origMaker, 1)
-    model.amount = makeObservable(options.amount * -1, origMaker, 0)
-    model.sum = makeObservable(options.sum * -1, origMaker, 0)
+    model.amount = makeObservable(makePositive(options.amount), origMaker, 0)
+    model.sum = makeObservable(makePositive(options.sum), origMaker, 0)
     model.currency = makeObservable(options.currency, constructMaker(Currency), model.walletCurrency())
     model.unit = makeObservable(options.unit, constructMaker(Unit))
 
