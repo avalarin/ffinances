@@ -288,8 +288,8 @@
         if (inops.length > 1) throw 'Invalid transaction for edit: too many income operations.'
         if (outops.length > 1) throw 'Invalid transaction for edit: too many outcome operations.'
 
-        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, inops[0]))
-        model.toOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, outops[0]))
+        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, outops[0]))
+        model.toOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, inops[0]))
 
       } else if (startData.mode == 'outcome') {
         var inops = _.filter(operations, function(op) { return op.sum > 0 })
