@@ -33,6 +33,7 @@ module Transactions
             op_model.count = op[:count]
             op_model.amount = op[:amount]
             op_model.sum = op[:sum]
+            op_model.save!
           else
             op_model = create_operation(op)
             op_model.transact = transaction
