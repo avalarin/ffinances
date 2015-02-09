@@ -59,6 +59,8 @@
     model.currency = makeObservable(options.currency, constructMaker(Currency), model.walletCurrency())
     model.unit = makeObservable(options.unit, constructMaker(Unit))
 
+    model.countLocked = makeObservable(options.countLocked, origMaker, false);
+
     // TODO использовать exchangeRate вместо exchange_rate
     model.exchangeRate = makeObservable(options.exchange_rate, origMaker, 1)
     model.exchangeRateText = ko.computed(function() {
@@ -142,21 +144,30 @@
       })
     }
     model.count.subscribe(function(count) {
-      lock('amount', function() {
+      lock('sum', function() {
+        console.log('update sum')
         model.sum(count * model.amount())
       })
     })
     model.amount.subscribe(function(amount) {
-      lock('amount', function() {
+      lock('sum', function() {
+        console.log('update sum')
         model.sum(model.count() * amount)
       })
     })
     model.sum.subscribe(function(sum) {
       syncWalletSum()
-      lock('amount', function() {
-        var amount = model.amount()
-        model.count(amount == 0 ? 0 : sum / amount)
-      })
+      if (model.countLocked() || model.amount() == 0) {
+        lock('amount', function() {
+          var count = model.count()
+          model.amount(count == 0 ? 0 : sum / count)
+        })
+      } else {
+        lock('count', function() {
+          var amount = model.amount()
+          model.count(amount == 0 ? 0 : sum / amount)
+        })
+      }
       checkValidation()
     })
     model.walletSum.subscribe(syncSum)
@@ -262,8 +273,8 @@
       if (startData.mode == 'income') {
         if (operations.length > 1) throw 'Invalid transaction for edit: too many operations.'
 
-        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true },operations[0]))
-        model.toOperation = new Operation({ positiveSumRequired: true })
+        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, operations[0]))
+        model.toOperation = new Operation({ positiveSumRequired: true, countLocked: true })
 
       } else if (startData.mode == 'transfer') {
         var inops = _.filter(operations, function(op) { return op.sum > 0 })
@@ -273,14 +284,14 @@
         if (inops.length > 1) throw 'Invalid transaction for edit: too many income operations.'
         if (outops.length > 1) throw 'Invalid transaction for edit: too many outcome operations.'
 
-        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true }, inops[0]))
-        model.toOperation = new Operation(_.extend({ positiveSumRequired: true }, outops[0]))
+        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, inops[0]))
+        model.toOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, outops[0]))
 
       } else if (startData.mode == 'outcome') {
         var inops = _.filter(operations, function(op) { return op.sum > 0 })
         if (inops.length > 0) throw 'Invalid transaction for edit: income operation found.'
-        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true }, operations[0]))
-        model.toOperation = new Operation({ positiveSumRequired: true })
+        model.fromOperation = new Operation(_.extend({ positiveSumRequired: true, countLocked: true }, operations[0]))
+        model.toOperation = new Operation({ positiveSumRequired: true, countLocked: true })
         _.each(operations, function(item) {
           item.transaction = model
           item.productRequired = true
@@ -293,8 +304,8 @@
 
       }
     } else {
-      model.fromOperation = new Operation({ positiveSumRequired: true })
-      model.toOperation = new Operation({ positiveSumRequired: true })
+      model.fromOperation = new Operation({ positiveSumRequired: true, countLocked: true })
+      model.toOperation = new Operation({ positiveSumRequired: true, countLocked: true })
     }
 
     model.createOperation = function() {
