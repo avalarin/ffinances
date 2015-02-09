@@ -67,7 +67,7 @@ class TransactionController < ApplicationController
     if @transaction.valid?
       return render_api_resp :ok
     end
-    render_model_errors_api_resp t
+    render_model_errors_api_resp @transaction
   end
 
   def edit
