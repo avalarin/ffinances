@@ -47,6 +47,7 @@ namespace :server do
   desc "TODO"
   task restart: :environment do
     stop
+    sleep 1
     start
   end
 
