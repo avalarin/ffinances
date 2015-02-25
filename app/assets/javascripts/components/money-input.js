@@ -3,6 +3,8 @@
   var currenciesSource = '/data/currency.json'
   var currencies = ko.observableArray([])
 
+  var invalidDelimitersRegexp = getInvalidDelimitersRegExp([ '.', ',' ])
+
   function MoneyInputModel(params, element) {
     var model = this
     var format = params['format'] || '0,0.00'
@@ -25,6 +27,7 @@
         return numeral(model.value()).format(format)
       },
       write: function(value) {
+        value = value.replace(invalidDelimitersRegexp, numeral.languageData().delimiters.decimal)
         model.value(numeral().unformat(value) || 0)
       }
     })
@@ -79,6 +82,21 @@
       model.refreshCurrencies()
     }
 
+  }
+
+  function getInvalidDelimitersRegExp(delimiters) {
+    var decimalDelimiter = numeral.languageData().delimiters.decimal
+    var thousandsDelimiter = numeral.languageData().delimiters.thousands
+    var regexParts = []
+
+    for (var i = 0; i < delimiters.length; i++) {
+      var d = delimiters[i]
+      if (d != decimalDelimiter && d != thousandsDelimiter) {
+        regexParts.push(d)
+      }
+    }
+
+    return new RegExp('[' + regexParts.join('|') + ']');
   }
 
   function selectAllOnFocus(element) {
