@@ -149,13 +149,11 @@
     }
     model.count.subscribe(function(count) {
       lock('sum', function() {
-        console.log('update sum')
         model.sum(count * model.amount())
       })
     })
     model.amount.subscribe(function(amount) {
       lock('sum', function() {
-        console.log('update sum')
         model.sum(model.count() * amount)
       })
     })
