@@ -42,11 +42,11 @@
     model.loadingCurrencies = ko.observable(false)
     model.allCurrencies = currencies
     model.currencies = ko.computed(function() {
-      var search = model.currenciesSearch()
+      var search = model.currenciesSearch().toLowerCase()
       var items = model.allCurrencies()
       if (search != '') {
         items = _.filter(items, function(item) {
-          return item.name.indexOf(search) > -1 || item.code.indexOf(search) > -1
+          return item.name.toLowerCase().indexOf(search) > -1 || item.code.toLowerCase().indexOf(search) > -1
         })
       }
       return items
