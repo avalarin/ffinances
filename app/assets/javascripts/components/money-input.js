@@ -1,7 +1,6 @@
 (function() {
   var http = require('http')
   var currenciesSource = '/data/currency.json'
-  var currencies = ko.observableArray([])
 
   function MoneyInputModel(params, element) {
     var model = this
@@ -38,8 +37,11 @@
 
     model.currenciesSearch = ko.observable('')
     model.loadingCurrencies = ko.observable(false)
-    model.allCurrencies = currencies
-    model.currencies = ko.computed(function() {
+
+    model.allCurrencies = ko.observableArray([])
+    model.topCurrencies = ko.observableArray([])
+    model.otherCurrencies = ko.observableArray([])
+    model.filtredCurrencies = ko.computed(function() {
       var search = model.currenciesSearch().toLowerCase()
       var items = model.allCurrencies()
       if (search != '') {
@@ -49,6 +51,7 @@
       }
       return items
     })
+
     model.setCurrency = function(currency) {
       model.currency({code: currency.code, name: currency.name})
       if (!staticCurrency) dropdown.avDropdown('hide')
@@ -60,9 +63,24 @@
         url: currenciesSource,
         success: function(data) {
           model.allCurrencies.removeAll()
-          _.each(data, function(item) {
+          model.topCurrencies.removeAll()
+          model.otherCurrencies.removeAll()
+
+          topCurrencies = { }
+
+          _.each(data.all, function(item) {
             model.allCurrencies.push(item)
+            if (data.top.indexOf(item.id) > -1) {
+              topCurrencies[item.id] = item
+            } else {
+              model.otherCurrencies.push(item)
+            }
           })
+
+          _.each(data.top, function(id) {
+            model.topCurrencies.push(topCurrencies[id])
+          })
+
           model.loadingCurrencies(false)
         }
       })

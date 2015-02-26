@@ -6,11 +6,19 @@
       .av-dropdown-drop
         = ko 'if: dropdownShown' do
           %input.form-control.search{ type: 'text', placeholder: t('commands.search'), 'data-bind' => 'value: currenciesSearch, valueUpdate: "afterkeydown"' }
-          = ko 'if: currencies().length == 0' do
+          = ko 'if: filtredCurrencies().length == 0' do
             %p.fail-message=t('.no_currencies')
+          = ko 'if: currenciesSearch() == ""' do
+            %ul.select-list
+              %li.static= t('.top_currencies')
+              = ko 'template: { name: "currency-list-item-template", foreach: topCurrencies }'
+              %li.static= t('.other_currencies')
+              = ko 'template: { name: "currency-list-item-template", foreach: otherCurrencies }'
+          = ko 'if: currenciesSearch() != ""' do
+            %ul.select-list(data-bind="template: { name: 'currency-list-item-template', foreach: filtredCurrencies}")
 
-          %ul.select-list(data-bind="foreach: currencies")
-            %li
-              %a(href="#" data-bind="click: $parent.setCurrency")
-                %span.text-muted(data-bind="text: code")
-                %span(data-bind="text: name")
+= ko_template 'currency-list-item-template' do
+  %li
+    %a(href="#" data-bind="click: $parent.setCurrency")
+      %span.text-muted(data-bind="text: code")
+      %span(data-bind="text: name")

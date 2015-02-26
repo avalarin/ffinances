@@ -1,7 +1,11 @@
 class Data::CurrencyController < ApplicationController
-  
+
   def index
-    render_api_resp :ok, data: Currency.all.order(:name)
+    data = { all: Currency.all.order(:name) }
+    if current_book
+      data[:top] = current_book.top_currencies
+    end
+    render_api_resp :ok, data: data
   end
 
   def rate

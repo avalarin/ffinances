@@ -293,6 +293,8 @@ ru:
             create_tag: "'Cоздать тег ' + search()"
         money_input_template:
             no_currencies: 'Нет доступных для выбора валют'
+            top_currencies: 'Часто используемые:'
+            other_currencies: 'Остальные:'
         select_user_template:
             select_user: 'Выберите пользователя'
             no_search: 'Для поиска начните вводить текст'
