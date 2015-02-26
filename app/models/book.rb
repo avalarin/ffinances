@@ -24,6 +24,13 @@ class Book < ActiveRecord::Base
         .where('books_users.book_id = ? or users.id = ?', id, owner.id)
   end
 
+  def top_currencies
+    transactions.joins(:operations)
+      .group('operations.currency_id')
+      .order('count(*) desc')
+      .pluck('operations.currency_id')
+  end
+
   def get_role user
     return :owner if owner.id == user.id
     book_user = BookUser.where(book_id: id, user_id: user.id).first
