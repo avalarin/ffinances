@@ -23,12 +23,8 @@
 
     model.format = ko.computed(function() {
       var unit = model.unit()
-      if (typeof(unit) == 'undefined') {
-        return '0,0'
-      } else {
-        if (unit.decimals == 0) return '0,0'
-        return '0,0.' + Array(unit.decimals).join("0")
-      }
+      if (typeof(unit) == 'undefined' || unit.decimals == 0) return '0,0'
+      return '0,0.[0000]'
     })
     model.dropdownShown = ko.observable(false)
 
@@ -40,6 +36,7 @@
         return numeral(model.value()).format(format)
       },
       write: function(value) {
+        value = numeral.replaceInvalidDelimiters(value)
         model.value(numeral().unformat(value) || 0)
       }
     })
