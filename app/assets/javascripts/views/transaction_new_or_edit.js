@@ -296,6 +296,8 @@
         model.toOperation = new Operation({ positiveSumRequired: true, countLocked: true })
         _.each(operations, function(item) {
           item.transaction = model
+          item.wallet = model.fromOperation.wallet
+          item.currency = model.fromOperation.currency
           item.productRequired = true
           item.positiveSumRequired = true
           var op = new Operation(item)
