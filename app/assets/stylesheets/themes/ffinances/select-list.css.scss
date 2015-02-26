@@ -6,6 +6,11 @@ ul.select-list {
   > li {
     list-style: none;
 
+    &.static {
+      padding: 3px 20px;
+      font-weight: bold;
+    }
+
     > a, > .list-item {
       display: block;
       padding: 3px 20px;
